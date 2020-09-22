@@ -10,11 +10,11 @@ This project is based on [iNeedToBuy.xyz](https://app.ineedtobuy.xyz/), a mobile
 
 ### Locations for things
 
-- Site: {link to cohort live site}
-- Repo: {link to cohort repo}
-- Clone URL: `{clone URL}`
-- Issue list: {link to cohort repo issues}
-- Database: {link to cohort firebase database}
+- Site: [Production Site](https://tcl-15-smart-shopping-list.netlify.app/)
+- Repo: [github.com/the-collab-lab/tcl-15-smart-shopping-list](https://github.com/the-collab-lab/tcl-15-smart-shopping-list)
+- Clone URL: `git@github.com:the-collab-lab/tcl-15-smart-shopping-list.git`
+- Issue list: [github.com/the-collab-lab/tcl-15-smart-shopping-list/projects/1](https://github.com/the-collab-lab/tcl-15-smart-shopping-list/projects/1)
+- Database: [console.firebase.google.com/u/0/project/tcl-15-smart-shopping-list/database](https://console.firebase.google.com/u/0/project/tcl-15-smart-shopping-list/database)
 
 ### Project cadence & duration
 
@@ -148,7 +148,7 @@ When you and your pair partner have working code that you believe is ready to be
 3. Incorporate feedback from the other pair team into your work until both you and they are satisfied the code is ready to be merged.
 4. Request that one of the mentors review the PR for final approval.
 5. Once approved, merge the PR into `main`. (Your code will be built and deployed to production automatically thanks to [Netlify](https://www.netlify.com/).)
-6. Check your work on the [production site]({link to cohort live site}).
+6. Check your work on the [production site](https://tcl-15-smart-shopping-list.netlify.app/).
 7. Celebrate! 🥳
 
 ### Slack
