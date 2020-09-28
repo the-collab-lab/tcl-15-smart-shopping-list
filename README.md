@@ -10,10 +10,10 @@ As a user, you will enter items (e.g., “Greek yogurt” or “Paper towels”)
 
 ## Check out an example
 
-The app will work in many of the same ways as [iNeedToBuy.xyz](https://app.ineedtobuy.xyz/) (on which our project is based) with the exception that we will not be implementing barcode scanning (that feature would add a lot of scope to the project and wasn’t all that useful).
+Every team builds their app from the same set of instructions, but each comes out a little different and reflecting the personality of the group.
 
-:tv: &nbsp; Check out a video demo of the example app here: 
-[![](https://cdn.zappy.app/33815167c45d74c3ae5af232de633add.png)](https://www.youtube.com/watch?v=mwj74mE9s64&t)
+:tv: &nbsp; Check out a video demo of the app Cohort 6 made here: 
+[![TCL Demo Video Screenshot](_resources/screenshots/TCLDemoReadmePic.png)](https://youtu.be/uWgkwY_VBPo)
 
 ## More details for contributors
 
@@ -53,15 +53,15 @@ For additional details on how your cohort will operate, please check out the [pr
 * Then navigate into the project by typing `cd` followed by the project directory’s name.
 ![screenshot of how to cd into the project directory](https://cdn.zappy.app/62e50c2658f91f01b22383d04c5a5e3a.png)
 
-## Update dependencies
+## Update dependancies
 
-* Once you have the project locally and you are in the project directory, you’ll want to update all the project’s dependencies. To do so, type the following into your terminal: `npm update`
+* Once you have the project locally and you and in the project directory, you’ll want to update all the project’s dependancies. To do so, type the following into your terminal: `npm update`
 ![screenshot of npm update in the terminal](https://cdn.zappy.app/b7619c19e38166329334430335746d3b.png)
 * Maybe take a sip of coffee or check in on Twitter, this could take a minute -- don’t worry.
 
 ## Access the project in your browser
 
-* After you’ve cloned the project locally and updated the dependencies, you should be able to see the project at `localhost:3000`.
+* After you’ve cloned the project locally and updated the dependancies, you should be able to see the project at `localhost:3000`.
 ![screenshot of the react project](https://cdn.zappy.app/30d5733fe9abc6d74d3adde2d046c101.png)
 
 
