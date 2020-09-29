@@ -8,5 +8,6 @@
 ## Mentors
 - [Phoebe Voong-Fadel](https://github.com/asianvader)
 - [Andrew Hedges](https://github.com/segdeha)
+- [David Lluna](https://github.com/llunaplanet)
 
 ## Code of Conduct Contacts
