@@ -106,7 +106,7 @@ Having watched many cohorts before yours, our advice is to front-load the work a
 
 ### How to know what to do
 
-The project is organized in GitHub as a set of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories), each with a description of the desired functionality as well as [acceptance criteria](https://www.leadingagile.com/2014/09/acceptance-criteria/) (AC) that describe how you know whether the task or story is complete. You can find the stories on [the project board]({link to the cohort repo project board}) on GitHub.
+The project is organized in GitHub as a set of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories), each with a description of the desired functionality as well as [acceptance criteria](https://www.leadingagile.com/2014/09/acceptance-criteria/) (AC) that describe how you know whether the task or story is complete. You can find the stories on [the project board](https://github.com/the-collab-lab/tcl-15-smart-shopping-list/projects/1) on GitHub.
 
 A task or story is “done” when the following are all true:
 
