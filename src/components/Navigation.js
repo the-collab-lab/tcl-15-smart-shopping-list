@@ -5,16 +5,12 @@ import './main.css';
 const Navigation = () => {
   return (
     <div className="navlinks">
-      <div className="list">
-        <NavLink activeClassName="selected" to="/" exact>
-          List
-        </NavLink>
-      </div>
-      <div className="add">
-        <NavLink activeClassName="selected" exact to="/add">
-          Add Item
-        </NavLink>
-      </div>
+      <NavLink activeClassName="selected" className="list" to="/" exact>
+        List
+      </NavLink>
+      <NavLink activeClassName="selected" className="add" to="/add" exact>
+        Add Item
+      </NavLink>
     </div>
   );
 };

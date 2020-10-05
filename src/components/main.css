@@ -1,12 +1,9 @@
-.navbar {
-  position: absolute;
-  bottom: 0px;
-}
-
 .navlinks {
+  font-size: 50px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100vh;
 }
 
 .selected {
