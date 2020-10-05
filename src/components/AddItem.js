@@ -1,9 +1,10 @@
 import React from 'react';
+import './main.css';
 
 const AddItem = () => {
   return (
-    <div>
-      <h1>This is the add new item view</h1>
+    <div className="AddItem">
+      <h1>ADD NEW item</h1>
     </div>
   );
 };

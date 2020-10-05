@@ -1,9 +1,10 @@
 import React from 'react';
+import './main.css';
 
 export default function List() {
   return (
-    <div>
-      <h1>This is the list view</h1>
+    <div className="List">
+      <h1>The LIST view</h1>
     </div>
   );
 }
