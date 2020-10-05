@@ -1,0 +1,15 @@
+.navbar {
+  position: absolute;
+  bottom: 0px;
+}
+
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected {
+  font-weight: bolder;
+  color: green;
+}

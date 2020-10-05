@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import List from './components/List';
 import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
-import './App.css';
+import './components/main.css';
 
 function App() {
   return (
@@ -15,8 +15,9 @@ function App() {
             <Route exact path="/add" component={AddItem} />
           </Switch>
         </div>
-
-        <Navigation />
+        <div className="navbar">
+          <Navigation />
+        </div>
       </BrowserRouter>
     </div>
   );
