@@ -1,0 +1,17 @@
+.list-item {
+  background-color: aqua;
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.list-item {
+  background-color: cadetblue;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 import AddToDatabase from './components/AddToDatabase';
 import ReturnItemsList from './components/ReturnItemsList';
-import './App.css';
+import './css/App.css';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <AddToDatabase />
       <ReturnItemsList />
     </div>

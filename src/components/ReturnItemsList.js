@@ -1,5 +1,6 @@
 import React from 'react';
 import { FirestoreCollection } from 'react-firestore';
+import '../css/components/ReturnItemsList.css';
 
 function ReturnItemsList() {
   return (

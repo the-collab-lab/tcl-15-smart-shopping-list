@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
+import '../css/components/AddItemsForm.css';
 
 const AddItemsForm = () => {
   let [listItem, setListItem] = useState('');
@@ -25,8 +26,8 @@ const AddItemsForm = () => {
     setListItem(e.target.value);
   };
   return (
-    <form onSubmit={addToDatabase}>
-      <label htmlFor="list-item">Add Item</label>
+    <form onSubmit={addToDatabase} className="add-item-form">
+      <label htmlFor="list-item">Item</label>
       <input
         className="form-input"
         name="list-item"
@@ -34,7 +35,7 @@ const AddItemsForm = () => {
         onChange={handleChange}
         value={listItem}
       />
-      <button>Add</button>
+      <button className="add-item-btn">Add</button>
     </form>
   );
 };
