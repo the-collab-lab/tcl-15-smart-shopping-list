@@ -3,7 +3,7 @@ import AddItemsForm from './AddItemsForm';
 
 function AddToDatabase() {
   return (
-    <div className="App">
+    <div className="add-to-database">
       <AddItemsForm />
     </div>
   );

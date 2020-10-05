@@ -9,7 +9,8 @@ const AddItemsForm = () => {
     e.preventDefault();
     db.collection('items')
       .add({
-        title: listItem,
+        name: listItem,
+        added_on: Date.now(),
       })
       .then((res) => {
         setListItem('');
