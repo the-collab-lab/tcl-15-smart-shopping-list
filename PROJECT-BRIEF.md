@@ -26,43 +26,43 @@ Pairings will go as follows:
 
 #### Week 1, October 4 - 10
 
-1. Debora & Yahaya
+1. Debora & Kenny
 2. Sarah & Hajar
 
 #### Week 2, October 11 - 17
 
 1. Hajar & Debora
-2. Yahaya & Sarah
+2. Kenny & Sarah
 
 #### Week 3, October 18 - 24
 
 1. Sarah & Debora
-2. Yahaya & Hajar
+2. Kenny & Hajar
 
 #### Week 4, October 25 - 31
 
-1. Debora & Yahaya
+1. Debora & Kenny
 2. Sarah & Hajar
 
 #### Week 5, November 1 - 7
 
 1. Hajar & Debora
-2. Yahaya & Sarah
+2. Kenny & Sarah
 
 #### Week 6, November 8 - 14
 
 1. Sarah & Debora
-2. Yahaya & Hajar
+2. Kenny & Hajar
 
 #### Week 7, November 15 - 21
 
-1. Debora & Yahaya
+1. Debora & Kenny
 2. Sarah & Hajar
 
 #### Week 8, November 22 - 28
 
 1. Hajar & Debora
-2. Yahaya & Sarah
+2. Kenny & Sarah
 
 ### Pair Programming
 
