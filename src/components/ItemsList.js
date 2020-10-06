@@ -1,8 +1,8 @@
 import React from 'react';
 import { FirestoreCollection } from 'react-firestore';
-import '../css/components/ReturnItemsList.css';
+import '../css/components/ItemsList.css';
 
-function ReturnItemsList() {
+function ItemsList() {
   return (
     <FirestoreCollection
       path="items"
@@ -27,4 +27,4 @@ function ReturnItemsList() {
   );
 }
 
-export default ReturnItemsList;
+export default ItemsList;

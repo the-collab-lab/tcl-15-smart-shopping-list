@@ -1,12 +1,14 @@
 import React from 'react';
 import AddItemsForm from './AddItemsForm';
+import ItemsList from './ItemsList';
 
-function AddToDatabase() {
+function Home() {
   return (
-    <div className="add-to-database">
+    <div className="home">
       <AddItemsForm />
+      <ItemsList />
     </div>
   );
 }
 
-export default AddToDatabase;
+export default Home;

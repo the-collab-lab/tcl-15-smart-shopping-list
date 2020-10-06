@@ -34,6 +34,7 @@ const AddItemsForm = () => {
         id="list-item"
         onChange={handleChange}
         value={listItem}
+        placeholder="Add Item"
       />
       <button className="add-item-btn">Add</button>
     </form>
