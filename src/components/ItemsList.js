@@ -6,7 +6,7 @@ function ItemsList() {
   return (
     <FirestoreCollection
       path="items"
-      sort="added_on:desc"
+      // sort="added_on:desc"  => disable sorting for now
       render={({ isLoading, data }) => {
         return isLoading ? (
           <div className="m-auto">Loading</div>
