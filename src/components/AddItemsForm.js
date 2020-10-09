@@ -1,39 +1,38 @@
 import React, { useState } from 'react';
-import { db } from '../lib/firebase';
+import { items } from '../lib/firebase';
 import '../css/components/AddItemsForm.css';
 
 const AddItemsForm = () => {
-  let [listItem, setListItem] = useState('');
-  //created function and variable list item
+  let [inputValue, setInputValue] = useState('');
 
   const addToDatabase = (e) => {
     e.preventDefault();
-    db.collection('items')
+    items()
       .add({
-        name: listItem,
+        name: inputValue,
         added_on: Date.now(),
       })
       .then((res) => {
-        setListItem('');
-        alert('Successfully added to database, YAY!!!');
+        setInputValue('');
+        alert('Successfully added to the database, YAY!!!');
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  // handle any changes that might happen to input-form
-  const handleChange = (e) => {
-    setListItem(e.target.value);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
   return (
     <form onSubmit={addToDatabase} className="add-item-form">
-      <label htmlFor="list-item">Item</label>
+      <label htmlFor="form-input">Item</label>
       <input
         className="form-input"
-        name="list-item"
-        id="list-item"
-        onChange={handleChange}
-        value={listItem}
+        name="form-input"
+        id="form-input"
+        onChange={handleInputChange}
+        value={inputValue}
         placeholder="Add Item"
       />
       <button className="add-item-btn">Add</button>
