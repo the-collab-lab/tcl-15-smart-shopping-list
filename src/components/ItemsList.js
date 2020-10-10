@@ -12,13 +12,11 @@ function ItemsList() {
         ) : (
           <div>
             <ul>
-              {data
-                .sort((a, b) => b.added_on - a.added_on)
-                .map((item) => (
-                  <li key={item.id} className="list-item">
-                    <div className="name">{item.name}</div>
-                  </li>
-                ))}
+              {data.map((item) => (
+                <li key={item.id} className="list-item">
+                  <div className="name">{item.name}</div>
+                </li>
+              ))}
             </ul>
           </div>
         );

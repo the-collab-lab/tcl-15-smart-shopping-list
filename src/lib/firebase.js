@@ -16,5 +16,6 @@ var firebaseConfig = {
 
 let fb = firebase.initializeApp(firebaseConfig);
 let db = fb.firestore();
+let items = () => db.collection('items');
 
-export { fb, db, firebase };
+export { fb, db, firebase, items };
