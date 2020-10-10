@@ -14,7 +14,6 @@ const AddItemsForm = () => {
       })
       .then((res) => {
         setInputValue('');
-        alert('Successfully added to the database, YAY!!!');
       })
       .catch((err) => {
         console.log(err);
