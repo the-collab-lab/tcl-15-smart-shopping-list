@@ -26,43 +26,43 @@ Pairings will go as follows:
 
 #### Week 1, October 4 - 10
 
-1. Debora & Yahaya
-2. Beatrice & Hajar
+1. Debora & Kenny
+2. Sarah & Hajar
 
 #### Week 2, October 11 - 17
 
 1. Hajar & Debora
-2. Yahaya & Beatrice
+2. Kenny & Sarah
 
 #### Week 3, October 18 - 24
 
-1. Beatrice & Debora
-2. Yahaya & Hajar
+1. Sarah & Debora
+2. Kenny & Hajar
 
 #### Week 4, October 25 - 31
 
-1. Debora & Yahaya
-2. Beatrice & Hajar
+1. Debora & Kenny
+2. Sarah & Hajar
 
 #### Week 5, November 1 - 7
 
 1. Hajar & Debora
-2. Yahaya & Beatrice
+2. Kenny & Sarah
 
 #### Week 6, November 8 - 14
 
-1. Beatrice & Debora
-2. Yahaya & Hajar
+1. Sarah & Debora
+2. Kenny & Hajar
 
 #### Week 7, November 15 - 21
 
-1. Debora & Yahaya
-2. Beatrice & Hajar
+1. Debora & Kenny
+2. Sarah & Hajar
 
 #### Week 8, November 22 - 28
 
 1. Hajar & Debora
-2. Yahaya & Beatrice
+2. Kenny & Sarah
 
 ### Pair Programming
 
@@ -106,7 +106,7 @@ Having watched many cohorts before yours, our advice is to front-load the work a
 
 ### How to know what to do
 
-The project is organized in GitHub as a set of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories), each with a description of the desired functionality as well as [acceptance criteria](https://www.leadingagile.com/2014/09/acceptance-criteria/) (AC) that describe how you know whether the task or story is complete. You can find the stories on [the project board]({link to the cohort repo project board}) on GitHub.
+The project is organized in GitHub as a set of [user stories](https://www.mountaingoatsoftware.com/agile/user-stories), each with a description of the desired functionality as well as [acceptance criteria](https://www.leadingagile.com/2014/09/acceptance-criteria/) (AC) that describe how you know whether the task or story is complete. You can find the stories on [the project board](https://github.com/the-collab-lab/tcl-15-smart-shopping-list/projects/1) on GitHub.
 
 A task or story is “done” when the following are all true:
 

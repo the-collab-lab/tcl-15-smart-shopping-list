@@ -5,6 +5,7 @@ import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
 import './components/main.css';
 import Home from './components/Home';
+import './css/App.css';
 
 function App() {
   return (
