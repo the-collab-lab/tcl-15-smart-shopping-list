@@ -1,0 +1,21 @@
+.navlinks {
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 50vh;
+}
+
+.selected {
+  font-weight: bolder;
+}
+
+.AddItem {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.List {
+  margin-top: 150px;
+  text-align: center;
+}
