@@ -4,7 +4,6 @@ import List from './components/List';
 import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
 import './components/main.css';
-import Home from './components/Home';
 import './css/App.css';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
           <Navigation />
         </div>
       </BrowserRouter>
-      <Home />
     </div>
   );
 }
