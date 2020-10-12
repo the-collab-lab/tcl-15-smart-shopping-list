@@ -15,7 +15,7 @@ const Welcome = () => {
   return (
     <div className="welcome">
       <br />
-      <h1>Welcome to your Smart shopping list</h1>
+      <h1 className="header">Welcome to your Smart shopping list</h1>
       <br />
       <button className="button-token" onClick={handleClick}>
         Create a new list

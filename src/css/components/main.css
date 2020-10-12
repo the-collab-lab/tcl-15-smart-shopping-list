@@ -20,6 +20,12 @@
   text-align: center;
 }
 
+.header {
+  font-family: cursive;
+  text-transform: capitalize;
+  font-size: 3em;
+}
+
 .button-token {
   background-color: white;
   color: #551a8b;
