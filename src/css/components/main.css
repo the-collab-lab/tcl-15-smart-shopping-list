@@ -19,3 +19,10 @@
   margin-top: 150px;
   text-align: center;
 }
+
+.button-token {
+  background-color: cadetblue;
+  color: white;
+  padding: 15px;
+  font-size: 22px;
+}

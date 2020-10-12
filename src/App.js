@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import List from './components/List';
 import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
-import './components/main.css';
+import './css/components/main.css';
 import './css/App.css';
 import Welcome from './components/Welcome';
 import GuardedRoute from './components/GuardedRoute';

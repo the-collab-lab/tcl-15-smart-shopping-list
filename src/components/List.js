@@ -1,5 +1,5 @@
 import React from 'react';
-import './main.css';
+import '../css/components/main.css';
 import { FirestoreCollection } from 'react-firestore';
 import '../css/components/ItemsList.css';
 

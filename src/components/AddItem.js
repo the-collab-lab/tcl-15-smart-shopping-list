@@ -1,4 +1,4 @@
-import './main.css';
+import '../css/components/main.css';
 import React, { useState } from 'react';
 import { items } from '../lib/firebase';
 import '../css/components/AddItemsForm.css';
