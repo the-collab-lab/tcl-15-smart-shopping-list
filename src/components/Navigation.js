@@ -6,13 +6,13 @@ const Navigation = () => {
   return (
     <div className="navlinks">
       <NavLink activeClassName="selected" className="welcome" to="/" exact>
-        Welcome Page
+        Welcome
       </NavLink>
       <NavLink activeClassName="selected" className="list" to="/list" exact>
-        List Page
+        List
       </NavLink>
       <NavLink activeClassName="selected" className="add" to="/add" exact>
-        Add Item Page
+        Add Item
       </NavLink>
     </div>
   );
