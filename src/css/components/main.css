@@ -21,8 +21,12 @@
 }
 
 .button-token {
-  background-color: cadetblue;
-  color: white;
+  background-color: white;
+  color: #551a8b;
   padding: 15px;
   font-size: 22px;
+  border: 1px solid #551a8b;
+  border-radius: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
 }
