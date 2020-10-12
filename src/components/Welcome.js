@@ -1,25 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import getToken from '../lib/tokens';
-import history from './history';
+import { useHistory } from 'react-router-dom';
 
 const Welcome = () => {
-  const [token, setToken] = useState(localStorage.getItem('storedToken') || '');
-
+  let history = useHistory();
   const handleClick = () => {
-    setToken(getToken());
-    console.log(token);
-    // history.push('/list')
+    const token = getToken();
+    localStorage.setItem('token', token);
+    history.push('/list');
   };
 
-  useEffect(() => {
-    localStorage.setItem('storedToken', token);
-  }, [token]);
-
   return (
-    <div>
+    <div className="welcome">
       <h1>Welcome to your Smart shopping list</h1>
-      <button onClick={handleClick}>Create a new list</button>
-      <h3>{token}</h3>
+      <button class="button-token" onClick={handleClick}>
+        Create a new list{' '}
+      </button>
     </div>
   );
 };
