@@ -12,6 +12,9 @@ const AddItem = () => {
       .add({
         name: inputValue,
         added_on: Date.now(),
+        last_purcharsed: null,
+        token: 'number',
+        how_soon: e.target['time-to-buy'].value,
       })
       .then((res) => {
         setInputValue('');
@@ -25,7 +28,7 @@ const AddItem = () => {
     setInputValue(e.target.value);
   };
   return (
-    <form onSubmit={addToDatabase} className="add-item-form">
+    <form onSubmit={addToDatabase} className="add-item">
       <label htmlFor="form-input">Item</label>
       <input
         className="form-input"
@@ -35,6 +38,17 @@ const AddItem = () => {
         value={inputValue}
         placeholder="Add Item"
       />
+      <div>
+        <p>How soon will you buy this item?</p>
+        <label htmlFor="soon">Soon</label>
+        <input type="radio" id="soon" name="time-to-buy" value="7" />
+
+        <label htmlFor="kind-of-soon">Kind of Soon</label>
+        <input type="radio" id="kind-of-soon" name="time-to-buy" value="14" />
+
+        <label htmlFor="not-soon">Not Soon</label>
+        <input type="radio" id="not-soon" name="time-to-buy" value="30" />
+      </div>
       <button className="add-item-btn">Add</button>
     </form>
   );

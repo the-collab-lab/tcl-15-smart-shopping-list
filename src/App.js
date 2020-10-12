@@ -8,8 +8,8 @@ import './css/App.css';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <div>
           <Switch>
             <Route exact path="/" component={List} />
@@ -19,8 +19,8 @@ function App() {
         <div className="navbar">
           <Navigation />
         </div>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
