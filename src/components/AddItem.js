@@ -1,6 +1,6 @@
 import './main.css';
 import React, { useState } from 'react';
-import { items } from '../lib/firebase';
+import { db } from '../lib/firebase';
 import '../css/components/AddItemsForm.css';
 
 const AddItem = () => {
@@ -8,13 +8,14 @@ const AddItem = () => {
 
   const addToDatabase = (e) => {
     e.preventDefault();
-    items()
+
+    db.collection('items')
       .add({
         name: inputValue,
         added_on: Date.now(),
-        last_purcharsed: null,
+        last_purchased: null,
         token: 'number',
-        how_soon: e.target['time-to-buy'].value,
+        how_soon: e.target['how-soon'].value,
       })
       .then((res) => {
         setInputValue('');
@@ -27,31 +28,63 @@ const AddItem = () => {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+
   return (
     <form onSubmit={addToDatabase} className="add-item">
-      <label htmlFor="form-input">Item</label>
-      <input
-        className="form-input"
-        name="form-input"
-        id="form-input"
-        onChange={handleInputChange}
-        value={inputValue}
-        placeholder="Add Item"
-      />
+      <div>
+        <label htmlFor="form-input">Item</label>
+        <input
+          label="Item"
+          className="form-input"
+          name="form-input"
+          id="form-input"
+          onChange={handleInputChange}
+          value={inputValue}
+          placeholder="Enter Item"
+        />
+      </div>
+
       <div>
         <p>How soon will you buy this item?</p>
-        <label htmlFor="soon">Soon</label>
-        <input type="radio" id="soon" name="time-to-buy" value="7" />
-
-        <label htmlFor="kind-of-soon">Kind of Soon</label>
-        <input type="radio" id="kind-of-soon" name="time-to-buy" value="14" />
-
-        <label htmlFor="not-soon">Not Soon</label>
-        <input type="radio" id="not-soon" name="time-to-buy" value="30" />
+        <div>
+          {howSoonData.map((obj) => (
+            <RadioButton type="radio" name="how-soon" key={obj.id} {...obj} />
+          ))}
+        </div>
       </div>
+
       <button className="add-item-btn">Add</button>
     </form>
   );
 };
 
 export default AddItem;
+
+const RadioButton = ({ id, title, desc, ...rest }) => (
+  <div>
+    <input {...rest} />
+    <label htmlFor={id}>{title}</label>
+    <span> {desc} </span>
+  </div>
+);
+
+const howSoonData = [
+  {
+    title: 'Soon',
+    desc: 'Within 7 days.',
+    id: 'soon',
+    value: 7,
+  },
+  {
+    title: 'Kind of Soon',
+    desc: 'Within 14 days.',
+    id: 'kind-of-soon',
+    value: 14,
+  },
+  {
+    title: 'Not Soon',
+    desc: 'Within 30 Days',
+    id: 'not-soon',
+    value: 30,
+  },
+];
