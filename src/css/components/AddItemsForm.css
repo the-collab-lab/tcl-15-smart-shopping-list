@@ -32,8 +32,8 @@
 .add-item-btn {
   height: 40px;
   width: 100px;
-  color: white;
-  background-color: #4b7a8a;
+  color: black;
+  background-color: #82c8a0;
   font-size: 16px;
   border: none;
   border-radius: 5px;
@@ -41,5 +41,5 @@
 }
 
 .add-item-btn:hover {
-  background-color: #c6c0c0;
+  background-color: #4caf50;
 }

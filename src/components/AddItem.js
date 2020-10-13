@@ -56,7 +56,7 @@ const AddItem = () => {
           </div>
         </div>
 
-        <button className="add-item-btn">Add Item</button>
+        <button className="add-item-btn">Add</button>
       </form>
     </div>
   );
@@ -67,21 +67,21 @@ export default AddItem;
 const RadioButton = ({ id, title, desc, ...rest }) => (
   <div className="radio-button">
     <input {...rest} />
-    <label htmlFor={id}> {title} </label>
-    {/* <span> {desc} </span> */}
+    <label htmlFor={id}> {title}: </label>
+    <span> {desc} </span>
   </div>
 );
 
 const howSoonData = [
   {
     title: 'Soon',
-    desc: 'Within 7 days.',
+    desc: 'Within 7 days',
     id: 'soon',
     value: 7,
   },
   {
     title: 'Kind of Soon',
-    desc: 'Within 14 days.',
+    desc: 'Within 14 days',
     id: 'kind-of-soon',
     value: 14,
   },
@@ -95,9 +95,8 @@ const howSoonData = [
 
 /* TODO - COMMENTS 
 
-- Give feedback when the item is added (should we send the user to the list view? add an alert message? or a setTimeOut with a temporary message?)
+- Give feedback when the item is added (add an alert message? or a setTimeOut with a temporary message?)
 - Group the radio buttons with a fieldset element to help screen reader users understand they've related (not sure how this works but will find out)
-- Style the links at the bottom of the page
 - Should we move the RadioButton component in its own js file? 
 
 */

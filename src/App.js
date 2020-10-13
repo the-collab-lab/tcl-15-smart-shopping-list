@@ -15,7 +15,7 @@ function App() {
             <Route exact path="/add" component={AddItem} />
           </Switch>
         </div>
-        <div>
+        <div className="navigation">
           <Navigation />
         </div>
       </div>
