@@ -9,15 +9,16 @@ export default function List() {
       <br />
       <h1>LIST OF ITEMS</h1>
       <FirestoreCollection
-        path="items"
+        path="shoppingLists"
+        filter={['token', '==', 801]} // TODO => fetch the token from localSorage
         render={({ isLoading, data }) => {
           return isLoading ? (
             <div className="m-auto">Loading</div>
           ) : (
             <div>
               <ul>
-                {data.map((item) => (
-                  <li key={item.id} className="list-item">
+                {data[0].items.map((item) => (
+                  <li key={item.name} className="list-item">
                     <div className="name">{item.name}</div>
                   </li>
                 ))}
