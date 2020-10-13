@@ -1,4 +1,4 @@
-.navlinks {
+.nav-links {
   font-size: 30px;
   display: flex;
   justify-content: space-around;
@@ -8,14 +8,4 @@
 
 .selected {
   font-weight: bolder;
-}
-
-.AddItem {
-  margin-top: 150px;
-  text-align: center;
-}
-
-.List {
-  margin-top: 150px;
-  text-align: center;
 }

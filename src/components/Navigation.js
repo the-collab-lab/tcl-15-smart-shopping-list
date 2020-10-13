@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './main.css';
+import '../css/components/Navigation.css';
 
 const Navigation = () => {
   return (
-    <div className="navlinks">
+    <div className="nav-links">
       <NavLink activeClassName="selected" className="list" to="/" exact>
         List
       </NavLink>

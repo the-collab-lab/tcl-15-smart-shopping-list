@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import List from './components/List';
 import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
-import './components/main.css';
 import './css/App.css';
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
             <Route exact path="/add" component={AddItem} />
           </Switch>
         </div>
-        <div className="navbar">
+        <div>
           <Navigation />
         </div>
       </div>
