@@ -71,10 +71,3 @@ const AddItem = () => {
 };
 
 export default AddItem;
-
-/* TODO - COMMENTS 
-
-- Give feedback when the item is added (add an alert message? or a setTimeOut with a temporary message?)
-- Group the radio buttons with a fieldset element to help screen reader users understand they've related (not sure how this works but will find out)
-
-*/

@@ -1,14 +1,12 @@
 import React from 'react';
 
 const HowSoonOptions = () => (
-  <div className="time-frame-options">
-    <h3>How soon will you buy this item?</h3>
-    <div>
-      {howSoonData.map((obj) => (
-        <RadioButton type="radio" name="how-soon" key={obj.id} {...obj} />
-      ))}
-    </div>
-  </div>
+  <fieldset className="fieldset">
+    <legend className="legend">How soon will you buy this item?</legend>
+    {howSoonData.map((obj) => (
+      <RadioButton type="radio" name="how-soon" key={obj.id} {...obj} />
+    ))}
+  </fieldset>
 );
 
 export default HowSoonOptions;
@@ -16,7 +14,7 @@ export default HowSoonOptions;
 const RadioButton = ({ id, title, desc, ...rest }) => (
   <div className="radio-button">
     <input id={id} {...rest} />
-    <label htmlFor={id}> {title}: </label>
+    <label for={id}> {title}: </label>
     <span> {desc} </span>
   </div>
 );

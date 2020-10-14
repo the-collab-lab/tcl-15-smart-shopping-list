@@ -20,8 +20,13 @@
   margin: 10px 0px;
 }
 
-.time-frame-options {
+.fieldset {
   margin: 10px 0;
+}
+
+.legend {
+  font-weight: 700;
+  font-size: 15px;
 }
 
 .radio-button {
