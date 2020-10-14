@@ -31,7 +31,7 @@ function App() {
           </Switch>
         </div>
         <div className="navbar">
-          <Navigation />
+          <Navigation hasToken={hasToken} />
         </div>
       </BrowserRouter>
     </div>
