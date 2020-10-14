@@ -5,7 +5,7 @@ import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
 import './css/components/main.css';
 import './css/App.css';
-import Welcome from './components/Welcome';
+import Home from './components/Home';
 import GuardedRoute from './components/GuardedRoute';
 import { checkToken } from './lib/TokenService';
 
@@ -21,7 +21,7 @@ function App() {
               exact
               path="/"
               render={() => (
-                <Welcome hasToken={hasToken} setHasToken={setHasToken} />
+                <Home hasToken={hasToken} setHasToken={setHasToken} />
               )}
             />
 

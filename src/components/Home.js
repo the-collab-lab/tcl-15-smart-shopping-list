@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import '../css/components/main.css';
 import { setToken } from '../lib/TokenService';
 
-const Welcome = ({ hasToken, setHasToken }) => {
+const Home = ({ hasToken, setHasToken }) => {
   let history = useHistory();
   const handleClick = () => {
     const token = getToken();
@@ -30,4 +30,4 @@ const Welcome = ({ hasToken, setHasToken }) => {
   );
 };
 
-export default Welcome;
+export default Home;

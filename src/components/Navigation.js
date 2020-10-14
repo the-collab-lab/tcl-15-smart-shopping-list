@@ -5,8 +5,8 @@ import '../css/components/main.css';
 const Navigation = ({ hasToken }) => {
   return (
     <div className="navlinks">
-      <NavLink activeClassName="selected" className="welcome" to="/" exact>
-        Welcome
+      <NavLink activeClassName="selected" className="home" to="/" exact>
+        Home
       </NavLink>
       {hasToken ? (
         <NavLink activeClassName="selected" className="list" to="/list" exact>
