@@ -17,7 +17,13 @@ function App() {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route exact path="/" component={Welcome} />
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <Welcome hasToken={hasToken} setHasToken={setHasToken} />
+              )}
+            />
 
             <Route exact path="/add" render={GuardedRoute(AddItem)} />
 

@@ -4,11 +4,12 @@ import { useHistory } from 'react-router-dom';
 import '../css/components/main.css';
 import { setToken } from '../lib/TokenService';
 
-const Welcome = () => {
+const Welcome = ({ hasToken, setHasToken }) => {
   let history = useHistory();
   const handleClick = () => {
     const token = getToken();
     setToken(token);
+    setHasToken(true);
     alert('New Token generated');
     history.push('/list');
   };
