@@ -16,13 +16,20 @@ export default function List() {
             <div className="m-auto">Loading</div>
           ) : (
             <div>
-              <ul>
-                {data[0].items.map((item) => (
-                  <li key={item.name} className="list-item">
-                    <div className="name">{item.name}</div>
-                  </li>
-                ))}
-              </ul>
+              {
+                // just making sure we have a shoppingList before mapping through its items
+                data[0] ? (
+                  <ul>
+                    {data[0].items.map((item) => (
+                      <li key={item.name} className="list-item">
+                        <div className="name">{item.name}</div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div>Your list is empty!!</div>
+                )
+              }
             </div>
           );
         }}
