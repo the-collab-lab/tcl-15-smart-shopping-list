@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import List from './components/List';
 import AddItem from './components/AddItem';
@@ -7,8 +7,11 @@ import './css/components/main.css';
 import './css/App.css';
 import Welcome from './components/Welcome';
 import GuardedRoute from './components/GuardedRoute';
+import { checkToken } from './lib/TokenService';
 
 function App() {
+  const [hasToken, setHasToken] = useState(checkToken());
+
   return (
     <div className="App">
       <BrowserRouter>
