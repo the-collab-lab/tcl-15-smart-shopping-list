@@ -15,7 +15,7 @@ export default HowSoonOptions;
 const RadioButton = ({ id, title, desc, ...rest }) => (
   <div className="radio-button">
     <input id={id} {...rest} />
-    <label HtmlFor={id}> {title}: </label>
+    <label htmlFor={id}> {title}: </label>
     <span> {desc} </span>
   </div>
 );
