@@ -1,0 +1,14 @@
+.fieldset {
+  margin: 10px 0;
+  border: none;
+}
+
+.legend {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.radio-button {
+  padding: 20px;
+  text-align: left;
+}

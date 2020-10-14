@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/components/HowSoonOptions.css';
 
 const HowSoonOptions = () => (
   <fieldset className="fieldset">
@@ -14,7 +15,7 @@ export default HowSoonOptions;
 const RadioButton = ({ id, title, desc, ...rest }) => (
   <div className="radio-button">
     <input id={id} {...rest} />
-    <label for={id}> {title}: </label>
+    <label HtmlFor={id}> {title}: </label>
     <span> {desc} </span>
   </div>
 );
