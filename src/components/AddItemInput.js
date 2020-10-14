@@ -1,20 +1,18 @@
 import React from 'react';
 
 const AddItemInput = ({ id, handleInputChange, inputValue }) => (
-  <div className="add-item-label">
-    <label htmlFor={id}>Item name:</label>
-    <div>
-      <input
-        label="Item"
-        className={id}
-        name={id}
-        id={id}
-        onChange={handleInputChange}
-        value={inputValue}
-        placeholder="Enter Item"
-      />
-    </div>
-  </div>
+  <label className="add-item-label">
+    <span>Item name:</span>
+    <input
+      label="Item"
+      className={id}
+      name={id}
+      onChange={handleInputChange}
+      value={inputValue}
+      placeholder="Enter Item"
+      required
+    />
+  </label>
 );
 
 export default AddItemInput;

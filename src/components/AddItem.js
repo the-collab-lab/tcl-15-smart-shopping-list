@@ -16,14 +16,13 @@ const AddItem = () => {
       howSoon: e.target['how-soon'].value,
     };
 
-    e.persist();
     e.preventDefault();
 
     shoppingLists
       .where('token', '==', 801) // TODO => fetch the token from localSorage
       .get()
       .then((data) => {
-        // if the shoppingList with the token 152 exists
+        // if the shoppingList with the token 801 exists
         if (data.docs.length) {
           shoppingLists
             .doc(data.docs[0].id)
