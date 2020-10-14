@@ -1,11 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { hasToken } from '../lib/TokenService';
 
 const GuardedRoute = (Component) => ({ match }) => {
-  if (
-    localStorage.getItem('token') === null ||
-    localStorage.getItem('token').length === 0
-  ) {
+  if (!hasToken()) {
     return <Redirect to="/" />;
   } else {
     return <Component match={match} />;

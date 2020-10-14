@@ -2,12 +2,13 @@ import React from 'react';
 import getToken from '../lib/tokens';
 import { useHistory } from 'react-router-dom';
 import '../css/components/main.css';
+import { setToken } from '../lib/TokenService';
 
 const Welcome = () => {
   let history = useHistory();
   const handleClick = () => {
     const token = getToken();
-    localStorage.setItem('token', token);
+    setToken(token);
     alert('New Token generated');
     history.push('/list');
   };
