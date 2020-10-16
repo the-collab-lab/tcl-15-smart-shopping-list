@@ -24,9 +24,7 @@ function App() {
                 <Home hasToken={hasToken} setHasToken={setHasToken} />
               )}
             />
-
             <Route exact path="/add" render={GuardedRoute(AddItem)} />
-
             <Route exact path="/list" render={GuardedRoute(List)} />
           </Switch>
         </div>
