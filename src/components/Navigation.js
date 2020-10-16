@@ -8,19 +8,15 @@ const Navigation = ({ hasToken }) => {
       <NavLink activeClassName="selected" className="home" to="/" exact>
         Home
       </NavLink>
-      {hasToken ? (
+      {hasToken && (
         <NavLink activeClassName="selected" className="list" to="/list" exact>
           List
         </NavLink>
-      ) : (
-        ''
       )}
-      {hasToken ? (
+      {hasToken && (
         <NavLink activeClassName="selected" className="add" to="/add" exact>
           Add Item
         </NavLink>
-      ) : (
-        ''
       )}
     </div>
   );

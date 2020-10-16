@@ -19,12 +19,10 @@ const Home = ({ hasToken, setHasToken }) => {
       <br />
       <h1 className="header">Welcome to your Smart shopping list</h1>
       <br />
-      {!hasToken ? (
+      {!hasToken && (
         <button className="button-token" onClick={handleClick}>
           Create a new list
         </button>
-      ) : (
-        ''
       )}
     </div>
   );
