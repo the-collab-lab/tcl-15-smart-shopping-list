@@ -1,5 +1,5 @@
 import React from 'react';
-import getToken from '../lib/tokens';
+import generateToken from '../lib/tokens';
 import { useHistory } from 'react-router-dom';
 import '../css/components/main.css';
 import { setToken } from '../lib/TokenService';
@@ -7,7 +7,7 @@ import { setToken } from '../lib/TokenService';
 const Home = ({ hasToken, setHasToken }) => {
   let history = useHistory();
   const handleClick = () => {
-    const token = getToken();
+    const token = generateToken();
     setToken(token);
     setHasToken(true);
     alert('New Token generated');
