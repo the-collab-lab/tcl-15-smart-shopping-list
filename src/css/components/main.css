@@ -1,15 +1,3 @@
-.navlinks {
-  font-size: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 50vh;
-}
-
-.selected {
-  font-weight: bolder;
-}
-
 .AddItem {
   margin-top: 150px;
   text-align: center;
@@ -24,6 +12,7 @@
   font-family: cursive;
   text-transform: capitalize;
   font-size: 3em;
+  color: cadetblue;
 }
 
 .button-token {
@@ -35,4 +24,11 @@
   border-radius: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.navbar {
+  position: absolute;
+  bottom: 20px;
+  margin: auto;
+  width: 100%;
 }
