@@ -1,0 +1,22 @@
+.navigation {
+  display: inline-block;
+}
+
+.nav-links {
+  font-size: 20px;
+  margin: 140px 0px;
+}
+
+.selected {
+  font-weight: bolder;
+  background-color: #c5cedc;
+  text-decoration: none;
+}
+
+.not-selected {
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid rgb(168, 177, 168);
+}

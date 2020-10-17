@@ -13,8 +13,8 @@ function App() {
   const [hasToken, setHasToken] = useState(checkToken());
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <div>
           <Switch>
             <Route
@@ -31,8 +31,8 @@ function App() {
         <div className="navbar">
           <Navigation hasToken={hasToken} />
         </div>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
