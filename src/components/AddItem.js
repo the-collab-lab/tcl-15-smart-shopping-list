@@ -4,6 +4,7 @@ import { db, firebase } from '../lib/firebase';
 import HowSoonOptions from './HowSoonOptions';
 import '../css/components/AddItemsForm.css';
 import AddItemInput from './AddItemInput';
+import { getToken } from '../lib/TokenService';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
@@ -20,7 +21,8 @@ const AddItem = () => {
     e.preventDefault();
 
     shoppingLists
-      .where('token', '==', 801) // TODO => fetch the token from localSorage
+      // fetch the token from localSorage
+      .where('token', '==', getToken())
       .get()
       .then((data) => {
         // if the shoppingList with the token 801 exists
@@ -34,7 +36,8 @@ const AddItem = () => {
         } else {
           // else just create a new list and add that item to it
           shoppingLists.add({
-            token: Math.floor(Math.random() * Math.floor(1000)), // TODO => fetch the token from localSorage
+            // fetch the token from localSorage
+            token: getToken(),
             items: [newItem],
           });
         }
