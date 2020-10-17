@@ -1,20 +1,46 @@
-import './main.css';
 import React, { useState } from 'react';
-import { items } from '../lib/firebase';
+import { db, firebase } from '../lib/firebase';
+import HowSoonOptions from './HowSoonOptions';
 import '../css/components/AddItemsForm.css';
+import AddItemInput from './AddItemInput';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
 
   const addToDatabase = (e) => {
+    const shoppingLists = db.collection('shoppingLists');
+
+    const newItem = {
+      name: inputValue,
+      lastPurchased: null,
+      howSoon: e.target['how-soon'].value,
+    };
+
     e.preventDefault();
-    items()
-      .add({
-        name: inputValue,
-        added_on: Date.now(),
-      })
-      .then((res) => {
+
+    shoppingLists
+      .where('token', '==', 801) // TODO => fetch the token from localSorage
+      .get()
+      .then((data) => {
+        // if the shoppingList with the token 801 exists
+        if (data.docs.length) {
+          shoppingLists
+            .doc(data.docs[0].id)
+            // just append the new item to that shoppingList items
+            .update({
+              items: firebase.firestore.FieldValue.arrayUnion(newItem),
+            });
+        } else {
+          // else just create a new list and add that item to it
+          shoppingLists.add({
+            token: Math.floor(Math.random() * Math.floor(1000)), // TODO => fetch the token from localSorage
+            items: [newItem],
+          });
+        }
+        alert('Successfully Added');
         setInputValue('');
+        // reset radio buttons
+        document.getElementById('soon').checked = true;
       })
       .catch((err) => {
         console.log(err);
@@ -24,19 +50,22 @@ const AddItem = () => {
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+
   return (
-    <form onSubmit={addToDatabase} className="add-item-form">
-      <label htmlFor="form-input">Item</label>
-      <input
-        className="form-input"
-        name="form-input"
-        id="form-input"
-        onChange={handleInputChange}
-        value={inputValue}
-        placeholder="Add Item"
-      />
-      <button className="add-item-btn">Add</button>
-    </form>
+    <div className="add-item-form">
+      <h1 className="app-name">Smart Shopping List</h1>
+      <form onSubmit={addToDatabase} className="add-item">
+        <AddItemInput
+          id="form-input"
+          inputValue={inputValue}
+          handleInputChange={handleInputChange}
+        />
+
+        <HowSoonOptions />
+
+        <button className="add-item-btn">Add</button>
+      </form>
+    </div>
   );
 };
 

@@ -1,14 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './main.css';
+import '../css/components/Navigation.css';
 
 const Navigation = () => {
   return (
-    <div className="navlinks">
-      <NavLink activeClassName="selected" className="list" to="/" exact>
-        List
+    <div className="nav-links">
+      <NavLink activeClassName="selected" className="not-selected" to="/" exact>
+        List View
       </NavLink>
-      <NavLink activeClassName="selected" className="add" to="/add" exact>
+      <NavLink
+        activeClassName="selected"
+        className="not-selected"
+        to="/add"
+        exact
+      >
         Add Item
       </NavLink>
     </div>

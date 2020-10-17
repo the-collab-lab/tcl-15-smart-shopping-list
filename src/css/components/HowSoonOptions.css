@@ -1,0 +1,21 @@
+.fieldset {
+  margin: 10px 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.legend {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.radio-button {
+  padding: 20px;
+  text-align: left;
+}
+
+.radio-button input {
+  margin-right: 10px;
+}
