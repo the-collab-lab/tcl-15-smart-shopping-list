@@ -1,10 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import '../css/components/main.css';
 import '../css/components/Navigation.css';
 
-const Navigation = () => {
+const Navigation = ({ hasToken }) => {
   return (
-    <div className="nav-links">
+    <div className="navlinks">
+      <NavLink activeClassName="selected" className="home" to="/" exact>
+        Home
+      </NavLink>
       <NavLink activeClassName="selected" className="not-selected" to="/" exact>
         List View
       </NavLink>
@@ -16,6 +20,17 @@ const Navigation = () => {
       >
         Add Item
       </NavLink>
+
+      {hasToken && (
+        <NavLink activeClassName="selected" className="list" to="/list" exact>
+          List
+        </NavLink>
+      )}
+      {hasToken && (
+        <NavLink activeClassName="selected" className="add" to="/add" exact>
+          Add Item
+        </NavLink>
+      )}
     </div>
   );
 };

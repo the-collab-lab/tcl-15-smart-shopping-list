@@ -1,3 +1,4 @@
+import '../css/components/main.css';
 import React, { useState } from 'react';
 import { db, firebase } from '../lib/firebase';
 import HowSoonOptions from './HowSoonOptions';
