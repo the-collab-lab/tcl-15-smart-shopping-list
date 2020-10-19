@@ -25,7 +25,7 @@ const AddItem = () => {
       .where('token', '==', getToken())
       .get()
       .then((data) => {
-        // if the shoppingList with the token 801 exists
+        // if the shoppingList with the token exists
         if (data.docs.length) {
           shoppingLists
             .doc(data.docs[0].id)
@@ -41,7 +41,17 @@ const AddItem = () => {
             items: [newItem],
           });
         }
-        alert('Successfully Added');
+        //=======================//
+        // EXISTING
+        let items = data.docs.map((doc) => doc.data().items); // ARRAY ITEMS with specific token
+        let namesArray = items[0].map((n) => n.name); //
+        console.log(items, namesArray);
+        const existingName = namesArray.find((name) => name === newItem.name);
+
+        existingName ? alert('Existing name!') : alert('OK');
+        //=======================//
+
+        // alert('Successfully Added');
         setInputValue('');
         // reset radio buttons
         document.getElementById('soon').checked = true;
