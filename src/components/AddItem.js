@@ -5,6 +5,7 @@ import HowSoonOptions from './HowSoonOptions';
 import '../css/components/AddItemsForm.css';
 import AddItemInput from './AddItemInput';
 import { getToken } from '../lib/TokenService';
+import { filter } from '../lib/FilterName';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
@@ -27,12 +28,23 @@ const AddItem = () => {
       .then((data) => {
         // if the shoppingList with the token exists
         if (data.docs.length) {
-          shoppingLists
-            .doc(data.docs[0].id)
-            // just append the new item to that shoppingList items
-            .update({
-              items: firebase.firestore.FieldValue.arrayUnion(newItem),
-            });
+          let items = data.docs.map((doc) => doc.data().items); // ARRAY ITEMS with specific token
+          let namesArray = items[0].map((n) => n.name); //
+          let filteredNewItem = filter(newItem.name);
+          const existingName = namesArray.find(
+            (name) => filter(name) === filteredNewItem,
+          );
+
+          if (!existingName) {
+            shoppingLists
+              .doc(data.docs[0].id)
+              // just append the new item to that shoppingList items
+              .update({
+                items: firebase.firestore.FieldValue.arrayUnion(newItem),
+              });
+          } else {
+            alert(`The item: ${filteredNewItem} already exists!!`);
+          }
         } else {
           // else just create a new list and add that item to it
           shoppingLists.add({
@@ -41,17 +53,8 @@ const AddItem = () => {
             items: [newItem],
           });
         }
-        //=======================//
-        // EXISTING
-        let items = data.docs.map((doc) => doc.data().items); // ARRAY ITEMS with specific token
-        let namesArray = items[0].map((n) => n.name); //
-        console.log(items, namesArray);
-        const existingName = namesArray.find((name) => name === newItem.name);
 
-        existingName ? alert('Existing name!') : alert('OK');
-        //=======================//
-
-        // alert('Successfully Added');
+        alert('Successfully Added');
         setInputValue('');
         // reset radio buttons
         document.getElementById('soon').checked = true;
