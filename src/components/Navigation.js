@@ -9,7 +9,7 @@ const Navigation = ({ hasToken }) => {
         <NavLink
           activeClassName="selected"
           className="not-selected"
-          to="/list"
+          to="/"
           exact
         >
           List
@@ -22,7 +22,7 @@ const Navigation = ({ hasToken }) => {
           to="/add"
           exact
         >
-          Add Item
+          Add
         </NavLink>
       )}
     </div>
