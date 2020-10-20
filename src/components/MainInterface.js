@@ -6,21 +6,24 @@ import JoinAShoppingList from './JoinAShoppingList';
 
 const MainIterface = ({ setHasToken }) => {
   let history = useHistory();
-  const handleClick = () => {
-    const token = generateToken();
+  const handleSettingToken = (token) => {
+    if (!token) {
+      const token = generateToken();
+      alert('New token generated');
+    }
+
     setToken(token);
     setHasToken(true);
-    alert('New Token generated');
     history.push('/list');
   };
 
   return (
     <main>
-      <button className="button-token" onClick={handleClick}>
+      <button className="button-token" onClick={() => handleSettingToken()}>
         Create a new list
       </button>
       <p>- or -</p>
-      <JoinAShoppingList />
+      <JoinAShoppingList onSharedToken={handleSettingToken} />
     </main>
   );
 };

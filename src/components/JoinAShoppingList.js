@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getShoppingList } from '../lib/shoppingListsCollection';
 
-const JoinAShoppingList = () => {
-  return <div>JOIN A SHOPPING LIST</div>;
+const JoinAShoppingList = ({ onSharedToken }) => {
+  const [inputValue, setInputValue] = useState('');
+  const [error, setError] = useState(false);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getShoppingList(inputValue).then((data) => {
+      data.docs.length ? onSharedToken(inputValue) : setError(true);
+    });
+  };
+
+  return (
+    <div>
+      JOIN A SHOPPING LIST
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="three word token"
+          onChange={handleChange}
+          value={inputValue}
+        />
+        {error && <div>There is no shopping list with that token </div>}
+        <button>Submit</button>
+      </form>
+    </div>
+  );
 };
 
 export default JoinAShoppingList;
