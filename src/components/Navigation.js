@@ -5,9 +5,6 @@ import '../css/components/Navigation.css';
 const Navigation = ({ hasToken }) => {
   return (
     <div className="navlinks">
-      <NavLink activeClassName="selected" className="not-selected" to="/" exact>
-        Home
-      </NavLink>
       {hasToken && (
         <NavLink
           activeClassName="selected"
