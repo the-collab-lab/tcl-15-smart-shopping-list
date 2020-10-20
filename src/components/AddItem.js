@@ -5,7 +5,7 @@ import HowSoonOptions from './HowSoonOptions';
 import '../css/components/AddItemsForm.css';
 import AddItemInput from './AddItemInput';
 import { getToken } from '../lib/TokenService';
-import { existingName } from '../lib/FilterName';
+import { existingName } from '../lib/helper';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
