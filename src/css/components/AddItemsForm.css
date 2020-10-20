@@ -37,3 +37,11 @@
 .add-item-btn:hover {
   background-color: #4caf50;
 }
+
+.error {
+  background-color: red;
+}
+
+.success {
+  background-color: green;
+}

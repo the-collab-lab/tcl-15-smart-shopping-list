@@ -9,7 +9,21 @@ import { existingName } from '../lib/FilterName';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState('');
 
+  const displayMessage = (message, type) => {
+    setMessage(message);
+    setMessageType(type);
+    hideMessage();
+  };
+
+  const hideMessage = () => {
+    setTimeout(() => {
+      setMessage('');
+      setMessageType('');
+    }, 5000);
+  };
   const addToDatabase = (e) => {
     const shoppingLists = db.collection('shoppingLists');
 
@@ -38,9 +52,12 @@ const AddItem = () => {
               .update({
                 items: firebase.firestore.FieldValue.arrayUnion(newItem),
               });
-            alert('Successfully Added');
+            displayMessage('Successfully Added', 'success');
           } else {
-            alert(`The item: ${newItem.name} already exists!!`);
+            displayMessage(
+              `The item: ${newItem.name} already exists!!`,
+              'error',
+            );
           }
         } else {
           // else just create a new list and add that item to it
@@ -49,7 +66,7 @@ const AddItem = () => {
             token: getToken(),
             items: [newItem],
           });
-          alert('Successfully Added');
+          displayMessage('Successfully Added');
         }
         setInputValue('');
         // reset radio buttons
@@ -67,6 +84,7 @@ const AddItem = () => {
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
+      <p className={messageType}>{message}</p>
       <form onSubmit={addToDatabase} className="add-item">
         <AddItemInput
           id="form-input"
