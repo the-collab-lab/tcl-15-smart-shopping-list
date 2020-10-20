@@ -38,6 +38,7 @@ const AddItem = () => {
               .update({
                 items: firebase.firestore.FieldValue.arrayUnion(newItem),
               });
+            alert('Successfully Added');
           } else {
             alert(`The item: ${newItem.name} already exists!!`);
           }
@@ -48,9 +49,8 @@ const AddItem = () => {
             token: getToken(),
             items: [newItem],
           });
+          alert('Successfully Added');
         }
-
-        alert('Successfully Added');
         setInputValue('');
         // reset radio buttons
         document.getElementById('soon').checked = true;
