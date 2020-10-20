@@ -17,18 +17,20 @@ const JoinAShoppingList = ({ onSharedToken }) => {
   };
 
   return (
-    <div>
-      JOIN A SHOPPING LIST
-      <form onSubmit={handleSubmit}>
+    <div className="join-shopping-list">
+      <h3>JOIN A SHOPPING LIST</h3>
+      <form onSubmit={handleSubmit} className="join-shopping-list-form">
         <input
           type="text"
-          placeholder="three word token"
+          placeholder="Enter a three word token"
           onChange={handleChange}
           value={inputValue}
         />
         <button>Submit</button>
       </form>
-      {error && <div>There is no shopping list with that token </div>}
+      {error && (
+        <div className="token-error">Shopping list does not exist.</div>
+      )}
     </div>
   );
 };

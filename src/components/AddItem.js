@@ -1,4 +1,3 @@
-import '../css/components/main.css';
 import React, { useState } from 'react';
 import { firebase } from '../lib/firebase';
 import HowSoonOptions from './HowSoonOptions';

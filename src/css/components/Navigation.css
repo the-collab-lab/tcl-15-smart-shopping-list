@@ -7,17 +7,16 @@
   max-width: 600px;
 }
 
-.selected {
-  font-weight: bolder;
-  background-color: cadetblue;
-  text-decoration: none;
-}
-
 .not-selected {
   padding: 10px;
   color: black;
   text-decoration: none;
-  border-radius: 2px;
-  border: 1px solid cadetblue;
+  border: 1px solid rgb(143, 142, 142);
   flex-grow: 1;
+}
+.selected {
+  font-weight: bolder;
+  background-color: rgb(143, 142, 142);
+  text-decoration: none;
+  color: whitesmoke;
 }

@@ -1,30 +1,26 @@
-.AddItem {
-  margin-top: 150px;
+.App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-}
-
-.List {
-  margin-top: 150px;
-  text-align: center;
+  height: 98%;
+  min-height: 400px;
+  width: 370px;
+  margin: auto;
+  border: 5px solid gray;
+  border-radius: 3px;
 }
 
 .header {
-  font-family: cursive;
-  text-transform: capitalize;
-  font-size: 3em;
-  color: cadetblue;
+  background-color: gray;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
 }
-
-.button-token {
-  background-color: white;
-  color: cadetblue;
-  padding: 15px;
-  font-size: 22px;
-  border: 1px solid cadetblue;
-  border-radius: 1.5em;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin: 10% 0;
+.app-inner {
+  flex: 1;
+  position: relative;
 }
 
 .navbar {
@@ -32,4 +28,68 @@
   bottom: 0px;
   margin: auto;
   width: 100%;
+}
+
+.join-shopping-list-form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-interface {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.main-interface h1 {
+  margin-top: 10px;
+}
+.main-interface p {
+  font-size: large;
+  font-weight: bold;
+}
+
+.button-token {
+  width: 75%;
+  align-self: center;
+  height: 40px;
+  border: none;
+  background-color: gray;
+  color: whitesmoke;
+  font-size: large;
+  border-radius: 3px;
+}
+.button-token:hover {
+  border: 2px solid whitesmoke;
+}
+.join-shopping-list {
+  position: relative;
+  flex: 0.35;
+  display: flex;
+  flex-direction: column;
+}
+.join-shopping-list h3 {
+  font-size: 1.3rem;
+}
+.join-shopping-list-form input,
+.join-shopping-list-form button {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.token-error {
+  margin-top: 5px;
+  color: brown;
 }
