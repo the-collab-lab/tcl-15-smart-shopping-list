@@ -6,13 +6,15 @@ import JoinAShoppingList from './JoinAShoppingList';
 
 const MainIterface = ({ setHasToken }) => {
   let history = useHistory();
-  const handleSettingToken = (token) => {
-    if (!token) {
+
+  const handleSettingToken = (sharedToken) => {
+    if (sharedToken) {
+      setToken(sharedToken);
+    } else {
       const token = generateToken();
+      setToken(token);
       alert('New token generated');
     }
-
-    setToken(token);
     setHasToken(true);
     history.push('/list');
   };

@@ -26,9 +26,9 @@ const JoinAShoppingList = ({ onSharedToken }) => {
           onChange={handleChange}
           value={inputValue}
         />
-        {error && <div>There is no shopping list with that token </div>}
         <button>Submit</button>
       </form>
+      {error && <div>There is no shopping list with that token </div>}
     </div>
   );
 };
