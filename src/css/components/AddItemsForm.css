@@ -10,6 +10,7 @@
   text-align: left;
   margin: 30px 0px;
 }
+
 .add-item-label span {
   display: inline-block;
   width: 100%;
@@ -39,9 +40,15 @@
 }
 
 .error {
-  background-color: red;
+  background-color: #e6afaf;
+  padding: 10px;
+  color: #4a4747;
+  margin: 10px;
 }
 
 .success {
-  background-color: green;
+  background-color: #a7f1a7;
+  padding: 10px;
+  color: #4a4747;
+  margin: 10px;
 }
