@@ -27,7 +27,6 @@ const AddItem = () => {
 
   const resetForm = () => {
     setInputValue('');
-    // reset radio buttons
     document.getElementById('soon').checked = true;
   };
 
@@ -43,11 +42,9 @@ const AddItem = () => {
     e.preventDefault();
 
     shoppingLists
-      // fetch the token from localSorage
       .where('token', '==', getToken())
       .get()
       .then((data) => {
-        // if the shoppingList with the token exists
         if (data.docs.length) {
           const itemsNames = getItemsNamesFromDoc(data.docs[0]);
 
@@ -59,23 +56,17 @@ const AddItem = () => {
             return;
           }
 
-          shoppingLists
-            .doc(data.docs[0].id)
-            // just append the new item to that shoppingList items
-            .update({
-              items: firebase.firestore.FieldValue.arrayUnion(newItem),
-            });
+          shoppingLists.doc(data.docs[0].id).update({
+            items: firebase.firestore.FieldValue.arrayUnion(newItem),
+          });
         } else {
-          // else just create a new list and add that item to it
           shoppingLists.add({
-            // fetch the token from localSorage
             token: getToken(),
             items: [newItem],
           });
         }
 
         displayMessage('Successfully Added', 'success');
-
         resetForm();
       })
       .catch((err) => {
