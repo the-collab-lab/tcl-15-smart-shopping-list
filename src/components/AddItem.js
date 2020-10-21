@@ -45,20 +45,20 @@ const AddItem = () => {
           let items = data.docs.map((doc) => doc.data().items);
           let namesArray = items[0].map((n) => n.name);
 
-          if (!existingName(namesArray, newItem.name)) {
-            shoppingLists
-              .doc(data.docs[0].id)
-              // just append the new item to that shoppingList items
-              .update({
-                items: firebase.firestore.FieldValue.arrayUnion(newItem),
-              });
-            displayMessage('Successfully Added', 'success');
-          } else {
+          if (existingName(namesArray, newItem.name)) {
             displayMessage(
               `The item: ${newItem.name} already exists!!`,
               'error',
             );
+            return;
           }
+
+          shoppingLists
+            .doc(data.docs[0].id)
+            // just append the new item to that shoppingList items
+            .update({
+              items: firebase.firestore.FieldValue.arrayUnion(newItem),
+            });
         } else {
           // else just create a new list and add that item to it
           shoppingLists.add({
@@ -66,8 +66,10 @@ const AddItem = () => {
             token: getToken(),
             items: [newItem],
           });
-          displayMessage('Successfully Added');
         }
+
+        displayMessage('Successfully Added', 'success');
+
         setInputValue('');
         // reset radio buttons
         document.getElementById('soon').checked = true;
