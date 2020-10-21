@@ -81,7 +81,9 @@ const AddItem = () => {
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
-      <p className={messageType}>{message}</p>
+      <p role="alert" className={messageType}>
+        {message}
+      </p>
       <form onSubmit={addToDatabase} className="add-item">
         <AddItemInput
           id="form-input"
