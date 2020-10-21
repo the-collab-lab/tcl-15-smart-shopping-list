@@ -37,3 +37,8 @@
 .add-item-btn:hover {
   background-color: #4caf50;
 }
+
+.add-item input[type='text'] {
+  width: 95%;
+  height: 30px;
+}

@@ -82,6 +82,9 @@
 .join-shopping-list h3 {
   font-size: 1.3rem;
 }
+.join-shopping-list-form label {
+  width: 100%;
+}
 .join-shopping-list-form input,
 .join-shopping-list-form button {
   width: 100%;
