@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { getShoppingList } from '../lib/shoppingListsCollection';
+import Form from './Form';
 
 const JoinAShoppingList = ({ onSharedToken }) => {
-  const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState(false);
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (e, inputValue) => {
     getShoppingList(inputValue).then((data) => {
       data.docs.length ? onSharedToken(inputValue) : setError(true);
     });
@@ -19,15 +14,12 @@ const JoinAShoppingList = ({ onSharedToken }) => {
   return (
     <div className="join-shopping-list">
       <h3>JOIN A SHOPPING LIST</h3>
-      <form onSubmit={handleSubmit} className="join-shopping-list-form">
-        <input
-          type="text"
-          placeholder="Enter a three word token"
-          onChange={handleChange}
-          value={inputValue}
-        />
-        <button>Submit</button>
-      </form>
+      <Form
+        onSubmit={handleSubmit}
+        inputField={{ input: { placeholder: 'Enter a three word token' } }}
+        submitBtn={{ text: 'Submit' }}
+        className="join-shopping-list-form"
+      />
       {error && (
         <div className="token-error">Shopping list does not exist.</div>
       )}

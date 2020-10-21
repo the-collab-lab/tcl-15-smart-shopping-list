@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { firebase } from '../lib/firebase';
 import HowSoonOptions from './HowSoonOptions';
-import AddItemInput from './AddItemInput';
+import Form from './Form';
 import { getToken } from '../lib/TokenService';
 import { shoppingLists, getShoppingList } from '../lib/shoppingListsCollection';
 import '../css/components/AddItemsForm.css';
 
 const AddItem = () => {
-  let [inputValue, setInputValue] = useState('');
-
-  const addToDatabase = (e) => {
+  const addToDatabase = (e, inputValue, setInputValue) => {
     const newItem = {
       name: inputValue,
       lastPurchased: null,
       howSoon: e.target['how-soon'].value,
     };
-
-    e.preventDefault();
 
     getShoppingList(getToken())
       .then((data) => {
@@ -46,17 +42,16 @@ const AddItem = () => {
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
-      <form onSubmit={addToDatabase} className="add-item">
-        <AddItemInput
-          id="form-input"
-          inputValue={inputValue}
-          handleInputChange={(e) => setInputValue(e.target.value)}
-        />
-
-        <HowSoonOptions />
-
-        <button className="add-item-btn">Add</button>
-      </form>
+      <Form
+        onSubmit={addToDatabase}
+        className="add-item"
+        inputField={{
+          input: { placeholder: 'Enter item name' },
+          label: { name: 'Item Name', className: 'add-item-label' },
+        }}
+        submitBtn={{ text: 'Add', className: 'add-item-btn' }}
+        children={<HowSoonOptions />}
+      />
     </div>
   );
 };
