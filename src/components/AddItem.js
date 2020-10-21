@@ -5,7 +5,7 @@ import HowSoonOptions from './HowSoonOptions';
 import '../css/components/AddItemsForm.css';
 import AddItemInput from './AddItemInput';
 import { getToken } from '../lib/TokenService';
-import { existingName } from '../lib/helper';
+import { existingName, getItemsNamesFromDoc } from '../lib/helper';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
@@ -49,10 +49,9 @@ const AddItem = () => {
       .then((data) => {
         // if the shoppingList with the token exists
         if (data.docs.length) {
-          let items = data.docs.map((doc) => doc.data().items);
-          let namesArray = items[0].map((n) => n.name);
+          const itemsNames = getItemsNamesFromDoc(data.docs[0]);
 
-          if (existingName(namesArray, newItem.name)) {
+          if (existingName(itemsNames, newItem.name)) {
             displayMessage(
               `The item: ${newItem.name} already exists!!`,
               'error',
