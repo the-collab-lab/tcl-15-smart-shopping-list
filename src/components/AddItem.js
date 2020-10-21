@@ -24,6 +24,13 @@ const AddItem = () => {
       setMessageType('');
     }, 5000);
   };
+
+  const resetForm = () => {
+    setInputValue('');
+    // reset radio buttons
+    document.getElementById('soon').checked = true;
+  };
+
   const addToDatabase = (e) => {
     const shoppingLists = db.collection('shoppingLists');
 
@@ -70,9 +77,7 @@ const AddItem = () => {
 
         displayMessage('Successfully Added', 'success');
 
-        setInputValue('');
-        // reset radio buttons
-        document.getElementById('soon').checked = true;
+        resetForm();
       })
       .catch((err) => {
         console.log(err);
