@@ -1,7 +1,6 @@
 const filter = (name) => {
-  name = name.toLowerCase().trim();
   let pattern = /[.,:'?!;\-_)({}[\]¡¿"—*%#^]*/g;
-  return name.replace(pattern, '');
+  return name.replace(pattern, '').toLowerCase().trim();
 };
 
 const existingName = (items, name) => {
