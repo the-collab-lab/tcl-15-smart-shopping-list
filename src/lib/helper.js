@@ -3,7 +3,8 @@ const filter = (name) => {
   return name.replace(pattern, '').toLowerCase().trim();
 };
 
-const existingName = (items, name) => {
+const existingName = (doc, name) => {
+  const items = getItemsNamesFromDoc(doc);
   let filteredName = filter(name);
   return items.find((item) => filter(item) === filteredName);
 };
@@ -14,4 +15,4 @@ const getItemsNamesFromDoc = (doc) => {
   return itemsNames;
 };
 
-export { existingName, getItemsNamesFromDoc };
+export { existingName };

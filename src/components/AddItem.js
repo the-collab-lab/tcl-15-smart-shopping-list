@@ -5,7 +5,7 @@ import HowSoonOptions from './HowSoonOptions';
 import '../css/components/AddItemsForm.css';
 import AddItemInput from './AddItemInput';
 import { getToken } from '../lib/TokenService';
-import { existingName, getItemsNamesFromDoc } from '../lib/helper';
+import { existingName } from '../lib/helper';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
@@ -46,9 +46,7 @@ const AddItem = () => {
       .get()
       .then((data) => {
         if (data.docs.length) {
-          const itemsNames = getItemsNamesFromDoc(data.docs[0]);
-
-          if (existingName(itemsNames, newItem.name)) {
+          if (existingName(data.docs[0], newItem.name)) {
             displayMessage(
               `The item: ${newItem.name} already exists!!`,
               'error',
