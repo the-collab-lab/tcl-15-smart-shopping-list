@@ -12,11 +12,14 @@ const AddItem = () => {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
+  let timeoutId;
+
   const displayMessage = (message, type) => {
     clearTimeout(timeoutId);
     setMessage(message);
     setMessageType(type);
     hideMessage();
+    timeoutId = hideMessage();
   };
 
   const hideMessage = () => {
@@ -25,8 +28,6 @@ const AddItem = () => {
       setMessageType('');
     }, 5000);
   };
-
-  const timeoutId = hideMessage();
 
   const resetForm = () => {
     setInputValue('');
