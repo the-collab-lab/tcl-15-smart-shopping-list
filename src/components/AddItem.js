@@ -1,11 +1,11 @@
-import '../css/components/main.css';
-import React, { useState } from 'react';
-import { db, firebase } from '../lib/firebase';
+import React from 'react';
+import { firebase } from '../lib/firebase';
 import HowSoonOptions from './HowSoonOptions';
-import '../css/components/AddItemsForm.css';
-import AddItemInput from './AddItemInput';
+import Form from './Form';
 import { getToken } from '../lib/TokenService';
+import { shoppingLists, getShoppingList } from '../lib/shoppingListsCollection';
 import { existingName } from '../lib/helper';
+import '../css/components/AddItemsForm.css';
 
 const AddItem = () => {
   let [inputValue, setInputValue] = useState('');
@@ -18,7 +18,6 @@ const AddItem = () => {
     clearTimeout(timeoutId);
     setMessage(message);
     setMessageType(type);
-    hideMessage();
     timeoutId = hideMessage();
   };
 
@@ -33,23 +32,18 @@ const AddItem = () => {
     setInputValue('');
     document.getElementById('soon').checked = true;
   };
-
-  const addToDatabase = (e) => {
-    const shoppingLists = db.collection('shoppingLists');
-
+  
+  const addToDatabase = (e, inputValue, setInputValue) => {
     const newItem = {
       name: inputValue,
       lastPurchased: null,
       howSoon: e.target['how-soon'].value,
     };
 
-    e.preventDefault();
-
-    shoppingLists
-      .where('token', '==', getToken())
-      .get()
+    getShoppingList(getToken())
       .then((data) => {
         if (data.docs.length) {
+          
           if (existingName(data.docs[0], newItem.name)) {
             displayMessage(
               `The item: ${newItem.name} already exists!!`,
@@ -57,12 +51,14 @@ const AddItem = () => {
             );
             return;
           }
-
-          shoppingLists.doc(data.docs[0].id).update({
-            items: firebase.firestore.FieldValue.arrayUnion(newItem),
-          });
+          
+          shoppingLists()
+            .doc(data.docs[0].id)
+            .update({
+              items: firebase.firestore.FieldValue.arrayUnion(newItem),
+            });
         } else {
-          shoppingLists.add({
+          shoppingLists().add({
             token: getToken(),
             items: [newItem],
           });
@@ -76,27 +72,22 @@ const AddItem = () => {
       });
   };
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
       <p role="alert" className={messageType}>
         {message}
       </p>
-      <form onSubmit={addToDatabase} className="add-item">
-        <AddItemInput
-          id="form-input"
-          inputValue={inputValue}
-          handleInputChange={handleInputChange}
-        />
-
-        <HowSoonOptions />
-
-        <button className="add-item-btn">Add</button>
-      </form>
+      <Form
+        onSubmit={addToDatabase}
+        className="add-item"
+        inputField={{
+          input: { placeholder: 'Enter item name' },
+          label: { name: 'Item Name', className: 'add-item-label' },
+        }}
+        submitBtn={{ text: 'Add', className: 'add-item-btn' }}
+        children={<HowSoonOptions />}
+      />
     </div>
   );
 };

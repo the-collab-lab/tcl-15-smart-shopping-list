@@ -52,3 +52,8 @@
   color: #4a4747;
   margin: 10px;
 }
+
+.add-item input[type='text'] {
+  width: 95%;
+  height: 30px;
+}
