@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/components/main.css';
 import { FirestoreCollection } from 'react-firestore';
 import '../css/components/ItemsList.css';
 import { getToken } from '../lib/TokenService';
