@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { firebase } from '../lib/firebase';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
@@ -8,7 +8,6 @@ import { existingName } from '../lib/helper';
 import '../css/components/AddItemsForm.css';
 
 const AddItem = () => {
-  let [inputValue, setInputValue] = useState('');
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
@@ -28,11 +27,11 @@ const AddItem = () => {
     }, 5000);
   };
 
-  const resetForm = () => {
+  const resetForm = (setInputValue) => {
     setInputValue('');
     document.getElementById('soon').checked = true;
   };
-  
+
   const addToDatabase = (e, inputValue, setInputValue) => {
     const newItem = {
       name: inputValue,
@@ -43,7 +42,6 @@ const AddItem = () => {
     getShoppingList(getToken())
       .then((data) => {
         if (data.docs.length) {
-          
           if (existingName(data.docs[0], newItem.name)) {
             displayMessage(
               `The item: ${newItem.name} already exists!!`,
@@ -51,7 +49,7 @@ const AddItem = () => {
             );
             return;
           }
-          
+
           shoppingLists()
             .doc(data.docs[0].id)
             .update({
@@ -65,7 +63,7 @@ const AddItem = () => {
         }
 
         displayMessage('Successfully Added', 'success');
-        resetForm();
+        resetForm(setInputValue);
       })
       .catch((err) => {
         console.log(err);
