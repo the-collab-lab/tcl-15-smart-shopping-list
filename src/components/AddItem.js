@@ -13,17 +13,20 @@ const AddItem = () => {
   const [messageType, setMessageType] = useState('');
 
   const displayMessage = (message, type) => {
+    clearTimeout(timeoutId);
     setMessage(message);
     setMessageType(type);
     hideMessage();
   };
 
   const hideMessage = () => {
-    setTimeout(() => {
+    return setTimeout(() => {
       setMessage('');
       setMessageType('');
     }, 5000);
   };
+
+  const timeoutId = hideMessage();
 
   const resetForm = () => {
     setInputValue('');
