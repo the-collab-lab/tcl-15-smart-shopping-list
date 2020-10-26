@@ -19,6 +19,7 @@ export default function List() {
                 <ul>
                   {data[0].items.map((item) => (
                     <li key={item.name} className="list-item">
+                      <input type="checkbox" />
                       <div className="name">{item.name}</div>
                     </li>
                   ))}
