@@ -26,14 +26,12 @@ const ListItem = ({ listItem, index }) => {
 
   return (
     <li key={listItem.name} className="list-item">
-      {
-        <input
-          type="checkbox"
-          onChange={() => checkItem(index, listItem)}
-          disabled={isChecked}
-          checked={isChecked}
-        />
-      }
+      <input
+        type="checkbox"
+        onChange={() => checkItem(index, listItem)}
+        disabled={isChecked}
+        checked={isChecked}
+      />
       <div className="name">{listItem.name}</div>
     </li>
   );
