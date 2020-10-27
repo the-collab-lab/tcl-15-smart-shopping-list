@@ -14,7 +14,7 @@ const ListItem = ({ listItem, index, items, listId }) => {
     });
   };
 
-  const isChecked = fromMilleToHours(listItem.lastPurchased) < 0.003;
+  const isChecked = fromMilleToHours(listItem.lastPurchased) < 24;
 
   return (
     <li key={listItem.name} className="list-item">
