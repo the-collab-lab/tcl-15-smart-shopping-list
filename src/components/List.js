@@ -19,7 +19,7 @@ export default function List() {
               {data[0] ? (
                 <ul>
                   {data[0].items.map((item, index) => (
-                    <ListItem listItem={item} index={index} />
+                    <ListItem listItem={item} index={index} key={index} />
                   ))}
                 </ul>
               ) : (
