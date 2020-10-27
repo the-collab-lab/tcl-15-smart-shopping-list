@@ -1,28 +1,20 @@
 import React from 'react';
 import { fromMilleToHours } from '../lib/helper';
-import { getToken } from '../lib/TokenService';
-import { shoppingLists, getShoppingList } from '../lib/shoppingListsCollection';
+import { shoppingLists } from '../lib/shoppingListsCollection';
 
-const ListItem = ({ listItem, index }) => {
+const ListItem = ({ listItem, index, items, listId }) => {
   const checkItem = (index, item) => {
-    getShoppingList(getToken())
-      .then((data) => {
-        const items = data.docs[0].data().items;
-        items[index] = {
-          ...item,
-          lastPurchased: Date.now(),
-        };
+    items[index] = {
+      ...item,
+      lastPurchased: Date.now(),
+    };
 
-        shoppingLists().doc(data.docs[0].id).update({
-          items,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    shoppingLists().doc(listId).update({
+      items,
+    });
   };
 
-  const isChecked = fromMilleToHours(listItem.lastPurchased) < 24;
+  const isChecked = fromMilleToHours(listItem.lastPurchased) < 0.003;
 
   return (
     <li key={listItem.name} className="list-item">
