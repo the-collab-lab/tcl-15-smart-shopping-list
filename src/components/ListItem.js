@@ -2,16 +2,13 @@ import React from 'react';
 import { fromMilleToHours } from '../lib/helper';
 import { shoppingLists } from '../lib/shoppingListsCollection';
 
-const ListItem = ({ listItem, index, items, listId }) => {
-  const checkItem = (index, item) => {
-    items[index] = {
-      ...item,
-      lastPurchased: Date.now(),
-    };
-
-    shoppingLists().doc(listId).update({
-      items,
-    });
+const ListItem = ({ listItem, listId, itemId }) => {
+  const checkItem = () => {
+    shoppingLists()
+      .doc(listId)
+      .update({
+        [itemId]: { ...listItem, lastPurchased: Date.now() },
+      });
   };
 
   const isChecked = fromMilleToHours(listItem.lastPurchased) < 24;
@@ -21,7 +18,7 @@ const ListItem = ({ listItem, index, items, listId }) => {
       <input
         type="checkbox"
         className="check-item"
-        onChange={() => checkItem(index, listItem)}
+        onChange={() => checkItem()}
         disabled={isChecked}
         checked={isChecked}
       />
