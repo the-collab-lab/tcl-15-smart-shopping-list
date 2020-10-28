@@ -7,7 +7,7 @@ const ListItem = ({ listItem, listId, itemId }) => {
     shoppingLists()
       .doc(listId)
       .update({
-        [itemId]: { ...listItem, lastPurchased: Date.now() },
+        [itemId]: { ...listItem, lastPurchased: new Date().toUTCString() },
       });
   };
 

@@ -18,6 +18,7 @@ const getItemsNamesFromDoc = (items) => {
   }, []);
 };
 
-const fromMilleToHours = (time) => (Date.now() - time) / (1000 * 60 * 60);
+const fromMilleToHours = (time) =>
+  (Date.now() - new Date(time)) / (1000 * 60 * 60);
 
 export { existingName, fromMilleToHours };
