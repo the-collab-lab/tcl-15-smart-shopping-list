@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { getShoppingList } from '../lib/shoppingListsCollection';
+import { shoppingLists } from '../lib/shoppingListsCollection';
 import Form from './Form';
 
 const JoinAShoppingList = ({ onSharedToken }) => {
   const [error, setError] = useState(false);
 
   const handleSubmit = (e, inputValue) => {
-    getShoppingList(inputValue).then((data) => {
-      data.docs.length ? onSharedToken(inputValue) : setError(true);
-    });
+    shoppingLists()
+      .doc(inputValue)
+      .get()
+      .then((data) => {
+        data.exists ? onSharedToken(inputValue) : setError(true);
+      });
   };
 
   return (
