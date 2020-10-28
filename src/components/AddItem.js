@@ -43,8 +43,7 @@ const AddItem = () => {
       .doc(getToken())
       .get()
       .then((data) => {
-        // check if item exists if it doesn't then return
-        if (false) {
+        if (existingName(data.data(), newItem.name)) {
           displayMessage(`The item: ${newItem.name} already exists!!`, 'error');
           return;
         }
