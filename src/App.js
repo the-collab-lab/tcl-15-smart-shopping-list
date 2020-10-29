@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import List from './components/List';
 import AddItem from './components/AddItem';
 import Navigation from './components/Navigation';
 import Home from './components/Home';

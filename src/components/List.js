@@ -7,7 +7,7 @@ import AddButton from './AddButton';
 export default function List() {
   return (
     <div>
-      <h1>LIST OF ITEMS</h1>
+      <h1 className="app-name">Smart Shopping List</h1>
       <FirestoreCollection
         path="shoppingLists"
         filter={['token', '==', getToken()]}

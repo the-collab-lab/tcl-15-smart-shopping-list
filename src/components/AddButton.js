@@ -9,9 +9,11 @@ function AddButton() {
   };
 
   return (
-    <div>
-      <p>Your list is currently empty</p>
-      <button onClick={handleClick}>Add Item</button>
+    <div className="empty-list">
+      <p>Your shopping list is currently empty.</p>
+      <button className="add-item-btn" onClick={handleClick}>
+        Add Item
+      </button>
     </div>
   );
 }
