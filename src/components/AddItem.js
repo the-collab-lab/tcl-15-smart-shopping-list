@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
 import { getToken } from '../lib/TokenService';
@@ -8,23 +8,17 @@ import '../css/components/AddItemsForm.css';
 import { v4 as uuid } from 'uuid';
 
 const AddItem = () => {
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const intialMessage = { content: '', type: '' };
+  const [message, setMessage] = useState(intialMessage);
 
-  let timeoutId;
+  useEffect(() => {
+    let timeout = setTimeout(() => setMessage(intialMessage), 2000);
 
-  const displayMessage = (message, type) => {
-    clearTimeout(timeoutId);
-    setMessage(message);
-    setMessageType(type);
-    timeoutId = hideMessage();
-  };
+    return () => clearTimeout(timeout);
+  }, [message, intialMessage]);
 
-  const hideMessage = () => {
-    return setTimeout(() => {
-      setMessage('');
-      setMessageType('');
-    }, 5000);
+  const displayMessage = (content, type) => {
+    setMessage({ content, type });
   };
 
   const resetForm = (setInputValue) => {
@@ -80,8 +74,8 @@ const AddItem = () => {
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
-      <p role="alert" className={messageType}>
-        {message}
+      <p role="alert" className={message.type}>
+        {message.content}
       </p>
       <Form
         onSubmit={addToDatabase}
