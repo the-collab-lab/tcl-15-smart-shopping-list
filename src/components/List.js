@@ -3,6 +3,7 @@ import { FirestoreDocument } from 'react-firestore';
 import ListItem from './ListItem';
 import '../css/components/ItemsList.css';
 import { getToken } from '../lib/TokenService';
+import AddButton from './AddButton';
 
 export default function List() {
   return (
@@ -34,7 +35,7 @@ export default function List() {
                     })}
                 </ul>
               ) : (
-                <div>Your list is empty!!</div>
+                <AddButton />
               )}
             </div>
           );
