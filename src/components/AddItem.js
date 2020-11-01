@@ -1,30 +1,24 @@
-import React, { useState } from 'react';
-import { firebase } from '../lib/firebase';
+import React, { useState, useEffect } from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
 import { getToken } from '../lib/TokenService';
-import { shoppingLists, getShoppingList } from '../lib/shoppingListsCollection';
+import { shoppingLists } from '../lib/shoppingListsCollection';
 import { existingName } from '../lib/helper';
 import '../css/components/AddItemsForm.css';
+import { v4 as uuid } from 'uuid';
 
 const AddItem = () => {
-  const [message, setMessage] = useState('');
-  const [messageType, setMessageType] = useState('');
+  const intialMessage = { content: '', type: '' };
+  const [message, setMessage] = useState(intialMessage);
 
-  let timeoutId;
+  useEffect(() => {
+    let timeout = setTimeout(() => setMessage(intialMessage), 2000);
 
-  const displayMessage = (message, type) => {
-    clearTimeout(timeoutId);
-    setMessage(message);
-    setMessageType(type);
-    timeoutId = hideMessage();
-  };
+    return () => clearTimeout(timeout);
+  }, [message, intialMessage]);
 
-  const hideMessage = () => {
-    return setTimeout(() => {
-      setMessage('');
-      setMessageType('');
-    }, 5000);
+  const displayMessage = (content, type) => {
+    setMessage({ content, type });
   };
 
   const resetForm = (setInputValue) => {
@@ -39,42 +33,49 @@ const AddItem = () => {
       howSoon: e.target['how-soon'].value,
     };
 
-    getShoppingList(getToken())
+    shoppingLists()
+      .doc(getToken())
+      .get()
       .then((data) => {
-        if (data.docs.length) {
-          if (existingName(data.docs[0], newItem.name)) {
+        if (data.data()) {
+          if (existingName(data.data(), newItem.name)) {
             displayMessage(
               `The item: ${newItem.name} already exists!!`,
               'error',
             );
             return;
           }
-
-          shoppingLists()
-            .doc(data.docs[0].id)
-            .update({
-              items: firebase.firestore.FieldValue.arrayUnion(newItem),
-            });
-        } else {
-          shoppingLists().add({
-            token: getToken(),
-            items: [newItem],
-          });
         }
 
-        displayMessage('Successfully Added', 'success');
-        resetForm(setInputValue);
+        // add Item
+        shoppingLists()
+          .doc(getToken())
+          .set(
+            {
+              [uuid()]: newItem,
+            },
+            {
+              merge: true,
+            },
+          )
+          .then((success) => {
+            displayMessage('Successfully Added', 'success');
+            resetForm(setInputValue);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
-      <p role="alert" className={messageType}>
-        {message}
+      <p role="alert" className={message.type}>
+        {message.content}
       </p>
       <Form
         onSubmit={addToDatabase}

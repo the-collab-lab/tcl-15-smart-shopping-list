@@ -1,5 +1,6 @@
 import React from 'react';
-import { FirestoreCollection } from 'react-firestore';
+import { FirestoreDocument } from 'react-firestore';
+import ListItem from './ListItem';
 import '../css/components/ItemsList.css';
 import { getToken } from '../lib/TokenService';
 import AddButton from './AddButton';
@@ -7,22 +8,31 @@ import AddButton from './AddButton';
 export default function List() {
   return (
     <div>
-      <h1 className="app-name">Smart Shopping List</h1>
-      <FirestoreCollection
-        path="shoppingLists"
-        filter={['token', '==', getToken()]}
+      <h1>LIST OF ITEMS</h1>
+      <FirestoreDocument
+        path={`shoppingLists/${getToken()}`}
         render={({ isLoading, data }) => {
+          const itemsKeys = data
+            ? Object.keys(data).filter((key) => key !== 'id')
+            : '';
           return isLoading ? (
             <div className="m-auto">Loading</div>
           ) : (
             <div>
-              {data[0] ? (
+              {itemsKeys.length >= 1 ? (
                 <ul>
-                  {data[0].items.map((item) => (
-                    <li key={item.name} className="list-item">
-                      <div className="name">{item.name}</div>
-                    </li>
-                  ))}
+                  {itemsKeys
+                    .sort((a, b) => (a > b ? 1 : -1))
+                    .map((key) => {
+                      return (
+                        <ListItem
+                          listItem={data[key]}
+                          key={key}
+                          listId={data.id}
+                          itemId={key}
+                        />
+                      );
+                    })}
                 </ul>
               ) : (
                 <AddButton />
