@@ -1,11 +1,12 @@
 import React from 'react';
 import { fromMilleToHours } from '../lib/helper';
 import { shoppingLists } from '../lib/shoppingListsCollection';
+import { getToken } from '../lib/TokenService';
 
-const ListItem = ({ listItem, listId, itemId }) => {
+const ListItem = ({ listItem, itemId }) => {
   const checkItem = () => {
     shoppingLists()
-      .doc(listId)
+      .doc(getToken())
       .update({
         [itemId]: { ...listItem, lastPurchased: new Date().toUTCString() },
       });

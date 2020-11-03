@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FirestoreDocument } from 'react-firestore';
-import ListItem from './ListItem';
+import SortedList from './SortedList';
 import '../css/components/ItemsList.css';
 import { getToken } from '../lib/TokenService';
 import AddButton from './AddButton';
@@ -15,46 +15,24 @@ export default function List() {
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}
         render={({ isLoading, data }) => {
-          let itemsKeys;
-          if (data) {
-            delete data.id;
-            itemsKeys = Object.keys(data);
-            if (searchTerm) {
-              itemsKeys = itemsKeys.filter((key) =>
-                removePunctuation(data[key].name).includes(
-                  removePunctuation(searchTerm),
-                ),
-              );
-            }
-          }
-
+          let itemsKeys = getItemsKeys(data, searchTerm);
           return isLoading ? (
             <div className="m-auto">Loading</div>
           ) : (
             <div>
-              {itemsKeys.length >= 1 ? (
+              {itemsKeys.length >= 1 || searchTerm ? (
                 <>
-                  <input
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value.trim())}
-                  />{' '}
-                  {searchTerm && (
-                    <button onClick={() => setSearchTerm('')}>X</button>
-                  )}
-                  <ul>
-                    {itemsKeys
-                      .sort((a, b) => (a > b ? 1 : -1))
-                      .map((key) => {
-                        return (
-                          <ListItem
-                            listItem={data[key]}
-                            key={key}
-                            listId={data.id}
-                            itemId={key}
-                          />
-                        );
-                      })}
-                  </ul>
+                  <div>
+                    <input
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value.trim())}
+                      placeholder="Search item"
+                    />
+                    {searchTerm && (
+                      <button onClick={() => setSearchTerm('')}>X</button>
+                    )}
+                  </div>
+                  <SortedList data={data} itemsKeys={itemsKeys} />
                 </>
               ) : (
                 <AddButton />
@@ -66,3 +44,19 @@ export default function List() {
     </div>
   );
 }
+
+const getItemsKeys = (data, searchTerm) => {
+  let itemsKeys;
+  if (data) {
+    delete data.id;
+    itemsKeys = Object.keys(data);
+    if (searchTerm) {
+      itemsKeys = itemsKeys.filter((key) =>
+        removePunctuation(data[key].name).includes(
+          removePunctuation(searchTerm),
+        ),
+      );
+    }
+  }
+  return itemsKeys;
+};
