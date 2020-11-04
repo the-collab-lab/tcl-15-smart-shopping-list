@@ -9,30 +9,30 @@ import calculateEstimate from '../lib/estimates';
 
 const ListItem = ({ listItem, listId, itemId }) => {
   const checkItem = () => {
-    const item = {
+    const updatedItem = {
       ...listItem,
       recentPurchase: getUTCNowInMilliSec(),
       previousPurchase: listItem.recentPurchase,
       numberOfPurchases: (listItem.numberOfPurchases += 1),
     };
 
-    if (item.previousPurchase) {
+    if (updatedItem.previousPurchase) {
       const latestInterval =
-        fromMilliSecToDays(item.recentPurchase) -
-        fromMilliSecToDays(item.previousPurchase);
+        fromMilliSecToDays(updatedItem.recentPurchase) -
+        fromMilliSecToDays(updatedItem.previousPurchase);
 
       const estimate = calculateEstimate(
-        item.howSoon,
+        updatedItem.howSoon,
         latestInterval,
-        item.numberOfPurchases,
+        updatedItem.numberOfPurchases,
       );
-      item.howSoon = estimate;
+      updatedItem.howSoon = estimate;
     }
 
     shoppingLists()
       .doc(listId)
       .update({
-        [itemId]: item,
+        [itemId]: updatedItem,
       });
   };
 
