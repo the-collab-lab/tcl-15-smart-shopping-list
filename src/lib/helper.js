@@ -30,4 +30,11 @@ const getUTCNowInMilliSec = () => {
 
 const fromMilliSecToHours = (time) => time / (1000 * 60 * 60);
 
-export { existingName, fromMilliSecToHours, getUTCNowInMilliSec };
+const fromMilliSecToDays = (time) => Math.floor(time / (1000 * 60 * 60 * 24));
+
+export {
+  existingName,
+  fromMilliSecToHours,
+  getUTCNowInMilliSec,
+  fromMilliSecToDays,
+};

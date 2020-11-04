@@ -29,8 +29,10 @@ const AddItem = () => {
   const addToDatabase = (e, inputValue, setInputValue) => {
     const newItem = {
       name: inputValue,
-      lastPurchased: null,
+      recentPurchase: null,
       howSoon: e.target['how-soon'].value,
+      previousPurchase: null,
+      numberOfPurchases: 0,
     };
 
     shoppingLists()
