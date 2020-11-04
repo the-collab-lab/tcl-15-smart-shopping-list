@@ -5,11 +5,11 @@ const SortedList = ({ itemsKeys, data }) => {
   return (
     <ul>
       {itemsKeys
-        // a stolen line from Anderw's blog
+        // a stolen line from Andrew's blog
         .sort((a, b) => (a > b ? 1 : a < b ? -1 : 0))
-        .map((key) => {
-          return <ListItem listItem={data[key]} key={key} itemId={key} />;
-        })}
+        .map((key) => (
+          <ListItem listItem={data[key]} key={key} itemId={key} />
+        ))}
     </ul>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FirestoreDocument } from 'react-firestore';
 import SortedList from './SortedList';
-import '../css/components/ItemsList.css';
 import { getToken } from '../lib/TokenService';
 import AddButton from './AddButton';
 import { filter as removePunctuation } from '../lib/helper';
+import '../css/components/ItemsList.css';
 
 export default function List() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,12 +15,12 @@ export default function List() {
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}
         render={({ isLoading, data }) => {
-          let itemsKeys = getItemsKeys(data, searchTerm);
+          let itemsKeys = data ? getItemsKeys(data, searchTerm) : [];
           return isLoading ? (
             <div className="m-auto">Loading</div>
           ) : (
             <div>
-              {itemsKeys.length >= 1 || searchTerm ? (
+              {itemsKeys.length || searchTerm ? (
                 <>
                   <div>
                     <input
@@ -46,17 +46,12 @@ export default function List() {
 }
 
 const getItemsKeys = (data, searchTerm) => {
-  let itemsKeys;
-  if (data) {
-    delete data.id;
-    itemsKeys = Object.keys(data);
-    if (searchTerm) {
-      itemsKeys = itemsKeys.filter((key) =>
-        removePunctuation(data[key].name).includes(
-          removePunctuation(searchTerm),
-        ),
-      );
-    }
+  delete data.id;
+  let itemsKeys = Object.keys(data);
+  if (searchTerm) {
+    return itemsKeys.filter((key) =>
+      removePunctuation(data[key].name).includes(removePunctuation(searchTerm)),
+    );
   }
   return itemsKeys;
 };

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
-import { getToken } from '../lib/TokenService';
-import { shoppingLists } from '../lib/shoppingListsCollection';
+import { userShoppingList } from '../lib/shoppingListsCollection';
 import { existingName } from '../lib/helper';
 import '../css/components/AddItemsForm.css';
 import { v4 as uuid } from 'uuid';
@@ -33,8 +32,7 @@ const AddItem = () => {
       howSoon: e.target['how-soon'].value,
     };
 
-    shoppingLists()
-      .doc(getToken())
+    userShoppingList()
       .get()
       .then((data) => {
         if (data.data()) {
@@ -48,8 +46,7 @@ const AddItem = () => {
         }
 
         // add Item
-        shoppingLists()
-          .doc(getToken())
+        userShoppingList()
           .set(
             {
               [uuid()]: newItem,
