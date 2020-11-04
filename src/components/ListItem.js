@@ -1,5 +1,5 @@
 import React from 'react';
-import { fromMilleToHours } from '../lib/helper';
+import { fromMilliSecToHours, getUTCNowInMilliSec } from '../lib/helper';
 import { shoppingLists } from '../lib/shoppingListsCollection';
 
 const ListItem = ({ listItem, listId, itemId }) => {
@@ -7,11 +7,12 @@ const ListItem = ({ listItem, listId, itemId }) => {
     shoppingLists()
       .doc(listId)
       .update({
-        [itemId]: { ...listItem, lastPurchased: new Date().toUTCString() },
+        [itemId]: { ...listItem, lastPurchased: getUTCNowInMilliSec() },
       });
   };
 
-  const isChecked = fromMilleToHours(listItem.lastPurchased) < 24;
+  const isChecked =
+    fromMilliSecToHours(getUTCNowInMilliSec() - listItem.lastPurchased) < 24;
 
   return (
     <li key={listItem.name} className="list-item">
