@@ -30,3 +30,31 @@
 .check-item:disabled + div {
   text-decoration: line-through #666666;
 }
+.search-term-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  height: 30px;
+  border: 1px solid gray;
+  padding-left: 3px;
+  margin-top: 10px;
+}
+.search-term-wrapper input {
+  flex: 1;
+  height: 100%;
+  border: none;
+}
+.search-term-wrapper button {
+  border: none;
+  flex: 0.1;
+  height: 100%;
+  color: whitesmoke;
+  background: gray;
+  font-weight: bold;
+}
+.search-term-wrapper button:disabled {
+  background: lightgray;
+  cursor: not-allowed;
+}

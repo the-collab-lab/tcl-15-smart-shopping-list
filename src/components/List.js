@@ -11,7 +11,7 @@ export default function List() {
 
   return (
     <div>
-      <h1>LIST OF ITEMS</h1>
+      <h3>LIST OF ITEMS</h3>
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}
         render={({ isLoading, data }) => {
@@ -22,15 +22,18 @@ export default function List() {
             <div>
               {itemsKeys.length || searchTerm ? (
                 <>
-                  <div>
+                  <div className="search-term-wrapper">
                     <input
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value.trim())}
                       placeholder="Search item"
                     />
-                    {searchTerm && (
-                      <button onClick={() => setSearchTerm('')}>X</button>
-                    )}
+                    <button
+                      onClick={() => setSearchTerm('')}
+                      disabled={searchTerm ? false : true}
+                    >
+                      X
+                    </button>
                   </div>
                   <SortedList data={data} itemsKeys={itemsKeys} />
                 </>
@@ -45,12 +48,14 @@ export default function List() {
   );
 }
 
-const getItemsKeys = (data, searchTerm) => {
-  delete data.id;
-  let itemsKeys = Object.keys(data);
+const getItemsKeys = (shoppingList, searchTerm) => {
+  delete shoppingList.id;
+  let itemsKeys = Object.keys(shoppingList);
   if (searchTerm) {
     return itemsKeys.filter((key) =>
-      removePunctuation(data[key].name).includes(removePunctuation(searchTerm)),
+      removePunctuation(shoppingList[key].name).includes(
+        removePunctuation(searchTerm),
+      ),
     );
   }
   return itemsKeys;
