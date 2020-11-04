@@ -22,7 +22,7 @@ const ListItem = ({ listItem, listId, itemId }) => {
         fromMilliSecToDays(item.previousPurchase);
 
       const estimate = calculateEstimate(
-        listItem.howSoon,
+        item.howSoon,
         latestInterval,
         item.numberOfPurchases,
       );
