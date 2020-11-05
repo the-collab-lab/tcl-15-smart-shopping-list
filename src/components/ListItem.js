@@ -13,7 +13,7 @@ const ListItem = ({ listItem, listId, itemId }) => {
       ...listItem,
       recentPurchase: getUTCNowInMilliSec(),
       previousPurchase: listItem.recentPurchase,
-      numberOfPurchases: (listItem.numberOfPurchases += 1),
+      numberOfPurchases: listItem.numberOfPurchases + 1,
     };
 
     if (updatedItem.previousPurchase) {
