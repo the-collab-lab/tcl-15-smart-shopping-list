@@ -25,7 +25,7 @@ export default function List() {
                   <div className="search-term-wrapper">
                     <input
                       value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value.trim())}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                       placeholder="Search item"
                     />
                     <button
@@ -35,7 +35,11 @@ export default function List() {
                       X
                     </button>
                   </div>
-                  <SortedList data={data} itemsKeys={itemsKeys} />
+                  {itemsKeys.length === 0 ? (
+                    <p className="search-no-items">No items found.</p>
+                  ) : (
+                    <SortedList data={data} itemsKeys={itemsKeys} />
+                  )}
                 </>
               ) : (
                 <AddButton />

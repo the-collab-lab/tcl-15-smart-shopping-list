@@ -58,3 +58,7 @@
   background: lightgray;
   cursor: not-allowed;
 }
+
+.search-no-items {
+  margin: 20px;
+}
