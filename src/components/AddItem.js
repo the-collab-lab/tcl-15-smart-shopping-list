@@ -29,7 +29,7 @@ const AddItem = () => {
     const newItem = {
       name: inputValue,
       lastPurchased: null,
-      howSoon: parseInt(e.target['how-soon'].value),
+      howSoon: +e.target['how-soon'].value,
     };
 
     userShoppingList()

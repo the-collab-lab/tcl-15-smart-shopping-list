@@ -9,12 +9,27 @@ import '../css/components/ItemsList.css';
 export default function List() {
   const [searchTerm, setSearchTerm] = useState('');
 
+  const getItemsKeys = (shoppingList, searchTerm) => {
+    delete shoppingList.id;
+    let itemsKeys = Object.keys(shoppingList);
+    if (searchTerm) {
+      return itemsKeys.filter((key) =>
+        removePunctuation(shoppingList[key].name).includes(
+          removePunctuation(searchTerm),
+        ),
+      );
+    }
+    return itemsKeys;
+  };
+
   return (
     <div>
-      <h3>LIST OF ITEMS</h3>
+      <h1>List of Items</h1>
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}
         render={({ isLoading, data }) => {
+          // When the data (shoppingList) is fetched, store all the keys in itemsKeys
+          // If not, then itemsKeys will be an empty array
           let itemsKeys = data ? getItemsKeys(data, searchTerm) : [];
           return isLoading ? (
             <div className="m-auto">Loading</div>
@@ -51,16 +66,3 @@ export default function List() {
     </div>
   );
 }
-
-const getItemsKeys = (shoppingList, searchTerm) => {
-  delete shoppingList.id;
-  let itemsKeys = Object.keys(shoppingList);
-  if (searchTerm) {
-    return itemsKeys.filter((key) =>
-      removePunctuation(shoppingList[key].name).includes(
-        removePunctuation(searchTerm),
-      ),
-    );
-  }
-  return itemsKeys;
-};
