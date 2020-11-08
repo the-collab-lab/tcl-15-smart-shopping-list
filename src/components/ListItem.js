@@ -1,14 +1,12 @@
 import React from 'react';
 import { fromMilleToHours } from '../lib/helper';
-import { shoppingLists } from '../lib/shoppingListsCollection';
+import { userShoppingList } from '../lib/shoppingListsCollection';
 
-const ListItem = ({ listItem, listId, itemId }) => {
+const ListItem = ({ listItem, itemId }) => {
   const checkItem = () => {
-    shoppingLists()
-      .doc(listId)
-      .update({
-        [itemId]: { ...listItem, lastPurchased: new Date().toUTCString() },
-      });
+    userShoppingList().update({
+      [itemId]: { ...listItem, lastPurchased: new Date().toUTCString() },
+    });
   };
 
   const isChecked = fromMilleToHours(listItem.lastPurchased) < 24;
