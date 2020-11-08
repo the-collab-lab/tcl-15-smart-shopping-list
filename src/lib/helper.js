@@ -37,6 +37,5 @@ export {
   fromMilliSecToHours,
   getUTCNowInMilliSec,
   fromMilliSecToDays,
+  filter,
 };
-
-
