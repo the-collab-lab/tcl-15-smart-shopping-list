@@ -6,6 +6,7 @@ import {
 } from '../lib/helper';
 import { shoppingLists } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
+import { getToken } from '../lib/TokenService';
 
 const ListItem = ({ listItem, itemId }) => {
   const checkItem = () => {
@@ -30,7 +31,7 @@ const ListItem = ({ listItem, itemId }) => {
     }
 
     shoppingLists()
-      .doc(listId)
+      .doc(getToken())
       .update({
         [itemId]: updatedItem,
       });
