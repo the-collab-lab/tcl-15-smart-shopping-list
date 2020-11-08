@@ -1,15 +1,44 @@
 import React from 'react';
-import { fromMilleToHours } from '../lib/helper';
-import { userShoppingList } from '../lib/shoppingListsCollection';
+import {
+  fromMilliSecToHours,
+  getUTCNowInMilliSec,
+  fromMilliSecToDays,
+} from '../lib/helper';
+import { shoppingLists } from '../lib/shoppingListsCollection';
+import calculateEstimate from '../lib/estimates';
+import { getToken } from '../lib/TokenService';
 
 const ListItem = ({ listItem, itemId }) => {
   const checkItem = () => {
-    userShoppingList().update({
-      [itemId]: { ...listItem, lastPurchased: new Date().toUTCString() },
-    });
+    const updatedItem = {
+      ...listItem,
+      recentPurchase: getUTCNowInMilliSec(),
+      previousPurchase: listItem.recentPurchase,
+      numberOfPurchases: listItem.numberOfPurchases + 1,
+    };
+
+    if (updatedItem.previousPurchase) {
+      const latestInterval =
+        fromMilliSecToDays(updatedItem.recentPurchase) -
+        fromMilliSecToDays(updatedItem.previousPurchase);
+
+      const estimate = calculateEstimate(
+        updatedItem.howSoon,
+        latestInterval,
+        updatedItem.numberOfPurchases,
+      );
+      updatedItem.howSoon = estimate;
+    }
+
+    shoppingLists()
+      .doc(getToken())
+      .update({
+        [itemId]: updatedItem,
+      });
   };
 
-  const isChecked = fromMilleToHours(listItem.lastPurchased) < 24;
+  const isChecked =
+    fromMilliSecToHours(getUTCNowInMilliSec() - listItem.recentPurchase) < 24;
 
   return (
     <li key={listItem.name} className="list-item">
