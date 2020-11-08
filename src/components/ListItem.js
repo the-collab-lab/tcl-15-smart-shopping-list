@@ -7,7 +7,7 @@ import {
 import { shoppingLists } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
 
-const ListItem = ({ listItem, listId, itemId }) => {
+const ListItem = ({ listItem, itemId }) => {
   const checkItem = () => {
     const updatedItem = {
       ...listItem,
