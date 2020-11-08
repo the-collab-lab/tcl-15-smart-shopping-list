@@ -29,7 +29,7 @@ const AddItem = () => {
     const newItem = {
       name: inputValue,
       recentPurchase: null,
-      howSoon: e.target['how-soon'].value,
+      howSoon: +e.target['how-soon'].value,
       previousPurchase: null,
       numberOfPurchases: 0,
     };

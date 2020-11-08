@@ -4,9 +4,8 @@ import {
   getUTCNowInMilliSec,
   fromMilliSecToDays,
 } from '../lib/helper';
-import { shoppingLists } from '../lib/shoppingListsCollection';
+import { userShoppingList } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
-import { getToken } from '../lib/TokenService';
 
 const ListItem = ({ listItem, itemId }) => {
   const checkItem = () => {
@@ -30,11 +29,9 @@ const ListItem = ({ listItem, itemId }) => {
       updatedItem.howSoon = estimate;
     }
 
-    shoppingLists()
-      .doc(getToken())
-      .update({
-        [itemId]: updatedItem,
-      });
+    userShoppingList().update({
+      [itemId]: updatedItem,
+    });
   };
 
   const isChecked =
