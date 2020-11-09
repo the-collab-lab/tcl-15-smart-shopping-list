@@ -1,5 +1,6 @@
 import React from 'react';
 import { firebase } from '../lib/firebase';
+import Bus from '../lib/bus';
 
 import {
   fromMilliSecToHours,
@@ -15,9 +16,22 @@ const ListItem = ({ listItem, itemId }) => {
       `Are you sure you want to delele ${listItem.name}?`,
     );
     if (isOk) {
-      userShoppingList().update({
-        [itemId]: firebase.firestore.FieldValue.delete(),
-      });
+      userShoppingList()
+        .update({
+          [itemId]: firebase.firestore.FieldValue.delete(),
+        })
+        .then((res) => {
+          Bus.emit('flash', {
+            content: `${listItem.name} deleted successfully`,
+            type: 'success',
+          });
+        })
+        .catch((res) => {
+          Bus.emit('flash', {
+            content: `Something went wrong, Sorry!!!`,
+            type: 'error',
+          });
+        });
     }
   };
 

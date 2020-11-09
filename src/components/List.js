@@ -5,6 +5,7 @@ import { getToken } from '../lib/TokenService';
 import AddButton from './AddButton';
 import { filter as removePunctuation } from '../lib/helper';
 import '../css/components/ItemsList.css';
+import FlashMessage from './flashMessage';
 
 export default function List() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,6 +26,7 @@ export default function List() {
   return (
     <div>
       <h1>List of Items</h1>
+      <FlashMessage />
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}
         render={({ isLoading, data }) => {
