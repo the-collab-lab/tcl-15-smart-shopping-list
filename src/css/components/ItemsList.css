@@ -18,6 +18,18 @@
   justify-content: space-around;
 }
 
+.class-thirty {
+  background-color: cadetblue;
+}
+
+.class-seven {
+  background-color: lightgreen;
+}
+
+.class-above-thirty {
+  background-color: orangered;
+}
+
 .check-item {
   flex: 1;
 }
