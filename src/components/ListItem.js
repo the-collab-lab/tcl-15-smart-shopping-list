@@ -1,4 +1,6 @@
 import React from 'react';
+import { firebase } from '../lib/firebase';
+
 import {
   fromMilliSecToHours,
   getUTCNowInMilliSec,
@@ -8,6 +10,17 @@ import { userShoppingList } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
 
 const ListItem = ({ listItem, itemId }) => {
+  const removeItem = () => {
+    const isOk = window.confirm(
+      `Are you sure you want to delele ${listItem.name}?`,
+    );
+    if (isOk) {
+      userShoppingList().update({
+        [itemId]: firebase.firestore.FieldValue.delete(),
+      });
+    }
+  };
+
   const checkItem = () => {
     const previousPurchase = listItem.recentPurchase;
     listItem.recentPurchase = getUTCNowInMilliSec();
@@ -44,6 +57,7 @@ const ListItem = ({ listItem, itemId }) => {
         checked={isChecked}
       />
       <div className="item-name">{listItem.name}</div>
+      <span onClick={removeItem}>🗑</span>
     </li>
   );
 };
