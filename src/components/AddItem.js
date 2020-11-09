@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
 import { userShoppingList } from '../lib/shoppingListsCollection';
 import { existingName } from '../lib/helper';
 import '../css/components/AddItemsForm.css';
 import { v4 as uuid } from 'uuid';
+import FlashMessage from './flashMessage';
+import Bus from '../lib/bus';
 
 const AddItem = () => {
-  const intialMessage = { content: '', type: '' };
-  const [message, setMessage] = useState(intialMessage);
-
-  useEffect(() => {
-    let timeout = setTimeout(() => setMessage(intialMessage), 2000);
-
-    return () => clearTimeout(timeout);
-  }, [message, intialMessage]);
-
-  const displayMessage = (content, type) => {
-    setMessage({ content, type });
-  };
-
   const resetForm = (setInputValue) => {
     setInputValue('');
     document.getElementById('soon').checked = true;
@@ -38,10 +27,10 @@ const AddItem = () => {
       .then((data) => {
         if (data.data()) {
           if (existingName(data.data(), newItem.name)) {
-            displayMessage(
-              `The item: ${newItem.name} already exists!!`,
-              'error',
-            );
+            Bus.emit('flash', {
+              content: `The item: ${newItem.name} already exists!!`,
+              type: 'error',
+            });
             return;
           }
         }
@@ -57,7 +46,10 @@ const AddItem = () => {
             },
           )
           .then((success) => {
-            displayMessage('Successfully Added', 'success');
+            Bus.emit('flash', {
+              content: 'Successfully Added',
+              type: 'success',
+            });
             resetForm(setInputValue);
           })
           .catch((error) => {
@@ -72,9 +64,7 @@ const AddItem = () => {
   return (
     <div className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
-      <p role="alert" className={message.type}>
-        {message.content}
-      </p>
+      <FlashMessage />
       <Form
         onSubmit={addToDatabase}
         className="add-item"
