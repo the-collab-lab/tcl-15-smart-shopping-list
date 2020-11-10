@@ -6,12 +6,14 @@ const FlashMessage = () => {
   const [message, setMessage] = useState(intialMessage);
 
   useEffect(() => {
-    let timeoutId;
     Bus.addListener('flash', ({ content, type }) => {
       displayMessage(content, type);
     });
-    timeoutId = setTimeout(() => setMessage(intialMessage), 2000);
 
+    const timeoutId = setTimeout(() => setMessage(intialMessage), 2000);
+
+    // Using the cleanup function to reset timeout
+    // and remove all the listeners from EventEmitter(Bus) so we don't have a memory leak!!
     return () => {
       clearTimeout(timeoutId);
       Bus.removeAllListeners('flash');
