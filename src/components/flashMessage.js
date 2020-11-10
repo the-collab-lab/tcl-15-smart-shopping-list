@@ -9,10 +9,13 @@ const FlashMessage = () => {
     let timeoutId;
     Bus.addListener('flash', ({ content, type }) => {
       displayMessage(content, type);
-      timeoutId = setTimeout(() => setMessage(intialMessage), 2000);
     });
+    timeoutId = setTimeout(() => setMessage(intialMessage), 2000);
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      clearTimeout(timeoutId);
+      Bus.removeAllListeners('flash');
+    };
   }, [message, intialMessage]);
 
   const displayMessage = (content, type) => {
