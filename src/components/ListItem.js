@@ -34,19 +34,30 @@ const ListItem = ({ listItem, itemId }) => {
   const isChecked =
     fromMilliSecToHours(getUTCNowInMilliSec() - listItem.recentPurchase) < 24;
 
-  const handleColors = () => {
-    let { howSoon } = listItem;
-    return howSoon < 7
-      ? 'class-seven'
-      : howSoon > 7 && howSoon < 30
-      ? 'class-thirty'
-      : 'class-above-thirty';
+  const isOutOfDate = (howSoon, recentPurchase) => {
+    return (
+      fromMilliSecToDays(getUTCNowInMilliSec()) -
+        fromMilliSecToDays(recentPurchase) >
+      howSoon * 2
+    );
   };
 
-  const backgroundColor = handleColors();
+  const handleColors = ({ howSoon, numberOfPurchases, recentPurchase }) => {
+    if (numberOfPurchases <= 1 || isOutOfDate(howSoon, recentPurchase)) {
+      return 'inactive';
+    }
+
+    return howSoon <= 7
+      ? 'soon'
+      : howSoon > 7 && howSoon < 30
+      ? 'kind-of-soon'
+      : 'not-soon';
+  };
+
+  const backgroundColor = handleColors(listItem);
 
   return (
-    <li key={listItem.name} className={`list-item ${backgroundColor}`}>
+    <li key={listItem.name} className={`list-item ${backgroundColor}-item`}>
       <input
         type="checkbox"
         className="check-item"
@@ -58,9 +69,5 @@ const ListItem = ({ listItem, itemId }) => {
     </li>
   );
 };
-
-// 1) Add the last purchase date to howSoon (in milliseconds) * 2
-// 2) Compare the above to Date.now()
-// 3) If 2 > 1 || noOfPurchases == 1, item is inactive and should have a different color
 
 export default ListItem;

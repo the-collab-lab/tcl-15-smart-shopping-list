@@ -18,16 +18,20 @@
   justify-content: space-around;
 }
 
-.class-thirty {
+.soon-item {
   background-color: cadetblue;
 }
 
-.class-seven {
+.kind-of-soon-item {
   background-color: lightgreen;
 }
 
-.class-above-thirty {
+.not-soon-item {
   background-color: orangered;
+}
+
+.inactive-item {
+  background-color: lightslategrey;
 }
 
 .check-item {
