@@ -69,6 +69,7 @@ const ListItem = ({ listItem, itemId }) => {
         onChange={() => checkItem()}
         disabled={isChecked}
         checked={isChecked}
+        aria-label="Mark this item as purchased"
       />
       <div className="item-name">{listItem.name}</div>
       <button
