@@ -1,45 +1,43 @@
 .list-item {
-  background-color: aqua;
-  width: 50%;
+  width: 70%;
   margin: auto;
   margin-top: 10px;
   height: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: whitesmoke;
-  font-weight: bold;
+  color: #3f2f4e;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .list-item {
-  background-color: cadetblue;
   display: flex;
   justify-content: space-around;
 }
 
 .soon-item {
-  background-color: cadetblue;
+  background-color: rgb(199, 235, 199);
 }
 
 .kind-of-soon-item {
-  background-color: lightgreen;
+  background-color: rgb(180, 211, 216);
 }
 
 .not-soon-item {
-  background-color: orangered;
+  background-color: #ebd4d9;
 }
 
 .inactive-item {
-  background-color: lightslategrey;
+  background-color: rgb(231, 231, 231);
 }
 
 .check-item {
-  flex: 1;
+  width: 15px;
+  height: 15px;
 }
 
 .item-name {
-  flex: 3;
+  flex: 0.85;
   text-align: left;
 }
 
