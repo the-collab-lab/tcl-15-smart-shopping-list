@@ -1,5 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem';
+import { filter as removePunctuation } from '../lib/helper';
 
 const SortedList = ({ itemsKeys, data }) => {
   return (
@@ -16,7 +17,7 @@ const SortedList = ({ itemsKeys, data }) => {
             ? 1
             : howSoonA < howSoonB
             ? -1
-            : nameA > nameB
+            : removePunctuation(nameA) > removePunctuation(nameB)
             ? 1
             : -1;
         })
