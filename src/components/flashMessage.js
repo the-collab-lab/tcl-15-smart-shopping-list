@@ -9,7 +9,7 @@ const FlashMessage = () => {
     let timeoutId;
     Bus.addListener('flash', ({ content, type }) => {
       displayMessage(content, type);
-      timeoutId = setTimeout(() => setMessage(intialMessage), 5000);
+      timeoutId = setTimeout(() => setMessage(intialMessage), 2000);
     });
 
     return () => clearTimeout(timeoutId);
@@ -20,7 +20,7 @@ const FlashMessage = () => {
   };
 
   return (
-    <p role="alert" className={message.type} displayMessage={displayMessage}>
+    <p role="alert" className={message.type}>
       {message.content}
     </p>
   );
