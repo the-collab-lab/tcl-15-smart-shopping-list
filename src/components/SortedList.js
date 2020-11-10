@@ -4,7 +4,7 @@ import { filter as removePunctuation } from '../lib/helper';
 
 const SortedList = ({ itemsKeys, data }) => {
   return (
-    <ul>
+    <ul aria-label="List of items">
       {itemsKeys
         // This explicitly compares between a or b, in order to sort the items by the keys
         // If a is greater than b, it will return 1, else if a is less than b it will return -1

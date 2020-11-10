@@ -12,7 +12,7 @@ const Form = (props) => {
   return (
     <form onSubmit={handleSubmit} className={className}>
       <InputField
-        labelProps={inputField.label ? inputField.label : ''}
+        labelProps={inputField.label}
         inputProps={{
           ...inputField.input,
           value: inputValue,
