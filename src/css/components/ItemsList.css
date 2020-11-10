@@ -60,5 +60,6 @@
 
 .delete-icon {
   color: #b53737;
-  cursor: pointer;
+  border: none;
+  font-size: 1em;
 }

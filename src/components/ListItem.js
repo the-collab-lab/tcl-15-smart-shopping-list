@@ -71,9 +71,13 @@ const ListItem = ({ listItem, itemId }) => {
         checked={isChecked}
       />
       <div className="item-name">{listItem.name}</div>
-      <span onClick={removeItem} className="delete-icon">
+      <button
+        onClick={removeItem}
+        className="delete-icon"
+        aria-label="Delete this item from your shopping list"
+      >
         <i className="fas fa-trash"></i>
-      </span>
+      </button>
     </li>
   );
 };
