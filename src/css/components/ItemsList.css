@@ -1,3 +1,7 @@
+.sorted-list {
+  height: 62vh;
+  overflow-y: auto;
+}
 .list-item {
   width: 70%;
   margin: auto;
