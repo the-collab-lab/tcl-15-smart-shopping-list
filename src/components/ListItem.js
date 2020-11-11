@@ -37,13 +37,8 @@ const ListItem = ({ listItem, itemId }) => {
 
   // This function specifies what color each item should have based on how soon the item is to be bought.
   // also return arial-label each item should have
-  const getStatusAndAriaLabel = ({
-    howSoon,
-    numberOfPurchases,
-    recentPurchase,
-  }) => {
-    //If numberOfPurchase is <= 1 or is outOfDate, return inactive .
-    if (numberOfPurchases <= 1 || isOutOfDate(howSoon, recentPurchase)) {
+  const getStatusAndAriaLabel = ({ howSoon, recentPurchase }) => {
+    if (isOutOfDate(howSoon, recentPurchase)) {
       return ['inactive', 'inactive item'];
     }
 

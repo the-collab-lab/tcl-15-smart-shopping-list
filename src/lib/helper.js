@@ -32,12 +32,15 @@ const fromMilliSecToHours = (time) => time / (1000 * 60 * 60);
 
 const fromMilliSecToDays = (time) => Math.ceil(time / (1000 * 60 * 60 * 24));
 
-//To check if the item is out of date, subtract the recentPurchase from the current date
-//and compare if it is greater or equal to two times the estimated howSoon value.
+//To check if the item is out of date, subtract the recentPurchase (in days) from the current date (in days)
+//and compare if the result is greater than the estimated howSoon X 2.
+// we're also checking if recentPurchase because when items are first added to the list
+// recentPurchase is null by default. And items are not out of date if they're just added.
 export const isOutOfDate = (howSoon, recentPurchase) =>
+  recentPurchase &&
   fromMilliSecToDays(getUTCNowInMilliSec()) -
     fromMilliSecToDays(recentPurchase) >
-  howSoon * 2;
+    howSoon * 2;
 
 export {
   existingName,
