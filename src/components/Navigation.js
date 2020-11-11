@@ -4,7 +4,7 @@ import '../css/components/Navigation.css';
 
 const Navigation = ({ hasToken }) => {
   return (
-    <div className="navlinks">
+    <nav className="navlinks">
       {hasToken && (
         <NavLink
           activeClassName="selected"
@@ -25,7 +25,7 @@ const Navigation = ({ hasToken }) => {
           Add
         </NavLink>
       )}
-    </div>
+    </nav>
   );
 };
 

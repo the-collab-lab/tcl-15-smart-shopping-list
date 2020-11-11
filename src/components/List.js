@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FirestoreDocument } from 'react-firestore';
 import SortedList from './SortedList';
+import SearchList from './SearchList';
 import { getToken } from '../lib/TokenService';
 import AddButton from './AddButton';
 import { filter as removePunctuation } from '../lib/helper';
@@ -23,7 +24,7 @@ export default function List() {
   };
 
   return (
-    <div>
+    <main>
       <h1>List of Items</h1>
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}
@@ -37,26 +38,10 @@ export default function List() {
             <div>
               {itemsKeys.length || searchTerm ? (
                 <>
-                  <div className="search-term-wrapper">
-                    <label
-                      aria-label="Search Item"
-                      htmlFor="search-item"
-                    ></label>
-                    <input
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      placeholder="Search item"
-                      id="search-item"
-                    />
-
-                    <button
-                      onClick={() => setSearchTerm('')}
-                      disabled={searchTerm ? false : true}
-                      aria-label="Clear search term"
-                    >
-                      X
-                    </button>
-                  </div>
+                  <SearchList
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                  />
                   {itemsKeys.length === 0 ? (
                     <p className="search-no-items">No items found.</p>
                   ) : (
@@ -70,6 +55,6 @@ export default function List() {
           );
         }}
       />
-    </div>
+    </main>
   );
 }

@@ -3,6 +3,7 @@ import {
   fromMilliSecToHours,
   getUTCNowInMilliSec,
   fromMilliSecToDays,
+  isOutOfDate,
 } from '../lib/helper';
 import { userShoppingList } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
@@ -34,18 +35,8 @@ const ListItem = ({ listItem, itemId }) => {
   const isChecked =
     fromMilliSecToHours(getUTCNowInMilliSec() - listItem.recentPurchase) < 24;
 
-  //To check if the item is out of date, subtract the recentPurchase from the current date
-  //and compare if it is greater or equal to two times the estimated howSoon value.
-  const isOutOfDate = (howSoon, recentPurchase) => {
-    return (
-      fromMilliSecToDays(getUTCNowInMilliSec()) -
-        fromMilliSecToDays(recentPurchase) >
-      howSoon * 2
-    );
-  };
-
   // This function specifies what color each item should have based on how soon the item is to be bought.
-
+  // also return arial-label each item should have
   const getStatusAndAriaLabel = ({
     howSoon,
     numberOfPurchases,
@@ -71,15 +62,18 @@ const ListItem = ({ listItem, itemId }) => {
       className={`list-item ${status}-item`}
       aria-label={ariaLabel}
     >
-      <label aria-label="Check item as purchased">
-        <input
-          type="checkbox"
-          className="check-item"
-          onChange={() => checkItem()}
-          disabled={isChecked}
-          checked={isChecked}
-        />
-      </label>
+      <label
+        aria-label="Check item as purchased"
+        htmlFor={listItem.name}
+      ></label>
+      <input
+        type="checkbox"
+        className="check-item"
+        onChange={() => checkItem()}
+        disabled={isChecked}
+        checked={isChecked}
+        id={listItem.name}
+      />
       <div className="item-name">{listItem.name}</div>
     </li>
   );
