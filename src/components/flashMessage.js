@@ -17,7 +17,9 @@ const FlashMessage = () => {
   }, []);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setMessage(intialMessage), 2000);
+    const timeoutId = setTimeout(() => {
+      if (message.content) setMessage(intialMessage);
+    }, 2000);
 
     // Using the cleanup function to reset timeout
     return () => {
