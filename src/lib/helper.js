@@ -27,10 +27,12 @@ const getUTCNowInMilliSec = () => {
   const offset = now.getTimezoneOffset() * 60000;
   return time + offset;
 };
+const hourInMilliSeconds = 1000 * 60 * 60;
+const dayInMilliSeconds = hourInMilliSeconds * 24;
 
-const fromMilliSecToHours = (time) => time / (1000 * 60 * 60);
+const fromMilliSecToHours = (time) => time / hourInMilliSeconds;
 
-const fromMilliSecToDays = (time) => Math.ceil(time / (1000 * 60 * 60 * 24));
+const fromMilliSecToDays = (time) => Math.ceil(time / dayInMilliSeconds);
 
 //To check if the item is out of date, subtract the recentPurchase (in days) from the current date (in days)
 //and compare if the result is greater than the estimated howSoon X 2.
