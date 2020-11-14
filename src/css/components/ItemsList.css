@@ -18,6 +18,10 @@
 .list-item {
   display: flex;
   justify-content: space-around;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border: 1px solid #eee;
 }
 
 .soon-item {
@@ -44,6 +48,7 @@
 .item-name {
   flex: 0.85;
   text-align: left;
+  color: #585555;
 }
 
 .line-through {
@@ -80,4 +85,10 @@
 
 .search-no-items {
   margin: 20px;
+}
+
+.delete-icon {
+  color: #b53737;
+  border: none;
+  font-size: 1em;
 }

@@ -1,3 +1,5 @@
+import Bus from './bus';
+
 const filter = (name) => {
   let pattern = /[.,:'?!;\-_)({}[\]¡¿"—*%#^]*/g;
   return name.replace(pattern, '').toLowerCase().trim();
@@ -44,10 +46,18 @@ export const isOutOfDate = (howSoon, recentPurchase) =>
     fromMilliSecToDays(recentPurchase) >
     howSoon * 2;
 
+const displayMessage = (content, type) => {
+  Bus.emit('flash', {
+    content,
+    type,
+  });
+};
+
 export {
   existingName,
   fromMilliSecToHours,
   getUTCNowInMilliSec,
   fromMilliSecToDays,
   filter,
+  displayMessage,
 };
