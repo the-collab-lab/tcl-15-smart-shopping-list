@@ -1,3 +1,5 @@
+import Bus from './bus';
+
 const filter = (name) => {
   let pattern = /[.,:'?!;\-_)({}[\]¡¿"—*%#^]*/g;
   return name.replace(pattern, '').toLowerCase().trim();
@@ -32,10 +34,18 @@ const fromMilliSecToHours = (time) => time / (1000 * 60 * 60);
 
 const fromMilliSecToDays = (time) => Math.ceil(time / (1000 * 60 * 60 * 24));
 
+const displayMessage = (content, type) => {
+  Bus.emit('flash', {
+    content,
+    type,
+  });
+};
+
 export {
   existingName,
   fromMilliSecToHours,
   getUTCNowInMilliSec,
   fromMilliSecToDays,
   filter,
+  displayMessage,
 };

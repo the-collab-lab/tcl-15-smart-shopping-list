@@ -1,11 +1,10 @@
 import React from 'react';
 import { firebase } from '../lib/firebase';
-import Bus from '../lib/bus';
-
 import {
   fromMilliSecToHours,
   getUTCNowInMilliSec,
   fromMilliSecToDays,
+  displayMessage,
 } from '../lib/helper';
 import { userShoppingList } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
@@ -21,16 +20,10 @@ const ListItem = ({ listItem, itemId }) => {
           [itemId]: firebase.firestore.FieldValue.delete(),
         })
         .then((res) => {
-          Bus.emit('flash', {
-            content: `${listItem.name} deleted successfully`,
-            type: 'success',
-          });
+          displayMessage(`${listItem.name} deleted successfully`, 'success');
         })
         .catch((res) => {
-          Bus.emit('flash', {
-            content: `Something went wrong, Sorry!!!`,
-            type: 'error',
-          });
+          displayMessage(`Something went wrong, Sorry!`, 'error');
         });
     }
   };

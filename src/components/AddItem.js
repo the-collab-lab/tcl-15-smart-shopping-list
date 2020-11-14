@@ -2,11 +2,10 @@ import React from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
 import { userShoppingList } from '../lib/shoppingListsCollection';
-import { existingName } from '../lib/helper';
+import { existingName, displayMessage } from '../lib/helper';
 import '../css/components/AddItemsForm.css';
 import { v4 as uuid } from 'uuid';
 import FlashMessage from './flashMessage';
-import Bus from '../lib/bus';
 
 const AddItem = () => {
   const resetForm = (setInputValue) => {
@@ -27,10 +26,10 @@ const AddItem = () => {
       .then((data) => {
         if (data.data()) {
           if (existingName(data.data(), newItem.name)) {
-            Bus.emit('flash', {
-              content: `The item: ${newItem.name} already exists!!`,
-              type: 'error',
-            });
+            displayMessage(
+              `The item: ${newItem.name} already exists!!`,
+              'error',
+            );
             return;
           }
         }
@@ -46,10 +45,7 @@ const AddItem = () => {
             },
           )
           .then((success) => {
-            Bus.emit('flash', {
-              content: 'Successfully Added',
-              type: 'success',
-            });
+            displayMessage('Successfully Added', 'success');
             resetForm(setInputValue);
           })
           .catch((error) => {
