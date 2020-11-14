@@ -89,7 +89,6 @@ const ListItem = ({ listItem, itemId }) => {
         checked={isChecked}
         aria-label={isChecked ? 'Purchased item' : 'Check to mark as purchased'}
       />
-      <div className="item-name">{listItem.name}</div>
       <button
         onClick={removeItem}
         className="delete-icon"

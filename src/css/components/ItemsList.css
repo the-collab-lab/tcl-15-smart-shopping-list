@@ -12,7 +12,6 @@
   color: #3f2f4e;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   position: relative;
-  flex-direction: row-reverse;
 }
 
 .list-item {
