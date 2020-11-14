@@ -38,15 +38,17 @@ const ListItem = ({ listItem, itemId }) => {
   // This function specifies what color each item should have based on how soon the item is to be bought.
   // also return arial-label each item should have
   const getStatusAndAriaLabel = ({ howSoon, recentPurchase }) => {
-    if (isOutOfDate(howSoon, recentPurchase)) {
+    if (isOutOfDate(howSoon, recentPurchase))
       return ['inactive', 'inactive item'];
-    }
 
-    return howSoon <= 7
-      ? ['soon', 'Next purchase within 7 days']
-      : howSoon > 7 && howSoon < 30
-      ? ['kind-of-soon', 'Next purchase within 30 days']
-      : ['not-soon', 'Next purchase within more than 30 days'];
+    switch (true) {
+      case howSoon <= 7:
+        return ['soon', 'Next purchase within 7 days'];
+      case howSoon > 7 && howSoon < 30:
+        return ['kind-of-soon', 'Next purchase within 30 days'];
+      default:
+        return ['not-soon', 'Next purchase within more than 30 days'];
+    }
   };
 
   const [status, ariaLabel] = getStatusAndAriaLabel(listItem);
