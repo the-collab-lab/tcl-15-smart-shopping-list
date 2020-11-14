@@ -2,23 +2,15 @@
   height: 62vh;
   overflow-y: auto;
 }
+
 .list-item {
   width: 70%;
   margin: auto;
   margin-top: 10px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  color: #3f2f4e;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.list-item {
   display: flex;
   justify-content: space-around;
   font-weight: bold;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 3px 1px rgb(187 183 183 / 20%);
   padding: 10px;
   border: 1px solid #eee;
 }
@@ -42,12 +34,15 @@
 .check-item {
   width: 15px;
   height: 15px;
+  order: 1;
+  align-self: center;
 }
 
 .item-name {
   flex: 0.85;
   text-align: left;
   color: #585555;
+  order: 2;
 }
 
 .line-through {
@@ -90,4 +85,6 @@
   color: #b53737;
   border: none;
   font-size: 1em;
+  order: 3;
+  align-self: center;
 }
