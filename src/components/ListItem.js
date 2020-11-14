@@ -52,24 +52,21 @@ const ListItem = ({ listItem, itemId }) => {
   const [status, ariaLabel] = getStatusAndAriaLabel(listItem);
 
   return (
-    <li
-      key={listItem.name}
-      className={`list-item ${status}-item`}
-      aria-label={ariaLabel}
-    >
-      <label
-        aria-label="Check item as purchased"
-        htmlFor={listItem.name}
-      ></label>
+    <li key={listItem.name} className={`list-item ${status}-item`}>
+      <div
+        className={`item-name ${isChecked ? 'line-through' : ''}`}
+        aria-label={ariaLabel}
+      >
+        {listItem.name}
+      </div>
       <input
         type="checkbox"
         className="check-item"
         onChange={() => checkItem()}
         disabled={isChecked}
         checked={isChecked}
-        id={listItem.name}
+        aria-label={isChecked ? 'Purchased item' : 'Check to mark as purchased'}
       />
-      <div className="item-name">{listItem.name}</div>
     </li>
   );
 };

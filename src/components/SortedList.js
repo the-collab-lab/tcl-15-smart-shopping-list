@@ -21,7 +21,7 @@ const SortedList = ({ itemsKeys, data }) => {
       : -1;
 
   return (
-    <ul aria-label="List of items" className="sorted-list">
+    <ul className="sorted-list">
       {itemsKeys
         .sort((a, b) => {
           // setup all the variables we will need
