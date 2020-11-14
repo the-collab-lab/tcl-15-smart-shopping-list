@@ -1,21 +1,15 @@
 .list-item {
-  background-color: aqua;
+  background-color: #fff;
   width: 50%;
-  margin: auto;
-  margin-top: 10px;
+  margin: 10px auto;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: whitesmoke;
   font-weight: bold;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.list-item {
-  background-color: cadetblue;
-  display: flex;
-  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid #eee;
 }
 
 .check-item {
@@ -25,6 +19,7 @@
 .item-name {
   flex: 3;
   text-align: left;
+  color: #585555;
 }
 
 .check-item:disabled + div {
@@ -61,4 +56,10 @@
 
 .search-no-items {
   margin: 20px;
+}
+
+.delete-icon {
+  color: #b53737;
+  border: none;
+  font-size: 1em;
 }
