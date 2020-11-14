@@ -1,14 +1,58 @@
 import React from 'react';
 import ListItem from './ListItem';
+import { filter as removePunctuation, isOutOfDate } from '../lib/helper';
 
 const SortedList = ({ itemsKeys, data }) => {
+  const compareItems = (howSoonA, howSoonB, nameA, nameB) => {
+    // compareItems() checks which item has the less number of the estimated days.
+    if (howSoonA < howSoonB) return -1;
+    if (howSoonA > howSoonB) return 1;
+
+    // reaching this line means that both items
+    // have the same number of estimated days until the next purchase.
+    // so now we have to compare by the names
+    // and since names are unique, one name must be greater than the other
+    if (removePunctuation(nameA) > removePunctuation(nameB)) return 1;
+
+    // returning -1 means that the item with nameB should come first on the list
+    return -1;
+  };
   return (
-    <ul>
+    <ul className="sorted-list">
       {itemsKeys
-        // This explicitly compares between a or b, in order to sort the items by the keys
-        // If a is greater than b, it will return 1, else if a is less than b it will return -1
-        // Or else, it will return 0
-        .sort((a, b) => (a > b ? 1 : a < b ? -1 : 0))
+        .sort((a, b) => {
+          // setup the variables with the data we will need
+          let [howSoonA, nameA, howSoonB, nameB] = [
+            data[a].howSoon,
+            data[a].name,
+            data[b].howSoon,
+            data[b].name,
+          ];
+          let [isOutOfDateA, isOutOfDateB] = [
+            isOutOfDate(howSoonA, data[a].recentPurchase),
+            isOutOfDate(howSoonB, data[b].recentPurchase),
+          ];
+
+          // here we have four probabilities:
+          // 1:) items of keys a and b could both be NOT out of date
+          // 2:) items of keys a and b could both be out of date
+          if (
+            (!isOutOfDateA && !isOutOfDateB) ||
+            (isOutOfDateA && isOutOfDateB)
+          ) {
+            // we need to compare the items by the estimated days or the names
+            return compareItems(howSoonA, howSoonB, nameA, nameB);
+          }
+
+          // 3:) only the item of key a is out of date
+          // we don't need to comare the items here
+          // the item that's out of date should always come last
+          if (isOutOfDateA) return 1;
+
+          // 4:) only the item of key b is out of date
+          // the item with the key a should come first on the list
+          return -1;
+        })
         .map((key) => (
           <ListItem listItem={data[key]} key={key} itemId={key} />
         ))}

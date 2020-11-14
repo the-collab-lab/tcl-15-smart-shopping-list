@@ -58,7 +58,7 @@ const AddItem = () => {
   };
 
   return (
-    <div className="add-item-form">
+    <main className="add-item-form">
       <h1 className="app-name">Smart Shopping List</h1>
       <FlashMessage />
       <Form
@@ -71,7 +71,7 @@ const AddItem = () => {
         submitBtn={{ text: 'Add', className: 'add-item-btn' }}
         children={<HowSoonOptions />}
       />
-    </div>
+    </main>
   );
 };
 

@@ -15,10 +15,13 @@ const JoinAShoppingList = ({ onSharedToken }) => {
 
   return (
     <div className="join-shopping-list">
-      <h3>JOIN A SHOPPING LIST</h3>
+      <h2>JOIN A SHOPPING LIST</h2>
       <Form
         onSubmit={handleSubmit}
-        inputField={{ input: { placeholder: 'Enter a three word token' } }}
+        inputField={{
+          input: { placeholder: 'Enter a three word token' },
+          label: { ariaLabel: 'Enter a three word token' },
+        }}
         submitBtn={{ text: 'Submit' }}
         className="join-shopping-list-form"
       />

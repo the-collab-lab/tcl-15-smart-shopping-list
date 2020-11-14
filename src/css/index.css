@@ -29,3 +29,10 @@ code {
 button {
   cursor: pointer;
 }
+
+input:focus,
+.navlinks a:focus,
+.add-item-btn:focus,
+.join-shopping-list-form button:focus {
+  border: 2px solid gray;
+}

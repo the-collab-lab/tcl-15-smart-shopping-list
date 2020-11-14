@@ -1,28 +1,57 @@
+.sorted-list {
+  height: 62vh;
+  overflow-y: auto;
+}
 .list-item {
-  background-color: #fff;
-  width: 50%;
-  margin: 10px auto;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
   height: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  color: #3f2f4e;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  flex-direction: row-reverse;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-around;
   font-weight: bold;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   padding: 10px;
   border: 1px solid #eee;
 }
 
+.soon-item {
+  background-color: rgb(199, 235, 199);
+}
+
+.kind-of-soon-item {
+  background-color: rgb(180, 211, 216);
+}
+
+.not-soon-item {
+  background-color: #ebd4d9;
+}
+
+.inactive-item {
+  background-color: rgb(231, 231, 231);
+}
+
 .check-item {
-  flex: 1;
+  width: 15px;
+  height: 15px;
 }
 
 .item-name {
-  flex: 3;
+  flex: 0.85;
   text-align: left;
   color: #585555;
 }
 
-.check-item:disabled + div {
+.line-through {
   text-decoration: line-through #666666;
 }
 .search-term-wrapper {

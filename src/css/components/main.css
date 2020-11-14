@@ -1,3 +1,6 @@
+:root {
+  --main-color: #696969;
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -6,12 +9,12 @@
   min-height: 400px;
   width: 370px;
   margin: auto;
-  border: 5px solid gray;
+  border: 5px solid var(--main-color);
   border-radius: 3px;
 }
 
 .header {
-  background-color: gray;
+  background-color: var(--main-color);
   height: 70px;
   display: flex;
   justify-content: center;
@@ -65,12 +68,13 @@
   align-self: center;
   height: 40px;
   border: none;
-  background-color: gray;
+  background-color: var(--main-color);
   color: whitesmoke;
   font-size: large;
   border-radius: 3px;
 }
-.button-token:hover {
+.button-token:hover,
+.button-token:focus {
   border: 2px solid whitesmoke;
 }
 .join-shopping-list {
@@ -79,7 +83,7 @@
   display: flex;
   flex-direction: column;
 }
-.join-shopping-list h3 {
+.join-shopping-list h2 {
   font-size: 1.3rem;
 }
 .join-shopping-list-form label {
