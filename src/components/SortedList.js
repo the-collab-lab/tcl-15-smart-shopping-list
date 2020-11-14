@@ -11,17 +11,17 @@ const SortedList = ({ itemsKeys, data }) => {
     // reaching this line means that both items
     // have the same number of estimated days until the next purchase.
     // so now we have to compare by the names
-    // and since names are unique one name must be greater than the other
+    // and since names are unique, one name must be greater than the other
     if (removePunctuation(nameA) > removePunctuation(nameB)) return 1;
 
-    // returning -1 means that nameB should come first on the list
+    // returning -1 means that the item with nameB should come first on the list
     return -1;
   };
   return (
     <ul className="sorted-list">
       {itemsKeys
         .sort((a, b) => {
-          // setup all the variables we will need
+          // setup the variables with the data we will need
           let [howSoonA, nameA, howSoonB, nameB] = [
             data[a].howSoon,
             data[a].name,
@@ -45,12 +45,12 @@ const SortedList = ({ itemsKeys, data }) => {
           }
 
           // 3:) only the item of key a is out of date
-          // we don't need to comare items here
+          // we don't need to comare the items here
           // the item that's out of date should always come last
           if (isOutOfDateA) return 1;
 
           // 4:) only the item of key b is out of date
-          // and a should come first on the list
+          // the item with the key a should come first on the list
           return -1;
         })
         .map((key) => (

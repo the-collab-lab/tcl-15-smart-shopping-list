@@ -35,8 +35,8 @@ const ListItem = ({ listItem, itemId }) => {
   const isChecked =
     fromMilliSecToHours(getUTCNowInMilliSec() - listItem.recentPurchase) < 24;
 
-  // This function specifies what color each item should have based on how soon the item is to be bought.
-  // also return arial-label each item should have
+  // This function specifies which color each item should have based on how soon the item is to be bought.
+  // also it returns the arial-label each item should have
   const getStatusAndAriaLabel = ({ howSoon, recentPurchase }) => {
     if (isOutOfDate(howSoon, recentPurchase))
       return ['inactive', 'inactive item'];
