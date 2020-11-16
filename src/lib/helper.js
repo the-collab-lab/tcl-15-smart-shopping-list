@@ -46,6 +46,20 @@ export const isOutOfDate = (howSoon, recentPurchase) =>
     fromMilliSecToDays(recentPurchase) >
     howSoon * 2;
 
+const formatDate = (dateInMilliSec) => {
+  const date = new Date(dateInMilliSec);
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  return date.toLocaleString('en-US', options);
+};
+
+const calculateNextPurchase = (howSoon, recentPurchase) => {
+  return recentPurchase + howSoon * dayInMilliSeconds;
+};
+
 const displayMessage = (content, type) => {
   Bus.emit('flash', {
     content,
@@ -60,4 +74,6 @@ export {
   fromMilliSecToDays,
   filter,
   displayMessage,
+  formatDate,
+  calculateNextPurchase,
 };
