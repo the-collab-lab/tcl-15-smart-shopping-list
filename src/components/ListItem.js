@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { firebase } from '../lib/firebase';
 import {
   fromMilliSecToHours,
@@ -9,8 +9,9 @@ import {
 } from '../lib/helper';
 import { userShoppingList } from '../lib/shoppingListsCollection';
 import calculateEstimate from '../lib/estimates';
-
+import ListItemDetails from './ListItemDetails';
 const ListItem = ({ listItem, itemId }) => {
+  const [showModal, setShowModal] = useState(false);
   const removeItem = () => {
     const isOk = window.confirm(
       `Are you sure you want to delele ${listItem.name}?`,
@@ -96,6 +97,16 @@ const ListItem = ({ listItem, itemId }) => {
       >
         <i className="fas fa-trash"></i>
       </button>
+      <button className="item-details-icon" onClick={() => setShowModal(true)}>
+        Details
+      </button>
+      {showModal && (
+        <ListItemDetails
+          listItem={listItem}
+          isShowModal={showModal}
+          hideModal={() => setShowModal(false)}
+        />
+      )}
     </li>
   );
 };

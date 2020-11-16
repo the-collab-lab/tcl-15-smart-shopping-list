@@ -80,11 +80,13 @@
 .search-no-items {
   margin: 20px;
 }
-
+.item-details-icon {
+  order: 3;
+}
 .delete-icon {
   color: #b53737;
   border: none;
   font-size: 1em;
-  order: 3;
+  order: 4;
   align-self: center;
 }

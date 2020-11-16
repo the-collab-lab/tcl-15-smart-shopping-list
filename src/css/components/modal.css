@@ -1,0 +1,14 @@
+.display-none {
+  display: none;
+}
+.display-block {
+  display: block;
+}
+.modal {
+  position: fixed;
+  margin: auto;
+  max-width: 370px;
+  width: 100%;
+  z-index: 999999;
+  background-color: gray;
+}
