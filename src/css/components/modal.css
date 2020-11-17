@@ -5,10 +5,18 @@
   display: block;
 }
 .modal {
-  position: fixed;
-  margin: auto;
-  max-width: 370px;
+  position: absolute;
   width: 100%;
-  z-index: 999999;
-  background-color: gray;
+  height: 100%;
+  top: 0;
+  background-color: #00000059;
+}
+
+.modal-container {
+  background: #fff;
+  max-width: 500px;
+  padding: 20px;
+  margin: auto;
+  top: 300px;
+  position: relative;
 }
