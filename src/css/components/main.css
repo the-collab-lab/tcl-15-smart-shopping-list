@@ -7,7 +7,7 @@
   text-align: center;
   height: 98%;
   min-height: 400px;
-  width: 370px;
+  width: 100%;
   margin: auto;
   border: 5px solid var(--main-color);
   border-radius: 3px;
@@ -23,7 +23,6 @@
 }
 .app-inner {
   flex: 1;
-  position: relative;
 }
 
 .navbar {
