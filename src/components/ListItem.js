@@ -78,7 +78,10 @@ const ListItem = ({ listItem, itemId }) => {
     <li key={listItem.name} className={`list-item ${status}-item`}>
       <div
         className={`item-name ${isChecked ? 'line-through' : ''}`}
-        aria-label={ariaLabel}
+        aria-label={`${listItem.name} ${ariaLabel} ${
+          isChecked && 'Already purchased today'
+        }`}
+        tabIndex="0"
       >
         {listItem.name}
       </div>
@@ -88,15 +91,8 @@ const ListItem = ({ listItem, itemId }) => {
         onChange={() => checkItem()}
         disabled={isChecked}
         checked={isChecked}
-        aria-label={isChecked ? 'Purchased item' : 'Check to mark as purchased'}
+        aria-label="Check to mark as purchased"
       />
-      <button
-        onClick={removeItem}
-        className="delete-icon"
-        aria-label="Delete this item from your shopping list"
-      >
-        <i className="fas fa-trash"></i>
-      </button>
       <button className="item-details-icon" onClick={() => setShowModal(true)}>
         Details
       </button>
@@ -107,6 +103,13 @@ const ListItem = ({ listItem, itemId }) => {
           hideModal={() => setShowModal(false)}
         />
       )}
+      <button
+        onClick={removeItem}
+        className="delete-icon"
+        aria-label="Delete this item from your shopping list"
+      >
+        <i className="fas fa-trash"></i>
+      </button>
     </li>
   );
 };

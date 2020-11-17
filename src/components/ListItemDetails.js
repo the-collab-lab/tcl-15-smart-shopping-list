@@ -7,13 +7,10 @@ const ListItemDetails = ({ listItem, isShowModal, hideModal }) => {
   return (
     <div className={`modal ${toggleModal}`} onClick={hideModal}>
       <div className="modal-container">
-        <div className="modal-header">
+        <div className="modal-header" tabIndex="0">
           <h1>{listItem.name}</h1>
-          <button onClick={hideModal} className="close-btn">
-            &times;
-          </button>
         </div>
-        <div className="modal-body">
+        <div className="modal-body" tabIndex="0">
           {listItem.recentPurchase ? (
             <>
               <p>Last purchased: {formatDate(listItem['recentPurchase'])}</p>
@@ -36,6 +33,13 @@ const ListItemDetails = ({ listItem, isShowModal, hideModal }) => {
             <p>Not purchases yet</p>
           )}
         </div>
+        <button
+          onClick={hideModal}
+          className="close-btn"
+          aria-label="Close item details window"
+        >
+          &times;
+        </button>
       </div>
     </div>
   );
