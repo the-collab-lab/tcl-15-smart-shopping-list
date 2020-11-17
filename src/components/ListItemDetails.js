@@ -9,7 +9,9 @@ const ListItemDetails = ({ listItem, isShowModal, hideModal }) => {
       <div className="modal-container">
         <div className="modal-header">
           <h1>{listItem.name}</h1>
-          <button onClick={hideModal}>X</button>
+          <button onClick={hideModal} className="close-btn">
+            &times;
+          </button>
         </div>
         <div className="modal-body">
           {listItem.recentPurchase ? (
