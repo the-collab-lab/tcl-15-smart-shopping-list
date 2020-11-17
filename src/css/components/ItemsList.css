@@ -82,6 +82,12 @@
 }
 .item-details-icon {
   order: 3;
+  border: none;
+  color: rgb(80, 79, 79);
+  border: none;
+  font-size: 1em;
+  align-self: center;
+  background-color: transparent;
 }
 .delete-icon {
   color: #b53737;
@@ -89,4 +95,5 @@
   font-size: 1em;
   order: 4;
   align-self: center;
+  background-color: transparent;
 }

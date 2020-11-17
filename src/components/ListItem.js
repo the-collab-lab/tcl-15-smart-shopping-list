@@ -93,8 +93,12 @@ const ListItem = ({ listItem, itemId }) => {
         checked={isChecked}
         aria-label="Check to mark as purchased"
       />
-      <button className="item-details-icon" onClick={() => setShowModal(true)}>
-        Details
+      <button
+        className="item-details-icon"
+        onClick={() => setShowModal(true)}
+        aria-label="Show details"
+      >
+        <i class="fa fa-info-circle"></i>
       </button>
       {showModal && (
         <ListItemDetails
