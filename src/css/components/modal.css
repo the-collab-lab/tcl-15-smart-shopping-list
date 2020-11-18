@@ -10,6 +10,7 @@
   height: 100%;
   top: 0;
   background-color: #00000059;
+  z-index: 99999;
 }
 
 .modal-container {
@@ -18,7 +19,6 @@
   padding: 20px;
   margin: auto;
   border-radius: 5px;
-  top: 300px;
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation: animatetop 0.4s ease-in-out;
@@ -26,6 +26,11 @@
   -webkit-animation-duration: 0.5s;
   animation-name: animatetop;
   animation-duration: 0.5s;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 98%;
 }
 .close-btn {
   position: absolute;
@@ -49,7 +54,7 @@
     opacity: 0;
   }
   to {
-    top: 300px;
+    top: 40%;
     opacity: 1;
   }
 }
@@ -60,7 +65,7 @@
     opacity: 0;
   }
   to {
-    top: 300px;
+    top: 40%;
     opacity: 1;
   }
 }

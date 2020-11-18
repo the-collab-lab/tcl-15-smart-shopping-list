@@ -1,18 +1,22 @@
+.navbar {
+  position: absolute;
+  bottom: 0px;
+  margin: auto;
+  width: 100%;
+}
 .navlinks {
   font-size: 20px;
   margin: auto;
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 600px;
 }
-
 .not-selected {
   padding: 10px;
   color: black;
   text-decoration: none;
   border: 1px solid rgb(143, 142, 142);
   flex-grow: 1;
+  background: white;
 }
 .selected {
   font-weight: bolder;

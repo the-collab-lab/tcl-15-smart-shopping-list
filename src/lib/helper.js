@@ -40,12 +40,12 @@ export const isOutOfDate = ({ howSoon, recentPurchase }) => {
   // an item is out of date if the number of days from the last purchase is greater than howSoon X 2.
   // we're also checking if recentPurchase because when the items are first added to the list
   // recentPurchase is null by default. And the items shouldn't be out of date if they're just added.
-  const daysFromLastPurchase = getDaysFromLastPurchase(recentPurchase);
+  const daysFromLastPurchase = getDaysSinceLastPurchase(recentPurchase);
 
   return recentPurchase !== null && daysFromLastPurchase > howSoon * 2;
 };
 
-export const getDaysFromLastPurchase = (recentPurchase) =>
+export const getDaysSinceLastPurchase = (recentPurchase) =>
   fromMilliSecToDays(getUTCNowInMilliSec() - recentPurchase);
 
 const calculateNextPurchase = (howSoon, recentPurchase) =>

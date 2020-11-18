@@ -5,14 +5,27 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 98%;
-  min-height: 400px;
-  width: 100%;
   margin: auto;
   border: 5px solid var(--main-color);
   border-radius: 3px;
+  width: 28%;
+  min-height: 95%;
 }
-
+@media (max-width: 1200px) {
+  .App {
+    width: 47%;
+  }
+}
+@media (max-width: 700px) {
+  .App {
+    width: 65%;
+  }
+}
+@media (max-width: 550px) {
+  .App {
+    width: 95%;
+  }
+}
 .header {
   background-color: var(--main-color);
   height: 70px;
@@ -23,13 +36,7 @@
 }
 .app-inner {
   flex: 1;
-}
-
-.navbar {
-  position: absolute;
-  bottom: 0px;
-  margin: auto;
-  width: 100%;
+  position: relative;
 }
 
 .join-shopping-list-form {
