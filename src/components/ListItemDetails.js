@@ -30,7 +30,7 @@ const ListItemDetails = ({ listItem, isShowModal, hideModal }) => {
               </p>
             </>
           ) : (
-            <p>Not purchases yet</p>
+            <p>No recorded purchases yet</p>
           )}
         </div>
         <button
