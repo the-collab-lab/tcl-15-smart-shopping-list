@@ -1,6 +1,10 @@
 import React from 'react';
 import ListItem from './ListItem';
-import { filter as removePunctuation, isOutOfDate } from '../lib/helper';
+import {
+  filter as removePunctuation,
+  isOutOfDate,
+  getDaysUntilNextPurchase,
+} from '../lib/helper';
 
 const SortedList = ({ itemsKeys, data }) => {
   const compareItems = (howSoonA, howSoonB, nameA, nameB) => {
@@ -21,16 +25,20 @@ const SortedList = ({ itemsKeys, data }) => {
     <ul className="sorted-list">
       {itemsKeys
         .sort((a, b) => {
-          // setup the variables with the data we will need
+          // setup the variables with the data we will need.
+          // howSoonA and howSoonB are the numbers of estimated days
+          // until the next purchase. they'll be calcualted every time
+          // the list renders
           let [howSoonA, nameA, howSoonB, nameB] = [
-            data[a].howSoon,
+            Math.abs(getDaysUntilNextPurchase(data[a])),
             data[a].name,
-            data[b].howSoon,
+            Math.abs(getDaysUntilNextPurchase(data[b])),
             data[b].name,
           ];
+
           let [isOutOfDateA, isOutOfDateB] = [
-            isOutOfDate(howSoonA, data[a].recentPurchase),
-            isOutOfDate(howSoonB, data[b].recentPurchase),
+            isOutOfDate(data[a]),
+            isOutOfDate(data[b]),
           ];
 
           // here we have four probabilities:

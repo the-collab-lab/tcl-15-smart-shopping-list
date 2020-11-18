@@ -36,17 +36,33 @@ const fromMilliSecToHours = (time) => time / hourInMilliSeconds;
 
 const fromMilliSecToDays = (time) => Math.ceil(time / dayInMilliSeconds);
 
-//To check if the item is out of date, subtract the recentPurchase (in days) from the current date (in days)
-//and check if the result is greater than the estimated howSoon X 2.
-// we're also checking if recentPurchase because when the items are first added to the list
-// recentPurchase is null by default. And the items shouldn't be out of date if they're just added.
-export const isOutOfDate = (howSoon, recentPurchase) =>
-  recentPurchase &&
-  fromMilliSecToDays(getUTCNowInMilliSec()) -
-    fromMilliSecToDays(recentPurchase) >
-    howSoon * 2;
+export const isOutOfDate = ({ howSoon, recentPurchase }) => {
+  // an item is out of date if the number of days from the last purchase is greater than howSoon X 2.
+  // we're also checking if recentPurchase because when the items are first added to the list
+  // recentPurchase is null by default. And the items shouldn't be out of date if they're just added.
+  const daysFromLastPurchase = getDaysFromLastPurchase(recentPurchase);
+
+  return recentPurchase !== null && daysFromLastPurchase > howSoon * 2;
+};
+
+export const getDaysFromLastPurchase = (recentPurchase) =>
+  fromMilliSecToDays(getUTCNowInMilliSec() - recentPurchase);
+
+const calculateNextPurchase = (howSoon, recentPurchase) =>
+  // add the estimated days until the next purchase (howSoon in milliseconds) to
+  // the last purchase to calculate the next purchase date
+  recentPurchase + howSoon * dayInMilliSeconds;
+
+export const getDaysUntilNextPurchase = ({ howSoon, recentPurchase }) => {
+  if (!recentPurchase) return howSoon;
+  const nextPurchaseDate = calculateNextPurchase(howSoon, recentPurchase);
+
+  return fromMilliSecToDays(nextPurchaseDate - getUTCNowInMilliSec());
+};
 
 const formatDate = (dateInMilliSec) => {
+  // formate the date in a full written month, a numeric day, and a numeric year
+  // e.g. November 17, 2020
   const date = new Date(dateInMilliSec);
   const options = {
     year: 'numeric',
@@ -54,10 +70,6 @@ const formatDate = (dateInMilliSec) => {
     day: 'numeric',
   };
   return date.toLocaleString('en-US', options);
-};
-
-const calculateNextPurchase = (howSoon, recentPurchase) => {
-  return recentPurchase + howSoon * dayInMilliSeconds;
 };
 
 const displayMessage = (content, type) => {
