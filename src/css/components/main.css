@@ -1,5 +1,5 @@
 :root {
-  --main-color: #696969;
+  --main-color: rgb(245, 243, 243);
 }
 .App {
   display: flex;
@@ -13,11 +13,20 @@
   border-radius: 3px;
 }
 
+.icon {
+  width: 20%;
+}
+
+.icon-title {
+  color: rgb(109, 106, 106);
+  font-weight: bold;
+  margin: 0 15px;
+}
+
 .header {
   background-color: var(--main-color);
   height: 70px;
   display: flex;
-  justify-content: center;
   align-items: center;
   color: whitesmoke;
 }
@@ -44,6 +53,7 @@
 }
 
 .home {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -71,6 +81,10 @@
 
 .main-or {
   padding: 30px 0;
+}
+
+.create-new-list-btn {
+  margin: 0px 50px;
 }
 
 .button-token {
@@ -105,10 +119,10 @@
   border-radius: 5px;
   text-align: center;
   height: 40px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
 }
 .join-shopping-list-form input {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .token-error {

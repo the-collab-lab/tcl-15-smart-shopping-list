@@ -20,7 +20,11 @@ const MainIterface = ({ setHasToken }) => {
     <Container>
       <main className="main-interface">
         <h1 className="main-title">Welcome to your Smart Shopping List</h1>
-        <Button onClick={() => handleSettingToken()} variant="info">
+        <Button
+          className="create-new-list-btn"
+          onClick={() => handleSettingToken()}
+          variant="warning"
+        >
           Create New List
         </Button>
         <p className="main-or">- or -</p>
