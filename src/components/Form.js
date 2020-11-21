@@ -21,7 +21,9 @@ const Form = (props) => {
         }}
       />
       {children}
-      <Button variant="dark">{submitBtn.text}</Button>
+      <Button type="submit" variant="dark">
+        {submitBtn.text}
+      </Button>
     </form>
   );
 };
