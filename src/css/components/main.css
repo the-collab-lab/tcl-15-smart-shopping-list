@@ -1,20 +1,33 @@
 :root {
-  --main-color: rgb(245, 243, 243);
+  --main-color: #f5f3f3;
+  --tablet-width: 95%;
+  --portrait-width: 47%;
+  --mobile-width: 65%;
 }
 .App {
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 98%;
-  min-height: 400px;
-  width: 370px;
   margin: auto;
   border: 5px solid var(--main-color);
   border-radius: 3px;
+  width: 28%;
+  min-height: 95%;
 }
-
-.icon {
-  width: 20%;
+@media (max-width: 1200px) {
+  .App {
+    width: var(--portrait-width);
+  }
+}
+@media (max-width: 700px) {
+  .App {
+    width: var(--mobile-width);
+  }
+}
+@media (max-width: 550px) {
+  .App {
+    width: var(--tablet-width);
+  }
 }
 
 .icon-title {
@@ -30,16 +43,18 @@
   align-items: center;
   color: whitesmoke;
 }
+
+.header div {
+  margin: auto;
+}
+
+.header img {
+  width: 50px;
+}
+
 .app-inner {
   flex: 1;
   position: relative;
-}
-
-.navbar {
-  position: absolute;
-  bottom: 0px;
-  margin: auto;
-  width: 100%;
 }
 
 .join-shopping-list-form {

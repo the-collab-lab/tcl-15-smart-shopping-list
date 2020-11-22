@@ -10,17 +10,17 @@
   display: flex;
   justify-content: space-around;
   font-weight: bold;
-  box-shadow: 2px 3px 1px rgb(187 183 183 / 20%);
+  box-shadow: 2px 3px 1px #c7ebc7;
   padding: 10px;
   border: 1px solid #eee;
 }
 
 .soon-item {
-  background-color: rgb(199, 235, 199);
+  background-color: #c7ebc7;
 }
 
 .kind-of-soon-item {
-  background-color: rgb(180, 211, 216);
+  background-color: #b4d3d8;
 }
 
 .not-soon-item {
@@ -28,7 +28,7 @@
 }
 
 .inactive-item {
-  background-color: rgb(231, 231, 231);
+  background-color: #e7e7e7;
 }
 
 .check-item {
@@ -55,7 +55,7 @@
   width: 80%;
   margin: auto;
   height: 30px;
-  border: 1px solid gray;
+  border: 1px solid #808080;
   padding-left: 3px;
   margin-top: 10px;
 }
@@ -68,23 +68,31 @@
   border: none;
   flex: 0.1;
   height: 100%;
-  color: whitesmoke;
-  background: gray;
+  color: #f5f5f5;
+  background: #808080;
   font-weight: bold;
 }
 .search-term-wrapper button:disabled {
-  background: lightgray;
+  background: #d3d3d3;
   cursor: not-allowed;
 }
 
 .search-no-items {
   margin: 20px;
 }
-
+.item-details-icon {
+  order: 3;
+  border: none;
+  color: #504f4f;
+  font-size: 1em;
+  align-self: center;
+  background-color: transparent;
+}
 .delete-icon {
   color: #b53737;
   border: none;
   font-size: 1em;
-  order: 3;
+  order: 4;
   align-self: center;
+  background-color: transparent;
 }
