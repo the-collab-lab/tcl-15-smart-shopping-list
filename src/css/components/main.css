@@ -1,5 +1,8 @@
 :root {
   --main-color: #696969;
+  --tablet-width: 95%;
+  --portrait-width: 47%;
+  --mobile-width: 65%;
 }
 .App {
   display: flex;
@@ -13,17 +16,17 @@
 }
 @media (max-width: 1200px) {
   .App {
-    width: 47%;
+    width: var(--portrait-width);
   }
 }
 @media (max-width: 700px) {
   .App {
-    width: 65%;
+    width: var(--mobile-width);
   }
 }
 @media (max-width: 550px) {
   .App {
-    width: 95%;
+    width: var(--tablet-width);
   }
 }
 .header {
