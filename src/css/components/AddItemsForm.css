@@ -1,5 +1,6 @@
 .app-name {
-  margin: 20px;
+  font-size: 30px;
+  margin: 30px;
 }
 
 .add-item-form {
@@ -8,7 +9,6 @@
 
 .add-item-label {
   text-align: left;
-  margin: 30px 0px;
 }
 
 .add-item-label span {
