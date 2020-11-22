@@ -43,6 +43,15 @@
   align-items: center;
   color: whitesmoke;
 }
+
+.header div {
+  margin: auto;
+}
+
+.header img {
+  width: 50px;
+}
+
 .app-inner {
   flex: 1;
   position: relative;

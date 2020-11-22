@@ -9,18 +9,17 @@
   margin: auto;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .not-selected {
   padding: 10px;
   color: black;
-  text-decoration: none;
   border: 1px solid rgb(143, 142, 142);
   flex-grow: 1;
   background: white;
 }
 
 .not-selected:hover {
-  text-decoration: none;
   color: rgb(53, 50, 50);
 }
 
