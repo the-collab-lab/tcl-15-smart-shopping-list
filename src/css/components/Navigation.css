@@ -18,6 +18,12 @@
   flex-grow: 1;
   background: white;
 }
+
+.not-selected:hover {
+  text-decoration: none;
+  color: rgb(53, 50, 50);
+}
+
 .selected {
   font-weight: bolder;
   background-color: rgb(143, 142, 142);

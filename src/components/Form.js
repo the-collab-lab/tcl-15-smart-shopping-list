@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InputField from './InputField';
+import { Button } from 'react-bootstrap';
 
 const Form = (props) => {
   const [inputValue, setInputValue] = useState('');
@@ -20,7 +21,9 @@ const Form = (props) => {
         }}
       />
       {children}
-      <button className={submitBtn.className}>{submitBtn.text}</button>
+      <Button type="submit" variant="dark">
+        {submitBtn.text}
+      </Button>
     </form>
   );
 };

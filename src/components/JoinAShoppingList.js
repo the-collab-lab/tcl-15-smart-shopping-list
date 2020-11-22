@@ -15,7 +15,7 @@ const JoinAShoppingList = ({ onSharedToken }) => {
 
   return (
     <div className="join-shopping-list">
-      <h2>JOIN A SHOPPING LIST</h2>
+      <h2>Join a Shopping List</h2>
       <Form
         onSubmit={handleSubmit}
         inputField={{
