@@ -26,7 +26,6 @@ export default function List() {
 
   return (
     <main>
-      <h1 className="list-title">List of Items</h1>
       <FlashMessage />
       <FirestoreDocument
         path={`shoppingLists/${getToken()}`}

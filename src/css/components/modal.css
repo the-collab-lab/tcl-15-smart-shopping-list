@@ -15,10 +15,14 @@
   z-index: 1;
 }
 
+.modal-header {
+  text-align: center;
+}
+
 .modal-container {
   background: #fff;
   max-width: 500px;
-  padding: 20px;
+  padding: 5px;
   margin: auto;
   border-radius: 5px;
   position: relative;
@@ -48,7 +52,7 @@
     opacity: 0;
   }
   to {
-    transform: translateY(200px);
+    transform: translateY(100px);
     opacity: 1;
   }
 }

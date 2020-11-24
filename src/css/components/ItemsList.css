@@ -10,9 +10,8 @@
   display: flex;
   justify-content: space-around;
   font-weight: bold;
-  box-shadow: 2px 3px 1px #c7ebc7;
+  box-shadow: 2px 3px 1px #e9ecef;
   padding: 10px;
-  border: 1px solid #eee;
 }
 
 .soon-item {
@@ -53,12 +52,17 @@
   justify-content: space-around;
   align-items: center;
   width: 80%;
-  margin: auto;
   height: 30px;
-  border: 1px solid #808080;
+  border: 1px solid #a7a5a5;
   padding-left: 3px;
-  margin-top: 10px;
+  margin: 20px auto;
 }
+
+.search-term-wrapper i {
+  color: #878181;
+  margin: 10px;
+}
+
 .search-term-wrapper input {
   flex: 1;
   height: 100%;
@@ -80,6 +84,7 @@
 .search-no-items {
   margin: 20px;
 }
+
 .item-details-icon {
   order: 3;
   border: none;
@@ -89,7 +94,7 @@
   background-color: transparent;
 }
 .delete-icon {
-  color: #b53737;
+  color: #9a6c6c;
   border: none;
   font-size: 1em;
   order: 4;
