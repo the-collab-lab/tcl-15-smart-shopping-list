@@ -1,33 +1,22 @@
 :root {
   --main-color: #f5f3f3;
-  --tablet-width: 95%;
-  --portrait-width: 47%;
-  --mobile-width: 65%;
 }
 .App {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    'header'
+    'main'
+    'nav';
   text-align: center;
-  margin: auto;
-  border: 5px solid var(--main-color);
-  border-radius: 3px;
-  width: 28%;
-  min-height: 95%;
+  height: 100vh;
 }
-@media (max-width: 1200px) {
-  .App {
-    width: var(--portrait-width);
-  }
-}
-@media (max-width: 700px) {
-  .App {
-    width: var(--mobile-width);
-  }
-}
-@media (max-width: 550px) {
-  .App {
-    width: var(--tablet-width);
-  }
+
+/* this is important to make the navbar stick in the bottom*/
+.app-inner {
+  overflow: auto;
 }
 
 .icon-title {
@@ -50,11 +39,6 @@
 
 .header img {
   width: 50px;
-}
-
-.app-inner {
-  flex: 1;
-  position: relative;
 }
 
 .join-shopping-list-form {
