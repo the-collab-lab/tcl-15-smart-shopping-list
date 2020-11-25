@@ -11,7 +11,7 @@
 .not-selected {
   padding: 10px;
   color: black;
-  border: 1px solid rgb(143, 142, 142);
+  border-top: 1px solid rgb(143, 142, 142);
   flex-grow: 1;
   background: white;
 }
