@@ -48,7 +48,10 @@ const AddItem = () => {
             },
           )
           .then((success) => {
-            displayMessage('Successfully Added', 'success');
+            displayMessage(
+              `Successfully Added  ${newItem.name} to your list`,
+              'success',
+            );
             resetForm(setInputValue);
           })
           .catch((error) => {

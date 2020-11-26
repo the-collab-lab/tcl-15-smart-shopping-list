@@ -7,6 +7,14 @@
   padding: 40px 10px;
 }
 
+.app-name {
+  font-size: 2em;
+  font-family: 'Satisfy', cursive;
+  font-style: italic;
+  color: var(--main-color);
+  margin: 0;
+}
+
 .add-item-form {
   display: flex;
   flex-direction: column;
@@ -18,14 +26,6 @@
   font-size: 1.2em;
   gap: 30px;
   color: #2d2d2c;
-}
-
-.app-name {
-  font-size: 2em;
-  font-family: 'Satisfy', cursive;
-  font-style: italic;
-  color: var(--main-color);
-  margin: 0;
 }
 
 .add-item-label {
@@ -67,16 +67,17 @@
   background-color: #91911b;
 }
 
+.flash-message {
+  padding: 10px 20px;
+  color: #4a4747;
+  margin: 10px auto;
+  width: fit-content;
+}
+
 .error {
   background-color: #e6afaf;
-  padding: 10px;
-  color: #4a4747;
-  margin: 10px;
 }
 
 .success {
   background-color: #a7f1a7;
-  padding: 10px;
-  color: #4a4747;
-  margin: 10px;
 }
