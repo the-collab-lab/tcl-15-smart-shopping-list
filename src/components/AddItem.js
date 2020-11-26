@@ -59,7 +59,7 @@ const AddItem = () => {
 
   return (
     <main className="add-item-container">
-      <h1 className="app-name">Smart Shopping List</h1>
+      <h1 className="app-name">One more item!</h1>
       <FlashMessage />
       <Form
         onSubmit={addToDatabase}

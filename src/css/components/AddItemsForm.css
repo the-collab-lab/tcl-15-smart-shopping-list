@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&family=Satisfy&display=swap');
+
 .add-item-container {
   background-image: url(../../assets/bg.jpg);
   background-repeat: no-repeat;
@@ -7,7 +9,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;
+  padding: 40px 10px;
 }
 
 .add-item-form {
@@ -17,10 +19,14 @@
   align-items: center;
   width: 100%;
   max-width: 500px;
+  font-family: 'Rancho', cursive;
+  font-size: 1.2em;
 }
 
 .app-name {
-  font-size: 30px;
+  font-size: 2em;
+  font-family: 'Satisfy', cursive;
+  color: var(--main-color);
 }
 
 .add-item-label {
