@@ -18,9 +18,10 @@
   align-self: center;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 300px;
   font-family: 'Rancho', cursive;
   font-size: 1.2em;
+  gap: 10px;
 }
 
 .app-name {
@@ -31,19 +32,22 @@
 
 .add-item-label {
   text-align: left;
+  width: 100%;
 }
 
 .add-item-label span {
-  display: inline-block;
-  width: 100%;
+  display: none;
 }
 
-.form-input {
+.add-item-form input[type='text'] {
   width: 100%;
-  padding: 7px 7px;
-  border: 1px solid #555;
-  border-radius: 3px;
-  margin: 10px 0px;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #2d2d2c;
+}
+
+.add-item-form input[type='text']:focus {
+  border-bottom-color: var(--secondary-color);
 }
 
 .add-item-btn {
@@ -74,9 +78,4 @@
   padding: 10px;
   color: #4a4747;
   margin: 10px;
-}
-
-.add-item-form input[type='text'] {
-  width: 95%;
-  height: 30px;
 }
