@@ -58,12 +58,12 @@ const AddItem = () => {
   };
 
   return (
-    <main className="add-item-form">
+    <main className="add-item-container">
       <h1 className="app-name">Smart Shopping List</h1>
       <FlashMessage />
       <Form
         onSubmit={addToDatabase}
-        className="add-item"
+        className="add-item-form"
         inputField={{
           input: { placeholder: 'Enter item name' },
           label: { name: 'Item Name', className: 'add-item-label' },
