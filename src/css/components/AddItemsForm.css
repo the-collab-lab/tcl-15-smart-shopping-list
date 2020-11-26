@@ -18,7 +18,6 @@
 
 .form-input {
   width: 100%;
-  padding: 7px 7px;
   border: 1px solid #555;
   border-radius: 3px;
   margin: 10px 0px;
@@ -41,16 +40,19 @@
 }
 
 .error {
-  background-color: #e6afaf;
-  padding: 10px;
+  background-color: #eee0e0;
   color: #4a4747;
-  margin: 10px;
 }
 
 .success {
-  background-color: #a7f1a7;
+  background-color: #e0eee5;
+  color: rgb(62, 61, 61);
+}
+
+.success,
+.error {
+  border-radius: 5px;
   padding: 10px;
-  color: #4a4747;
   margin: 10px;
 }
 

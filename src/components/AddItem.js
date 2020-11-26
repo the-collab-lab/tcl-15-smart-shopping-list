@@ -45,7 +45,7 @@ const AddItem = () => {
             },
           )
           .then((success) => {
-            displayMessage('Successfully Added', 'success');
+            displayMessage('Your item was successfully added', 'success');
             resetForm(setInputValue);
           })
           .catch((error) => {
