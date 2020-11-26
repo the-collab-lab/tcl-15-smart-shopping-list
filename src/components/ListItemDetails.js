@@ -7,15 +7,19 @@ const ListItemDetails = ({ listItem, isShowModal, hideModal }) => {
   return (
     <div className={`modal ${toggleModal}`} onClick={hideModal}>
       <div className="modal-container">
-        <div className="modal-header" tabIndex="0">
+        <div className="modal--header" tabIndex="0">
           <h1>{listItem.name}</h1>
+          <hr />
         </div>
         <div className="modal-body" tabIndex="0">
           {listItem.recentPurchase ? (
-            <>
-              <p>Last purchased: {formatDate(listItem['recentPurchase'])}</p>
+            <div className="item-details">
               <p>
-                Next purchase:{' '}
+                <span>Last purchased:</span>{' '}
+                {formatDate(listItem['recentPurchase'])}
+              </p>
+              <p>
+                <span>Next purchase: </span>
                 {formatDate(
                   calculateNextPurchase(
                     listItem['howSoon'],
@@ -24,11 +28,12 @@ const ListItemDetails = ({ listItem, isShowModal, hideModal }) => {
                 )}
               </p>
               <p>
-                You have purchased this item {listItem['numberOfPurchases']}{' '}
+                You have purchased this item{' '}
+                <span>{listItem['numberOfPurchases']} </span>
                 time
                 {listItem['numberOfPurchases'] > 1 && 's'}.
               </p>
-            </>
+            </div>
           ) : (
             <p>No recorded purchases yet</p>
           )}

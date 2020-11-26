@@ -15,13 +15,18 @@
   z-index: 1;
 }
 
-.modal-header {
+.modal--header {
   text-align: center;
+}
+.modal--header > hr,
+.item-details {
+  width: 80%;
+  margin: auto;
 }
 
 .modal-container {
   background: #fff;
-  max-width: 500px;
+  max-width: 430px;
   padding: 5px;
   margin: auto;
   border-radius: 5px;
@@ -29,20 +34,28 @@
   box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
   animation: animatetop 0.6s cubic-bezier(0.15, 0.43, 0.72, 1.7) forwards;
 }
-
+.modal-body {
+  color: rgb(105, 102, 102);
+}
+.item-details {
+  text-align: left;
+}
+.item-details span,
+.modal--header h1 {
+  color: #286063;
+}
 .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  font-size: 1.3rem;
-  margin: auto;
   box-shadow: 0px 0px 6px 0 #00000033, 0px 2px 10px 0 #00000030;
   border: none;
   background: #fff;
   color: #c04239;
+  font-weight: bolder;
 }
 
 /* Add Animation */
@@ -52,7 +65,7 @@
     opacity: 0;
   }
   to {
-    transform: translateY(100px);
+    transform: translateY(150px);
     opacity: 1;
   }
 }

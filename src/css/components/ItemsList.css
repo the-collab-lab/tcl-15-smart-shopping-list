@@ -5,7 +5,8 @@
   display: flex;
   justify-content: space-around;
   font-weight: bold;
-  box-shadow: 2px 3px 1px #e9ecef;
+  box-shadow: 1px 1px 4px 0px #9a9c9e;
+  border-radius: 3px;
   padding: 10px;
 }
 
@@ -47,14 +48,13 @@
   justify-content: space-around;
   align-items: center;
   width: 80%;
-  height: 30px;
-  border: 1px solid #a7a5a5;
-  padding-left: 3px;
+  height: 35px;
   margin: 20px auto;
+  box-shadow: -1px 1px 3px 0px #667d78;
 }
 
 .search-term-wrapper i {
-  color: #878181;
+  color: #4d7375;
   margin: 10px;
 }
 
@@ -68,7 +68,7 @@
   flex: 0.1;
   height: 100%;
   color: #f5f5f5;
-  background: #808080;
+  background: #447072;
   font-weight: bold;
 }
 .search-term-wrapper button:disabled {

@@ -1,9 +1,8 @@
 :root {
-  --main-color: #f5f3f3;
+  --main-color: #447072;
 }
 
 #root {
-  /* todo: add something to the background */
   background: #b4d3d8;
   height: 100%;
   display: grid;
@@ -13,14 +12,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  gap: 0px 0px;
-  grid-template-areas:
-    'header'
-    'main'
-    'nav';
   text-align: center;
-  height: 100vh;
-  max-width: 800px;
+  height: 99vh;
+  max-width: 460px;
   margin: auto;
   max-height: 800px;
   box-shadow: 5px 8px 20px 0px #494747;
@@ -34,17 +28,17 @@
 }
 
 .icon-title {
-  color: rgb(109, 106, 106);
+  color: #d8d847;
   font-weight: bold;
   margin: 0 15px;
 }
 
 .header {
   background-color: var(--main-color);
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
-  color: whitesmoke;
+  box-shadow: 2px 2px 2px rgb(62 62 59 / 20%);
 }
 
 .header div {
@@ -89,6 +83,7 @@
 .main-title {
   font-size: 27px;
   padding: 30px;
+  color: #2f4446;
 }
 
 .main-or {
@@ -97,6 +92,12 @@
 
 .create-new-list-btn {
   margin: 0 50px;
+  height: 45px;
+  background-color: #cece30;
+  border: none;
+  color: rgb(85, 83, 83);
+  font-size: 20px;
+  box-shadow: 0px 3px 2px rgb(62 62 59 / 20%);
 }
 
 .button-token {
