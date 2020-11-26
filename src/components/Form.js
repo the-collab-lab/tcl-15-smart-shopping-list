@@ -17,11 +17,21 @@ const Form = (props) => {
         inputProps={{
           ...inputField.input,
           value: inputValue,
-          onChange: (e) => setInputValue(e.target.value),
+          onChange: (e) => {
+            const name = e.target.value;
+            setInputValue(name);
+            if (inputField.setName) inputField.setName(name);
+          },
         }}
       />
       {children}
-      <Button type="submit" variant="warning">
+      <Button type="submit" variant="dark">
+        {submitBtn.icon && (
+          <i
+            className={`fa fa-${submitBtn.icon} icon-btn`}
+            aria-hidden="true"
+          ></i>
+        )}
         {submitBtn.text}
       </Button>
     </form>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
 import { userShoppingList } from '../lib/shoppingListsCollection';
@@ -8,9 +8,12 @@ import { v4 as uuid } from 'uuid';
 import FlashMessage from './flashMessage';
 
 const AddItem = () => {
+  const [itemName, setItemName] = useState('');
+
   const resetForm = (setInputValue) => {
     setInputValue('');
     document.getElementById('soon').checked = true;
+    setItemName('');
   };
 
   const addToDatabase = (e, inputValue, setInputValue) => {
@@ -67,9 +70,14 @@ const AddItem = () => {
         inputField={{
           input: { placeholder: 'Enter item name' },
           label: { name: 'Item Name', className: 'add-item-label' },
+          setName: (name) => setItemName(name),
         }}
-        submitBtn={{ text: '+ ADD ITEM', className: 'add-item-btn' }}
-        children={<HowSoonOptions />}
+        submitBtn={{
+          text: 'add item',
+          className: 'add-item-btn',
+          icon: 'plus',
+        }}
+        children={<HowSoonOptions itemName={itemName} />}
       />
     </main>
   );
