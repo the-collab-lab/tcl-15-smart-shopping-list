@@ -68,7 +68,7 @@ const AddItem = () => {
           input: { placeholder: 'Enter item name' },
           label: { name: 'Item Name', className: 'add-item-label' },
         }}
-        submitBtn={{ text: 'Add', className: 'add-item-btn' }}
+        submitBtn={{ text: '+ ADD ITEM', className: 'add-item-btn' }}
         children={<HowSoonOptions />}
       />
     </main>

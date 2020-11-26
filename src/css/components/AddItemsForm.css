@@ -44,6 +44,7 @@
   padding: 7px;
   border: none;
   border-bottom: 1px solid #2d2d2c;
+  text-align: center;
 }
 
 .add-item-form input[type='text']:focus {
@@ -54,7 +55,7 @@
   height: 40px;
   width: 100px;
   color: black;
-  background-color: #82c8a0;
+  background-color: var(--secondary-color) !important;
   font-size: 16px;
   border: none;
   border-radius: 5px;
@@ -78,4 +79,12 @@
   padding: 10px;
   color: #4a4747;
   margin: 10px;
+}
+
+.btn-warning {
+  color: black;
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  width: 300px;
+  font-size: 20px;
 }
