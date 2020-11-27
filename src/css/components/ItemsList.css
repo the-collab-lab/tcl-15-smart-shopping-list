@@ -28,7 +28,7 @@
 .user-token {
   display: flex;
   justify-content: center;
-  color: gray;
+  color: #696868;
   margin-top: -20px;
 }
 .user-token b {

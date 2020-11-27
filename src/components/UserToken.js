@@ -3,13 +3,13 @@ import { getToken } from '../lib/TokenService';
 
 const UserToken = () => {
   const handleCopyToken = () => {
-    const copyDate = document.getElementById('user-token').innerHTML;
-    navigator.clipboard.writeText(copyDate);
+    const copyData = document.getElementById('user-token').innerHTML;
+    navigator.clipboard.writeText(copyData);
   };
   return (
     <div className="user-token">
       <b>
-        Your token: "<span id="user-token">{getToken()}</span>"
+        List token: "<span id="user-token">{getToken()}</span>"
       </b>
       <button aria-label="Copy token" onClick={handleCopyToken}>
         <i className="fa fa-clone"></i>

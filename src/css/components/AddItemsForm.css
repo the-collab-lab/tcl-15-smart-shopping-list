@@ -48,14 +48,33 @@
   background-color: #e0eee5;
   color: rgb(62, 61, 61);
 }
+.flash-msg {
+  margin: 10px;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 420px;
+}
 
 .success,
 .error {
   border-radius: 5px;
   padding: 10px;
-  margin: 10px;
+  margin: auto;
+  animation: fadeOut 2s ease-out 1s 1;
 }
-
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .add-item input[type='text'] {
   width: 95%;
   height: 30px;
