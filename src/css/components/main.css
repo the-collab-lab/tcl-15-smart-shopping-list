@@ -28,9 +28,10 @@
 }
 
 .icon-title {
-  color: #d8d847;
+  color: white;
   font-weight: bold;
-  margin: 0 15px;
+  margin-top: 5px;
+  margin-left: 4px;
 }
 
 .header {
