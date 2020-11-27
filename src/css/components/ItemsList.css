@@ -7,7 +7,7 @@
   font-weight: bold;
   box-shadow: 1px 1px 4px 0px #9a9c9e;
   border-radius: 3px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .soon-item {
@@ -25,7 +25,30 @@
 .inactive-item {
   background-color: #e7e7e7;
 }
-
+.user-token {
+  display: flex;
+  justify-content: center;
+  color: gray;
+  margin-top: -20px;
+}
+.user-token b {
+  margin-right: 5px;
+}
+.user-token button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.user-token button:hover {
+  color: gray;
+}
+.user-token button:active {
+  transform: translateY(1px);
+}
+.user-token b span,
+.user-token button {
+  color: var(--main-color);
+}
 .check-item {
   width: 15px;
   height: 15px;

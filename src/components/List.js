@@ -7,6 +7,7 @@ import AddButton from './AddButton';
 import { filter as removePunctuation } from '../lib/helper';
 import '../css/components/ItemsList.css';
 import FlashMessage from './flashMessage';
+import UserToken from './UserToken';
 
 export default function List() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,6 +40,7 @@ export default function List() {
             <div>
               {itemsKeys.length || searchTerm ? (
                 <>
+                  <UserToken />
                   <SearchList
                     searchTerm={searchTerm}
                     setSearchTerm={setSearchTerm}

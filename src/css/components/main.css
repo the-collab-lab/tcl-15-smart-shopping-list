@@ -35,7 +35,7 @@
 
 .header {
   background-color: var(--main-color);
-  height: 80px;
+  height: 65px;
   display: flex;
   align-items: center;
   box-shadow: 2px 2px 2px rgb(62 62 59 / 20%);
