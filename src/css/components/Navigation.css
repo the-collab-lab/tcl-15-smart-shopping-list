@@ -1,29 +1,32 @@
 .navbar {
   width: 100%;
-  padding: 0 !important;
+  padding: 0;
+  border-top: 1px solid lightblue;
+}
+.navbar a {
+  border: 2px solid transparent;
 }
 .navlinks {
   font-size: 20px;
   margin: 0 auto;
   display: flex;
+  color: #e9e93d;
   width: 100%;
 }
 .not-selected {
   padding: 10px;
-  color: black;
-  border-top: 1px solid rgb(143, 142, 142);
   flex-grow: 1;
-  background: white;
+  background: #c9dbd7;
+  color: var(--main-color);
 }
 
 .not-selected:hover {
-  color: rgb(53, 50, 50);
+  color: #cfcf0d;
 }
 
 .selected {
   font-weight: bolder;
-  background-color: rgb(143, 142, 142);
   text-decoration: none;
-  color: white;
-  background: #447072;
+  color: #e9e93d;
+  background: var(--main-color);
 }

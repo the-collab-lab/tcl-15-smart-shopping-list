@@ -31,5 +31,5 @@ input:focus,
 .navlinks a:focus,
 .add-item-btn:focus,
 .join-shopping-list-form button:focus {
-  border: 2px solid gray;
+  border: 1px solid gray;
 }

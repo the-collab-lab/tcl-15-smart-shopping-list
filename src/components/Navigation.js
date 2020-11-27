@@ -10,9 +10,10 @@ const Navigation = ({ hasToken }) => {
           activeClassName="selected"
           className="not-selected"
           to="/"
+          aria-label="List"
           exact
         >
-          List
+          <i className="fas fa-list"></i>
         </NavLink>
       )}
       {hasToken && (
@@ -20,9 +21,10 @@ const Navigation = ({ hasToken }) => {
           activeClassName="selected"
           className="not-selected"
           to="/add"
+          aria-label="Add"
           exact
         >
-          Add
+          <i className="fas fa-plus-circle"></i>
         </NavLink>
       )}
     </nav>
