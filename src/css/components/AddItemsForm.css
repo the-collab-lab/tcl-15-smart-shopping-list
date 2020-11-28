@@ -67,17 +67,36 @@
   background-color: #91911b;
 }
 
+.add-item-form button:focus {
+  background-color: #818112;
+}
+
 .flash-message {
   padding: 10px 20px;
   color: #4a4747;
   margin: 10px auto;
   width: fit-content;
+  border-radius: 5px;
 }
 
 .error {
   background-color: #e6afaf;
+  box-shadow: -2px 9px 12px 4px #00000052;
+  animation: flash 500ms ease-in-out both;
 }
 
 .success {
   background-color: #a7f1a7;
+  box-shadow: -2px 9px 12px 4px #00000052;
+  animation: flash 500ms ease-in-out both;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
