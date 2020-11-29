@@ -6,7 +6,7 @@ const Header = () => {
     <header className="header">
       <div>
         <img className="icon" src={icon} alt="icon" />
-        <span className="icon-title">SmartCart</span>
+        <span className="icon-title text-white">SmartCart</span>
       </div>
     </header>
   );

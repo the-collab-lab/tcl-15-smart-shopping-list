@@ -34,9 +34,9 @@ const FlashMessage = () => {
 
   return (
     <p
-      aria-live="rude"
       aria-label={message.content}
       className={`flash-msg ${message.type}`}
+      aria-live="assertive"
     >
       {message.content}
     </p>
