@@ -5,9 +5,9 @@
   display: flex;
   justify-content: space-around;
   font-weight: bold;
-  box-shadow: 2px 3px 1px #c7ebc7;
-  padding: 10px;
-  border: 1px solid #eee;
+  box-shadow: 1px 1px 4px 0px #9a9c9e;
+  border-radius: 3px;
+  padding: 5px;
 }
 
 .soon-item {
@@ -25,7 +25,30 @@
 .inactive-item {
   background-color: #e7e7e7;
 }
-
+.user-token {
+  display: flex;
+  justify-content: center;
+  color: #696868;
+  margin-top: -20px;
+}
+.user-token b {
+  margin-right: 5px;
+}
+.user-token button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.user-token button:hover {
+  color: gray;
+}
+.user-token button:active {
+  transform: translateY(1px);
+}
+.user-token b span,
+.user-token button {
+  color: var(--main-color);
+}
 .check-item {
   width: 15px;
   height: 15px;
@@ -48,12 +71,16 @@
   justify-content: space-around;
   align-items: center;
   width: 80%;
-  margin: auto;
-  height: 30px;
-  border: 1px solid #808080;
-  padding-left: 3px;
-  margin-top: 10px;
+  height: 35px;
+  margin: 20px auto;
+  box-shadow: -1px 1px 3px 0px #667d78;
 }
+
+.search-term-wrapper i {
+  color: #4d7375;
+  margin: 10px;
+}
+
 .search-term-wrapper input {
   flex: 1;
   height: 100%;
@@ -64,7 +91,7 @@
   flex: 0.1;
   height: 100%;
   color: #f5f5f5;
-  background: #808080;
+  background: #447072;
   font-weight: bold;
 }
 .search-term-wrapper button:disabled {
@@ -75,6 +102,7 @@
 .search-no-items {
   margin: 20px;
 }
+
 .item-details-icon {
   order: 3;
   border: none;
@@ -84,7 +112,7 @@
   background-color: transparent;
 }
 .delete-icon {
-  color: #b53737;
+  color: #9a6c6c;
   border: none;
   font-size: 1em;
   order: 4;

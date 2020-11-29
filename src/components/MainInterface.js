@@ -2,7 +2,7 @@ import React from 'react';
 import generateToken from '../lib/tokens';
 import { setToken } from '../lib/TokenService';
 import JoinAShoppingList from './JoinAShoppingList';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const MainIterface = ({ setHasToken }) => {
   const handleSettingToken = (sharedToken) => {
@@ -11,7 +11,6 @@ const MainIterface = ({ setHasToken }) => {
     } else {
       const token = generateToken();
       setToken(token);
-      alert('New token generated');
     }
     setHasToken(true);
   };
@@ -20,13 +19,12 @@ const MainIterface = ({ setHasToken }) => {
     <Container>
       <main className="main-interface">
         <h1 className="main-title">Welcome to your Smart Shopping List</h1>
-        <Button
+        <button
           className="create-new-list-btn"
           onClick={() => handleSettingToken()}
-          variant="warning"
         >
           Create New List
-        </Button>
+        </button>
         <p className="main-or">- or -</p>
         <JoinAShoppingList onSharedToken={handleSettingToken} />
       </main>

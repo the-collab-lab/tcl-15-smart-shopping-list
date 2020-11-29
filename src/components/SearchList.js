@@ -3,6 +3,7 @@ import React from 'react';
 const SearchList = ({ searchTerm, setSearchTerm }) => (
   <div className="search-term-wrapper">
     <label aria-label="Search Item" htmlFor="search-item"></label>
+    <i className="fas fa-search"></i>
     <input
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}

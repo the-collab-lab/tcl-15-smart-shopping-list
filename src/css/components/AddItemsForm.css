@@ -51,6 +51,20 @@
 
 .add-item-form button {
   width: 100%;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 0px;
+  background-color: var(--secondary-color);
+  color: rgb(85, 83, 83);
+  font-size: 1.3rem;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.add-item-btn {
+  height: 40px;
+  width: 100px;
+  color: rgb(85, 83, 83);
+  font-size: 16px;
   background-color: var(--secondary-color);
   font-size: 1em;
   border: none;
@@ -80,11 +94,44 @@
 }
 
 .error {
-  background-color: #e6afaf;
-  box-shadow: -2px 9px 12px 4px #00000052;
+  background-color: #eee0e0;
+  color: #4a4747;
 }
 
 .success {
-  background-color: #a7f1a7;
+  background-color: #e0eee5;
+  color: rgb(62, 61, 61);
+}
+.flash-msg {
+  margin: 10px;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 420px;
+}
+
+.success,
+.error {
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
+  animation: fadeOut 2s ease-out 1s 1;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.add-item input[type='text'] {
+  width: 95%;
+  height: 30px;
+  background-color: #e6afaf;
   box-shadow: -2px 9px 12px 4px #00000052;
 }
