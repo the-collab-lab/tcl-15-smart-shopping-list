@@ -1,20 +1,17 @@
 .navbar {
-  position: absolute;
-  bottom: 0;
-  margin: auto;
   width: 100%;
+  padding: 0 !important;
 }
 .navlinks {
   font-size: 20px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
   width: 100%;
 }
 .not-selected {
   padding: 10px;
   color: black;
-  border: 1px solid rgb(143, 142, 142);
+  border-top: 1px solid rgb(143, 142, 142);
   flex-grow: 1;
   background: white;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HowSoonOptions from './HowSoonOptions';
 import Form from './Form';
 import { userShoppingList } from '../lib/shoppingListsCollection';
@@ -8,9 +8,12 @@ import { v4 as uuid } from 'uuid';
 import FlashMessage from './flashMessage';
 
 const AddItem = () => {
+  const [itemName, setItemName] = useState('');
+
   const resetForm = (setInputValue) => {
     setInputValue('');
     document.getElementById('soon').checked = true;
+    setItemName('');
   };
 
   const addToDatabase = (e, inputValue, setInputValue) => {
@@ -45,7 +48,10 @@ const AddItem = () => {
             },
           )
           .then((success) => {
-            displayMessage('Successfully Added', 'success');
+            displayMessage(
+              `Successfully Added  ${newItem.name} to your list`,
+              'success',
+            );
             resetForm(setInputValue);
           })
           .catch((error) => {
@@ -58,18 +64,23 @@ const AddItem = () => {
   };
 
   return (
-    <main className="add-item-form">
-      <h1 className="app-name">Smart Shopping List</h1>
+    <main className="add-item-container">
+      <h1 className="app-name">One more item?!</h1>
       <FlashMessage />
       <Form
         onSubmit={addToDatabase}
-        className="add-item"
+        className="add-item-form"
         inputField={{
           input: { placeholder: 'Enter item name' },
           label: { name: 'Item Name', className: 'add-item-label' },
+          setName: (name) => setItemName(name),
         }}
-        submitBtn={{ text: 'Add', className: 'add-item-btn' }}
-        children={<HowSoonOptions />}
+        submitBtn={{
+          text: 'add item',
+          className: 'add-item-btn',
+          icon: 'plus',
+        }}
+        children={<HowSoonOptions itemName={itemName} />}
       />
     </main>
   );

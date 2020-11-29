@@ -26,10 +26,9 @@ function App() {
             />
             <Route exact path="/add" render={GuardedRoute(AddItem)} />
           </Switch>
-
-          <div className="navbar">
-            <Navigation hasToken={hasToken} />
-          </div>
+        </div>
+        <div className="navbar">
+          <Navigation hasToken={hasToken} />
         </div>
       </div>
     </BrowserRouter>

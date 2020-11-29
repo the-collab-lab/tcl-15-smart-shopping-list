@@ -1,33 +1,40 @@
 :root {
-  --main-color: #f5f3f3;
-  --tablet-width: 95%;
-  --portrait-width: 47%;
-  --mobile-width: 65%;
+  --main-color: #447072;
+  --secondary-color: #cece30;
+  --soon-color: #c7ebc7;
+  --kindasoon-color: #b4d3d8;
+  --notsoon-color: #ebd4d9;
 }
+
+#root {
+  /* todo: add something to the background */
+  background: #b4d3d8;
+  height: 100%;
+  display: grid;
+}
+
 .App {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 0px 0px;
+  grid-template-areas:
+    'header'
+    'main'
+    'nav';
   text-align: center;
+  height: 100vh;
+  max-width: 800px;
   margin: auto;
-  border: 5px solid var(--main-color);
-  border-radius: 3px;
-  width: 28%;
-  min-height: 95%;
+  max-height: 800px;
+  box-shadow: 5px 8px 20px 0px #494747;
+  background: #fff;
+  width: 100%;
 }
-@media (max-width: 1200px) {
-  .App {
-    width: var(--portrait-width);
-  }
-}
-@media (max-width: 700px) {
-  .App {
-    width: var(--mobile-width);
-  }
-}
-@media (max-width: 550px) {
-  .App {
-    width: var(--tablet-width);
-  }
+
+/* this is important to make the navbar stick in the bottom*/
+.app-inner {
+  overflow: auto;
 }
 
 .icon-title {
@@ -52,11 +59,6 @@
   width: 50px;
 }
 
-.app-inner {
-  flex: 1;
-  position: relative;
-}
-
 .join-shopping-list-form {
   display: flex;
   flex-direction: column;
@@ -71,7 +73,6 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .main-interface {

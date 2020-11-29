@@ -33,7 +33,11 @@ const FlashMessage = () => {
   };
 
   return (
-    <p aria-live="rude" aria-label={message.content} className={message.type}>
+    <p
+      aria-live="assertive"
+      aria-label={message.content}
+      className={`flash-message ${message.type}`}
+    >
       {message.content}
     </p>
   );
