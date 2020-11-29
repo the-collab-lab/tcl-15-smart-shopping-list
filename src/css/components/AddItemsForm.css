@@ -51,17 +51,19 @@
 
 .add-item-form button {
   width: 100%;
-
-  border: 1px solid #555;
+  border: none;
   border-radius: 3px;
   margin: 10px 0px;
+  background-color: var(--secondary-color);
+  color: rgb(85, 83, 83);
+  font-size: 1.3rem;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .add-item-btn {
   height: 40px;
   width: 100px;
-  color: black;
-  background-color: #82c8a0;
+  color: rgb(85, 83, 83);
   font-size: 16px;
   background-color: var(--secondary-color);
   font-size: 1em;
