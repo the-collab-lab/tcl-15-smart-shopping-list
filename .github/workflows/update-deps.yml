@@ -1,0 +1,19 @@
+name: update-deps
+on: create
+jobs:
+  npm-update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - run: npm update --dev
+      - run: git rm -r --cached .github
+      - run: rm -rf .github/
+      - uses: EndBug/add-and-commit@latest
+        with:
+          add: '.'
+          message: 'Update dependencies with "npm update"'
+          push: true
