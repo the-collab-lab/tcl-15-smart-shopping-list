@@ -16,7 +16,7 @@
     "uuid": "^8.3.1"
   },
   "devDependencies": {
-    "cypress": "^4.12.1",
+    "cypress": "^13.6.0",
     "react-scripts": "5.0.1"
   },
   "overrides": {
