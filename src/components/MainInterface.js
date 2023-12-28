@@ -1,16 +1,18 @@
 import React from 'react';
-import generateToken from '../lib/tokens';
+// import generateToken from '../lib/tokens';
 import { setToken } from '../lib/TokenService';
 import JoinAShoppingList from './JoinAShoppingList';
 import { Container } from 'react-bootstrap';
+import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
 
 const MainIterface = ({ setHasToken }) => {
   const handleSettingToken = (sharedToken) => {
     if (sharedToken) {
       setToken(sharedToken);
     } else {
-      const token = generateToken();
-      setToken(token);
+      console.log('Creating new lists is disabled');
+      // const token = generateToken();
+      // setToken(token);
     }
     setHasToken(true);
   };
@@ -28,6 +30,7 @@ const MainIterface = ({ setHasToken }) => {
         <p className="main-or">- or -</p>
         <JoinAShoppingList onSharedToken={handleSettingToken} />
       </main>
+      <ArchivalNoticeModal />
     </Container>
   );
 };
